@@ -2,6 +2,7 @@
 
 import React, { type ReactNode } from 'react';
 
+import { SessionProvider } from 'next-auth/react';
 import ReactDOM from 'react-dom';
 
 import { IS_BROWSER, IS_PRODUCTION } from '@/config/constants';
@@ -15,5 +16,5 @@ type AppProviderProps = {
   children: ReactNode;
 };
 export const AppProvider = ({ children }: AppProviderProps) => {
-  return <>{children}</>;
+  return <SessionProvider>{children}</SessionProvider>;
 };
