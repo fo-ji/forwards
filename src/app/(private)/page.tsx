@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ModeToggle } from '@/components/ui/mode-toggle';
 import { LogoutButton } from '@/features/auth';
 
 export default async function HomePage() {
@@ -8,6 +9,7 @@ export default async function HomePage() {
       <h1 className="text-xl">Home（ダッシュボード）</h1>
       <div className="my-4">アナリティクスはここに表示？</div>
       <LogoutButton />
+      <ModeToggle />
       <ul className="mt-8 space-y-4">
         <li>
           <Link href="/entry">Entry</Link>
