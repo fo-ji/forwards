@@ -11,6 +11,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:react/jsx-runtime',
     'plugin:tailwindcss/recommended',
+    'plugin:storybook/recommended',
     'prettier',
   ],
   settings: {

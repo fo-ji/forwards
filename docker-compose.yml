@@ -9,6 +9,7 @@ services:
     ports:
       - 3000:3000
       - 5555:5555
+      - 6006:6006
     volumes:
       - .:/app
     depends_on:
