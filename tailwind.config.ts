@@ -19,8 +19,8 @@ const config = {
       },
     },
     colors: {
-      current: 'current',
       transparent: 'transparent',
+      current: 'currentColor',
       border: 'hsl(var(--border))',
       input: 'hsl(var(--input))',
       ring: 'hsl(var(--ring))',
