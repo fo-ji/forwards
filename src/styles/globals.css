@@ -5,7 +5,9 @@
 @layer base {
   :root {
     --background: 41 0% 95%;
+    --background-inversion: 41 10% 10%;
     --foreground: 41 0% 10%;
+    --foreground-inversion: 41 0% 90%;
     --card: 41 0% 90%;
     --card-foreground: 41 0% 15%;
     --popover: 41 0% 95%;
@@ -27,7 +29,9 @@
   }
   .dark {
     --background: 41 10% 10%;
+    --background-inversion: 41 0% 95%;
     --foreground: 41 0% 90%;
+    --foreground-inversion: 41 0% 10%;
     --card: 41 0% 10%;
     --card-foreground: 41 0% 90%;
     --popover: 41 10% 5%;

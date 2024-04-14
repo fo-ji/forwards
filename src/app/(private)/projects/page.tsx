@@ -1,7 +1,9 @@
+import { PageLayout } from '@/components/layout/page-layout';
+
 export default async function ProjectsListPage() {
   return (
-    <main className="p-24">
+    <PageLayout>
       <h1 className="text-xl">Projects（プロジェクト一覧）</h1>
-    </main>
+    </PageLayout>
   );
 }

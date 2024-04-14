@@ -2,9 +2,9 @@
 
 import React, { type ReactNode } from 'react';
 
-import { SessionProvider } from 'next-auth/react';
 import ReactDOM from 'react-dom';
 
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { IS_BROWSER, IS_PRODUCTION } from '@/config/constants';
 
 import { ThemeProvider } from './theme-provider';
@@ -20,15 +20,13 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
-    <SessionProvider>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        {children}
-      </ThemeProvider>
-    </SessionProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <TooltipProvider delayDuration={300}>{children}</TooltipProvider>
+    </ThemeProvider>
   );
 };

@@ -25,7 +25,9 @@ const config = {
       input: 'hsl(var(--input))',
       ring: 'hsl(var(--ring))',
       background: 'hsl(var(--background))',
+      'background-inversion': 'hsl(var(--background-inversion))',
       foreground: 'hsl(var(--foreground))',
+      'foreground-inversion': 'hsl(var(--foreground-inversion))',
       primary: {
         DEFAULT: 'hsl(var(--primary))',
         foreground: 'hsl(var(--primary-foreground))',
@@ -60,6 +62,7 @@ const config = {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
       borderRadius: {
+        '4xl': 'calc(var(--radius) + 24px)',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
