@@ -18,6 +18,19 @@ const Sidebar = () => {
     <nav className="flex h-full flex-col justify-between bg-background-inversion p-4">
       <ul className="space-y-6 text-foreground-inversion">
         <li>
+          <Tooltip content="ダッシュボード">
+            <Button
+              variant={activePathVariant(pathname, '/')}
+              size="icon"
+              className="rounded-full"
+              onClick={() => router.push('/')}
+            >
+              <Icon />
+              <span className="sr-only">Link dashboard page</span>
+            </Button>
+          </Tooltip>
+        </li>
+        <li>
           <Tooltip content="プロジェクト一覧">
             <Button
               variant={activePathVariant(pathname, '/projects')}
