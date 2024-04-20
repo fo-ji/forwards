@@ -1,4 +1,5 @@
 import { Button } from './button';
+import { Icon } from './icon';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -51,5 +52,15 @@ export const Link: Story = {
   args: {
     variant: 'link',
     children: 'Button',
+  },
+};
+
+export const WithIcon: Story = {
+  render: () => {
+    return (
+      <Button>
+        <Icon name="Mail" className="mr-2 size-4" /> Login with Email
+      </Button>
+    );
   },
 };

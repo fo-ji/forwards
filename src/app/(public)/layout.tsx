@@ -5,5 +5,9 @@ export default function PublicRootLayout({
 }: {
   children: ReactNode;
 }) {
-  return <main>{children}</main>;
+  return (
+    <div className="flex min-h-screen">
+      <main className="m-auto max-w-lg grow">{children}</main>
+    </div>
+  );
 }
