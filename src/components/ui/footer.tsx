@@ -15,7 +15,18 @@ const Footer = () => {
 
   return (
     <nav className="rounded-t-2xl bg-background-inversion p-4">
-      <ul className="flex items-center justify-evenly gap-2 text-foreground-inversion">
+      <ul className="flex items-center justify-evenly gap-2.5 text-foreground-inversion">
+        <li>
+          <Button
+            variant={activePathVariant(pathname, '/')}
+            size="icon"
+            className="rounded-full"
+            onClick={() => router.push('/')}
+          >
+            <Icon />
+            <span className="sr-only">Link dashboard page</span>
+          </Button>
+        </li>
         <li>
           <Button
             variant={activePathVariant(pathname, '/projects')}
