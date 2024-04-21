@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { PASSWORD_REGEX } from '../../constants';
+
 export const loginSchema = z.object({
   email: z
     .string({ required_error: '必須項目です' })
@@ -9,8 +11,5 @@ export const loginSchema = z.object({
     .string({ required_error: '必須項目です' })
     .min(6, { message: '6文字以上で入力してください' })
     .max(24, { message: '24文字以内で入力してください' })
-    .regex(
-      /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]+$/,
-      '半角英字(大・小)、数字、記号を含めてください',
-    ),
+    .regex(PASSWORD_REGEX, '半角英字(大・小)、数字、記号を含めてください'),
 });

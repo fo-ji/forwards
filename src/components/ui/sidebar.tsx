@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 
-import { LogoutButton } from '@/features/auth';
+import { LogoutForm } from '@/features/auth';
 import { activePathVariant } from '@/utils/active-path-variant';
 
 import { Button } from './button';
@@ -95,7 +95,7 @@ const Sidebar = () => {
         <li>
           <Tooltip content="ログアウト">
             <div>
-              <LogoutButton />
+              <LogoutForm />
             </div>
           </Tooltip>
         </li>

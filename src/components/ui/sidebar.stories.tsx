@@ -1,4 +1,3 @@
-import { Footer } from './footer';
 import { Sidebar } from './sidebar';
 import { TooltipProvider } from './tooltip';
 
@@ -8,7 +7,7 @@ const meta = {
   title: 'components/ui/sidebar',
   component: Sidebar,
   tags: ['autodocs'],
-} satisfies Meta<typeof Footer>;
+} satisfies Meta<typeof Sidebar>;
 
 export default meta;
 

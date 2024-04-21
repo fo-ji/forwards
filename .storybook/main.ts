@@ -3,7 +3,7 @@ import type { StorybookConfig } from '@storybook/nextjs';
 const path = require('path');
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
@@ -28,21 +28,22 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../public'],
   webpackFinal: async (config) => {
-    if (!config.resolve) return config;
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@/components': path.resolve(__dirname, '../src/components'),
-      '@/features': path.resolve(__dirname, '../src/features'),
-      '@/lib': path.resolve(__dirname, '../src/lib'),
-    };
-
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(__dirname, '../src'),
+      };
+    }
     return {
       ...config,
       resolve: {
         ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          'next-i18next': 'react-i18next',
+        // ! Module not found: Error: Can't resolve ' ' in '/app/node_modules/@prisma/client/runtime'
+        // ! footer, sidebar ストーリがー表示できない
+        fallback: {
+          async_hooks: false,
+          child_process: false,
+          fs: false,
         },
       },
     };
