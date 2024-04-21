@@ -2,7 +2,6 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 
-import { FieldErrors } from '@/components/form/field';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 
@@ -29,12 +28,11 @@ const SubmitButton = ({ type }: GithubFormProps) => {
 };
 
 export const GithubForm = ({ type }: GithubFormProps) => {
-  const [error, action] = useFormState(githubLogin, undefined);
+  const [_, action] = useFormState(githubLogin, undefined);
 
   return (
     <form id="github-login" className="grid gap-4" action={action}>
       <SubmitButton type={type} />
-      {error && <FieldErrors errors={error.messages} />}
     </form>
   );
 };
