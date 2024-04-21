@@ -29,7 +29,7 @@ const SubmitButton = () => {
   );
 };
 
-export const CredentialsForm = () => {
+export const CredentialsLoginForm = () => {
   const [lastResult, action] = useFormState(credentialsLogin, undefined);
   const [form, fields] = useForm({
     id: 'credentials-login',

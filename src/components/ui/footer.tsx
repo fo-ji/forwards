@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 
-import { LogoutButton } from '@/features/auth';
+import { LogoutForm } from '@/features/auth';
 import { activePathVariant } from '@/utils/active-path-variant';
 
 import { Button } from './button';
@@ -76,7 +76,7 @@ const Footer = () => {
           <ModeToggle />
         </li>
         <li>
-          <LogoutButton />
+          <LogoutForm />
         </li>
       </ul>
     </nav>
