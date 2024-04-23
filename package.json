@@ -43,7 +43,7 @@
   "devDependencies": {
     "@axe-core/react": "^4.8.5",
     "@chromatic-com/storybook": "^1.2.25",
-    "@storybook/addon-essentials": "^8.0.4",
+    "@storybook/addon-essentials": "^8.0.9",
     "@storybook/addon-interactions": "^8.0.4",
     "@storybook/addon-links": "^8.0.4",
     "@storybook/addon-onboarding": "^8.0.4",
