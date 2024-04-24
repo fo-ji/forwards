@@ -3,9 +3,10 @@ services:
     container_name: app
     build:
       context: .
-    command: yarn dev
+    command: yarn clean-dev
     ports:
       - 3000:3000
+      - 3005:3005
       - 5555:5555
       - 6006:6006
     volumes:
