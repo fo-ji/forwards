@@ -1174,22 +1174,17 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@conform-to/dom@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.1.0.tgz#403075b515d191846e56c5c15755f1fe1cd29da9"
-  integrity sha512-KtiGwke6qeh8xDMwebbT/EanxhVX40uZtyHr8VH2V8jBHwavy94V673F4YdlhHpXoqRcZcewie/GQ7tIi2mC/A==
-
 "@conform-to/dom@1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.1.2.tgz#d6e479028e1cd578f5411166090a50a5f0e86ca9"
   integrity sha512-UFe1E++9vCU/mfGPwvXUnzWUNI16JRh5IM21iMSRFOkx9XkR1W/ozA36h8hVcCDKZiDXl6tjvzPmobIQ4usoFQ==
 
-"@conform-to/react@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.1.0.tgz#618f5d6629188bb4bcb9dcc0f9976ff6929df477"
-  integrity sha512-zEgesgfllN29SdVZhlm3CGIufQm/gkFia7QMrKX/fH4L+iYgQ7n1LVgu+3Jxr4jXE8wW5YDbemwo1cqhE++xZg==
+"@conform-to/react@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.1.2.tgz#c35cf62a541b6c60966a62009c6a5d5d27b739fd"
+  integrity sha512-iM5weQt80swLds3oLeErcxi9EgAn4z4RPvqQBV1Z4kUqOX8zOQZiH9w5YXyutKuHV3GF823Qq31KLhmqSEZVNg==
   dependencies:
-    "@conform-to/dom" "1.1.0"
+    "@conform-to/dom" "1.1.2"
 
 "@conform-to/zod@^1.1.2":
   version "1.1.2"
