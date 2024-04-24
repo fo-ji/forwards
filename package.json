@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "clean-dev": "rm -rf .next/ && next dev",
     "build": "next build",
-    "start": "next start",
+    "clean-build": "rm -rf .next/ && next build",
+    "start": "next start -p 3005",
     "lint": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern --fix",
     "prettier": "prettier \"**/*.+(json|ts|tsx)\"",
