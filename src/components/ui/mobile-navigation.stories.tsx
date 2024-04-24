@@ -1,13 +1,12 @@
-import { Sidebar } from './sidebar';
-import { TooltipProvider } from './tooltip';
+import { MobileNavigation } from './mobile-navigation';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'components/ui/sidebar',
-  component: Sidebar,
+  title: 'components/ui/mobile-navigation',
+  component: MobileNavigation,
   tags: ['autodocs'],
-} satisfies Meta<typeof Sidebar>;
+} satisfies Meta<typeof MobileNavigation>;
 
 export default meta;
 
@@ -24,11 +23,9 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <TooltipProvider>
-        <div className="h-[500px]">
-          <Story />
-        </div>
-      </TooltipProvider>
+      <div className="w-96">
+        <Story />
+      </div>
     ),
   ],
 };
