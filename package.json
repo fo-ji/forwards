@@ -45,7 +45,7 @@
     "@chromatic-com/storybook": "^1.2.25",
     "@storybook/addon-essentials": "^8.0.9",
     "@storybook/addon-interactions": "^8.0.4",
-    "@storybook/addon-links": "^8.0.4",
+    "@storybook/addon-links": "^8.0.9",
     "@storybook/addon-onboarding": "^8.0.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^8.0.4",
