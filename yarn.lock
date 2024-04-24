@@ -1179,6 +1179,11 @@
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.1.0.tgz#403075b515d191846e56c5c15755f1fe1cd29da9"
   integrity sha512-KtiGwke6qeh8xDMwebbT/EanxhVX40uZtyHr8VH2V8jBHwavy94V673F4YdlhHpXoqRcZcewie/GQ7tIi2mC/A==
 
+"@conform-to/dom@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.1.2.tgz#d6e479028e1cd578f5411166090a50a5f0e86ca9"
+  integrity sha512-UFe1E++9vCU/mfGPwvXUnzWUNI16JRh5IM21iMSRFOkx9XkR1W/ozA36h8hVcCDKZiDXl6tjvzPmobIQ4usoFQ==
+
 "@conform-to/react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.1.0.tgz#618f5d6629188bb4bcb9dcc0f9976ff6929df477"
@@ -1186,12 +1191,12 @@
   dependencies:
     "@conform-to/dom" "1.1.0"
 
-"@conform-to/zod@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.1.0.tgz#2e101e363fb8882514ab885441207c34395abdee"
-  integrity sha512-0ukglFJ1gknFf81j9zB/mZq68fhhSu0s2bxZIkBqPocdGBA6LvHnV7ORyE+27WUNyJ36L2sjksNXVm9SDSUexw==
+"@conform-to/zod@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.1.2.tgz#296dbabdcbb2f42d508852781ad93aec7aca613f"
+  integrity sha512-0kNZHSUv+CT93hkU2XSsPx52e1JNNIo38SV3k8t9IOaW/+npueMMDrrUCl2nt2agbjtIzor8axEeZH7wfq3z2w==
   dependencies:
-    "@conform-to/dom" "1.1.0"
+    "@conform-to/dom" "1.1.2"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
