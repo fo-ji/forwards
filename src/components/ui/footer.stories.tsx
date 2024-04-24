@@ -12,20 +12,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: '/projects',
-      },
-    },
-  },
-  decorators: [
-    (Story) => (
-      <div className="w-96">
-        <Story />
-      </div>
-    ),
-  ],
-};
+export const Default: Story = {};
