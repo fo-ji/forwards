@@ -7,6 +7,7 @@ export const authConfig = {
   pages: {
     signIn: '/login',
   },
+  trustHost: true,
   callbacks: {
     session: ({ session, token }) => {
       return {
