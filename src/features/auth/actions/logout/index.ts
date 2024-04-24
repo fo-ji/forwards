@@ -5,7 +5,7 @@ import { signOut } from '@/lib/next-auth/auth';
 export async function logout() {
   try {
     await signOut({
-      redirectTo: '/',
+      redirectTo: '/login',
     });
   } catch (error) {
     throw error;
