@@ -10,7 +10,7 @@ import { Icon } from './icon';
 import { ModeToggle } from './mode-toggle';
 import { Tooltip } from './tooltip';
 
-const Sidebar = () => {
+const DesktopNavigation = () => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -104,4 +104,4 @@ const Sidebar = () => {
   );
 };
 
-export { Sidebar };
+export { DesktopNavigation };
