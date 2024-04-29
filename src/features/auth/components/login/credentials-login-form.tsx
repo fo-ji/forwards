@@ -1,14 +1,20 @@
 'use client';
 
+// import { useCallback } from 'react';
+
+// import { redirect } from 'next/navigation';
+
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
+// import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Label } from '@/components/ui/label';
+// import { toast } from '@/hooks/use-toast';
 
 import { credentialsLogin } from '../../actions/login';
 import { loginSchema } from '../../schemas/login';
@@ -37,11 +43,27 @@ export const CredentialsLoginForm = () => {
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: loginSchema });
     },
-    shouldValidate: 'onSubmit',
   });
 
+  // const onSuccess = useCallback(() => {
+  //   // toast({ description: 'ログインしました' });
+  //   redirect('/');
+  // }, []);
+
+  // const onError = useCallback((errorMessage?: string) => {
+  //   toast({
+  //     variant: 'destructive',
+  //     description: errorMessage || 'ログインできませんでした',
+  //   });
+  // }, []);
+
   return (
-    <form className="grid gap-4" {...getFormProps(form)} action={action}>
+    <form
+      className="grid gap-4"
+      {...getFormProps(form)}
+      action={action}
+      noValidate
+    >
       <Field>
         <Label htmlFor={fields.email.id}>メールアドレス</Label>
         <FormInput meta={fields.email} type="text" />
@@ -54,6 +76,11 @@ export const CredentialsLoginForm = () => {
       </Field>
       <SubmitButton />
       <FieldErrors errors={form.errors} />
+      {/* <FormSubmittedToast
+        lastResult={lastResult}
+        onSuccess={onSuccess}
+        onError={onError}
+      /> */}
     </form>
   );
 };

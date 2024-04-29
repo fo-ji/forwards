@@ -7,7 +7,7 @@ export default function LoginPage() {
     <PageLayout>
       <LoginForm />
       <div className="pt-2 text-right">
-        <Link href="/register" className="text-sm">
+        <Link href="/register" className="text-sm font-semibold">
           新規登録ページへ
         </Link>
       </div>
