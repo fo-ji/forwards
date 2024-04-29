@@ -8,6 +8,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { IS_BROWSER, IS_PRODUCTION } from '@/config/constants';
 
 import { ThemeProvider } from './theme-provider';
+import { Toaster } from './toaster';
 
 if (IS_BROWSER && !IS_PRODUCTION) {
   const axe = require('@axe-core/react');
@@ -27,6 +28,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
       disableTransitionOnChange
     >
       <TooltipProvider delayDuration={300}>{children}</TooltipProvider>
+      <Toaster />
     </ThemeProvider>
   );
 };
