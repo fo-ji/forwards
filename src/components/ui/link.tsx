@@ -16,7 +16,7 @@ const Link = ({ className, children, ...props }: LinkProps) => {
       rel="noopener noreferrer"
       passHref
       className={cn(
-        'text-primary underline-offset-4 hover:underline',
+        'text-foreground underline-offset-4 hover:underline',
         className,
       )}
       {...props}
