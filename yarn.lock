@@ -2369,12 +2369,12 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^8.0.10":
-  version "8.0.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.0.10.tgz#6852c5a046df137f1d16dd971b14ef4191f4f79e"
-  integrity sha512-+mIyH2UcrgQfAyRM4+ARkB/D0OOY8UMwkZsD8dD23APZ8oru7W/NHX3lXl0WjPfQcOIx/QwWNWI3+DgVZJY3jw==
+"@storybook/addon-links@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.1.1.tgz#a14b0e01ce25a93e8e2ce64bd7efbc578230b411"
+  integrity sha512-pY6iDCzb10gaAxhzwfkB+iKJzuDYeZBG2gftt1vIoPSXr/VtkU7HLOb9PNige0ioO3szxV0bqTxFdonzMXCOTA==
   dependencies:
-    "@storybook/csf" "^0.1.4"
+    "@storybook/csf" "^0.1.7"
     "@storybook/global" "^5.0.0"
     ts-dedent "^2.0.0"
 
@@ -2891,14 +2891,7 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/csf@^0.1.4":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.1.6.tgz#247bdf6c371b83af5c4f0bc6654954eaabdb7595"
-  integrity sha512-JjWnBptVhBYJ14yq+cHs66BXjykRUWQ5TlD1RhPxMOtavynYyV/Q+QR98/N+XB+mcPtFMm5I2DvNkpj0/Dk8Mw==
-  dependencies:
-    type-fest "^2.19.0"
-
-"@storybook/csf@^0.1.7":
+"@storybook/csf@^0.1.4", "@storybook/csf@^0.1.7":
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.1.7.tgz#dcc6c16a353bc09c8c619ba1a23ba93b2aab0b9d"
   integrity sha512-53JeLZBibjQxi0Ep+/AJTfxlofJlxy1jXcSKENlnKxHjWEYyHQCumMP5yTFjf7vhNnMjEpV3zx6t23ssFiGRyw==
