@@ -1,5 +1,4 @@
 import { useToast } from '@/hooks/use-toast';
-import { Toaster } from '@/providers/toaster';
 
 import { Button } from './button';
 import { Toast, ToastAction } from './toast';
@@ -10,14 +9,6 @@ const meta = {
   title: 'components/ui/toast',
   component: Toast,
   tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <>
-        <Story />
-        <Toaster />
-      </>
-    ),
-  ],
 } satisfies Meta<typeof Toast>;
 
 export default meta;

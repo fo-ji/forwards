@@ -1,5 +1,4 @@
 import { DesktopNavigation } from './desktop-navigation';
-import { TooltipProvider } from './tooltip';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -24,11 +23,9 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <TooltipProvider>
-        <div className="h-[500px]">
-          <Story />
-        </div>
-      </TooltipProvider>
+      <div className="h-[500px]">
+        <Story />
+      </div>
     ),
   ],
 };
