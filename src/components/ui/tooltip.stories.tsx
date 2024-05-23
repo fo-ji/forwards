@@ -1,5 +1,3 @@
-import { TooltipProvider } from '@radix-ui/react-tooltip';
-
 import { Tooltip } from './tooltip';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -17,11 +15,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <TooltipProvider>
-        <Tooltip content="Tooltip content">
-          <button>Tooltip trigger</button>
-        </Tooltip>
-      </TooltipProvider>
+      <Tooltip content="Tooltip content">
+        <button>Tooltip trigger</button>
+      </Tooltip>
     );
   },
 };
