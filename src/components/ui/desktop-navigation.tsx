@@ -7,9 +7,9 @@ import { activePathVariant } from '@/utils/active-path-variant';
 
 import { Button } from './button';
 import { Icon } from './icon';
+import { Logo } from './logo';
 import { ModeToggle } from './mode-toggle';
 import { Tooltip } from './tooltip';
-import { Logo } from './logo';
 
 const DesktopNavigation = () => {
   const router = useRouter();
