@@ -30,6 +30,7 @@ export default function RootLayout({
         )}
       >
         <AppProvider>{children}</AppProvider>
+        <div id="modal-root" />
       </body>
     </html>
   );

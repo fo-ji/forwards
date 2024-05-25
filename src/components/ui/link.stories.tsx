@@ -1,3 +1,4 @@
+import { Button } from './button';
 import { Link } from './link';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -16,5 +17,29 @@ export const Default: Story = {
   args: {
     href: '/',
     children: 'Link',
+  },
+};
+
+export const NoStyle: Story = {
+  args: {
+    href: '/',
+    children: 'No Style Link',
+    noStyle: true,
+  },
+};
+
+export const ButtonLink: Story = {
+  args: {
+    href: 'dummy',
+    children: 'dummy',
+  },
+  render: () => {
+    return (
+      <Button asChild>
+        <Link href="/" noStyle>
+          New
+        </Link>
+      </Button>
+    );
   },
 };
