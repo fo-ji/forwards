@@ -35,4 +35,19 @@ model User {
   image         String?
 
   accounts Account[]
+  Skill    Skill[]
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String   @db.VarChar(255)
+  url       String   @db.VarChar(2000)
+  deleteFlg Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
 }

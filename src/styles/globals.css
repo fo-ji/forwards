@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
     --background: 41 0% 95%;
     --background-inversion: 41 10% 10%;
     --foreground: 41 0% 10%;

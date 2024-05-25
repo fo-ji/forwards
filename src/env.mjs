@@ -3,6 +3,8 @@ import { z } from 'zod';
 
 export const env = createEnv({
   server: {
+    APP_URL: z.string().url(),
+
     DATABASE_URL: z.string().min(1),
     POSTGRES_USER: z.string().min(1),
     POSTGRES_PASSWORD: z.string().min(1),
@@ -18,6 +20,8 @@ export const env = createEnv({
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+
+    APP_URL: process.env.APP_URL,
 
     DATABASE_URL: process.env.DATABASE_URL,
     POSTGRES_USER: process.env.POSTGRES_USER,

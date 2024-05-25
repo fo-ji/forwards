@@ -7,16 +7,22 @@ import { cn } from '@/lib/utils';
 type LinkProps = {
   children: ReactNode;
   className?: string;
+  noStyle?: boolean;
 } & NextLinkProps;
 
-const Link = ({ className, children, ...props }: LinkProps) => {
+const Link = ({
+  className,
+  children,
+  noStyle = false,
+  ...props
+}: LinkProps) => {
   return (
     <NextLink
       target="_self"
       rel="noopener noreferrer"
       passHref
       className={cn(
-        'text-foreground underline-offset-4 hover:underline',
+        !noStyle && 'text-foreground underline-offset-4 hover:underline',
         className,
       )}
       {...props}
