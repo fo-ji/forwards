@@ -15,7 +15,7 @@ export default function RootError({
   // todo サイトロゴを入れたい
 
   return (
-    <div className="relative flex h-screen items-center justify-center">
+    <div className="relative flex h-dvh items-center justify-center">
       <Card className="sm:p-6">
         <CardContent className="mx-auto grid max-w-sm justify-center gap-4 pt-6 sm:pt-0">
           <div className="mx-auto">

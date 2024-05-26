@@ -9,7 +9,7 @@ export default function PublicRootLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-dvh flex-col">
       <Header />
       <main className="m-auto w-full max-w-lg grow content-center">
         {children}
