@@ -24,23 +24,21 @@ const Modal = ({ children }: { children: ReactNode }) => {
   };
 
   return createPortal(
-    <div className="absolute inset-0 z-50 bg-black/60">
-      <dialog
-        ref={dialogRef}
-        className="relative flex max-h-[500px] w-4/5 max-w-lg flex-col items-center gap-2 rounded-lg border border-border bg-background p-5"
-        onClose={onDismiss}
+    <dialog
+      ref={dialogRef}
+      className="relative flex max-h-[500px] w-4/5 max-w-lg flex-col items-center gap-2 rounded-lg border border-border bg-background p-5 backdrop:bg-black/60"
+      onClose={onDismiss}
+    >
+      <div className="w-full">{children}</div>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute right-2.5 top-2.5 rounded-full"
+        onClick={onDismiss}
       >
-        <div className="w-full">{children}</div>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-2.5 top-2.5 rounded-full"
-          onClick={onDismiss}
-        >
-          <Icon name="X" />
-        </Button>
-      </dialog>
-    </div>,
+        <Icon name="X" />
+      </Button>
+    </dialog>,
     document.getElementById('modal-root')!,
   );
 };

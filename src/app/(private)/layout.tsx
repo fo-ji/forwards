@@ -12,14 +12,16 @@ export default function PrivateRootLayout({
   modal: ReactNode;
 }) {
   return (
-    <div className="flex h-screen max-h-screen flex-col overflow-auto sm:flex-row sm:bg-background-inversion">
+    <div className="flex h-dvh max-h-dvh flex-col overflow-auto sm:flex-row sm:bg-background-inversion">
       <div className="block sm:hidden">
         <Header />
       </div>
       <div className="hidden sm:block">
         <DesktopNavigation />
       </div>
-      <main className="grow bg-background sm:rounded-l-4xl">{children}</main>
+      <main className="grow overflow-auto bg-background sm:rounded-l-4xl">
+        {children}
+      </main>
       <div className="block sm:hidden">
         <MobileNavigation />
       </div>
