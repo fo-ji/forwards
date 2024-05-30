@@ -2379,15 +2379,15 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^8.1.4":
-  version "8.1.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.1.4.tgz#afa509555ae366d9744ad3421635ba1388795eb8"
-  integrity sha512-l7LNMgpuMBw7qvrJBpH7lh/EMNOMB9rNyGQOF4RVW7VO3dA5mfPPXnBElQbVyijFMuAtebzenAehgMKusH9UJw==
+"@storybook/addon-interactions@^8.1.5":
+  version "8.1.5"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.1.5.tgz#d7711936aae5b1a1b9833b4b40d96e425435d765"
+  integrity sha512-jhDpqttch0XhRiCY9rfrs8xQpAH5KcAGAesqfaHaCnCZnZs6jqlGfJgCJAJWzA5PM+IdsK/RJ6abIgD1GAzNyw==
   dependencies:
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.1.4"
-    "@storybook/test" "8.1.4"
-    "@storybook/types" "8.1.4"
+    "@storybook/instrumenter" "8.1.5"
+    "@storybook/test" "8.1.5"
+    "@storybook/types" "8.1.5"
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
