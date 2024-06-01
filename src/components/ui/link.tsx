@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { ReactNode } from 'react';
 
 import NextLink, { type LinkProps as NextLinkProps } from 'next/link';
@@ -15,31 +16,38 @@ type LinkProps = {
 } & NextLinkProps &
   VariantProps<typeof buttonVariants>;
 
-const Link = ({
-  className,
-  children,
-  target = '_self',
-  variant = 'link',
-  size = 'default',
-  ...props
-}: LinkProps) => {
-  return (
-    <NextLink
-      target={target}
-      rel="noopener noreferrer"
-      passHref
-      className={cn(
-        buttonVariants({
-          variant,
-          size,
-        }),
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </NextLink>
-  );
-};
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (
+    {
+      className,
+      children,
+      target = '_self',
+      variant = 'link',
+      size = 'default',
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <NextLink
+        target={target}
+        rel="noopener noreferrer"
+        passHref
+        className={cn(
+          buttonVariants({
+            variant,
+            size,
+          }),
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </NextLink>
+    );
+  },
+);
+Link.displayName = 'Link';
 
 export { Link };
