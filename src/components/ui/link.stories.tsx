@@ -1,4 +1,4 @@
-import { Button } from './button';
+import { Icon } from './icon';
 import { Link } from './link';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -20,26 +20,67 @@ export const Default: Story = {
   },
 };
 
-export const NoStyle: Story = {
+export const Button: Story = {
   args: {
     href: '/',
-    children: 'No Style Link',
-    noStyle: true,
+    variant: 'default',
+    children: 'Link',
   },
 };
 
-export const ButtonLink: Story = {
+export const Destructive: Story = {
   args: {
-    href: 'dummy',
-    children: 'dummy',
+    href: '/',
+    variant: 'destructive',
+    children: 'Link',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    href: '/',
+    variant: 'outline',
+    children: 'Link',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    href: '/',
+    variant: 'secondary',
+    children: 'Link',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    href: '/',
+    variant: 'ghost',
+    children: 'Link',
+  },
+};
+
+export const OnlyIcon: Story = {
+  args: {
+    href: '/',
+    variant: 'ghost',
+    children: <Icon name="Github" />,
+    size: 'icon',
+    className: 'rounded-full',
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    href: '/',
+    variant: 'link',
+    children: '',
   },
   render: () => {
     return (
-      <Button asChild>
-        <Link href="/" noStyle>
-          New
-        </Link>
-      </Button>
+      <Link href="/">
+        <Icon name="Home" className="mr-2 size-4" /> Go Home
+      </Link>
     );
   },
 };
