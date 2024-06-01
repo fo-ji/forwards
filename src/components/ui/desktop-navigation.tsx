@@ -1,18 +1,17 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import { LogoutForm } from '@/features/auth';
 import { activePathVariant } from '@/utils/active-path-variant';
 
-import { Button } from './button';
 import { Icon } from './icon';
+import { Link } from './link';
 import { Logo } from './logo';
 import { ModeToggle } from './mode-toggle';
 import { Tooltip } from './tooltip';
 
 const DesktopNavigation = () => {
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -24,68 +23,67 @@ const DesktopNavigation = () => {
         <ul className="space-y-6 text-foreground-inversion">
           <li>
             <Tooltip content="ダッシュボード">
-              <Button
+              <Link
+                href="/"
                 variant={activePathVariant(pathname, '/')}
                 size="icon"
                 className="rounded-full"
-                onClick={() => router.push('/')}
               >
                 <Icon />
                 <span className="sr-only">Link dashboard page</span>
-              </Button>
+              </Link>
             </Tooltip>
           </li>
           <li>
             <Tooltip content="プロジェクト一覧">
-              <Button
+              <Link
+                href="/projects"
                 variant={activePathVariant(pathname, '/projects')}
                 size="icon"
                 className="rounded-full"
-                onClick={() => router.push('/projects')}
               >
                 <Icon name="FolderKanban" />
                 <span className="sr-only">Link projects page</span>
-              </Button>
+              </Link>
             </Tooltip>
           </li>
           <li>
             <Tooltip content="スキル一覧">
-              <Button
+              <Link
+                href="/skills"
                 variant={activePathVariant(pathname, '/skills')}
                 size="icon"
                 className="rounded-full"
-                onClick={() => router.push('/skills')}
               >
                 <Icon name="BookMarked" />
                 <span className="sr-only">Link skills page</span>
-              </Button>
+              </Link>
             </Tooltip>
           </li>
           <li>
             <Tooltip content="テンプレート一覧">
-              <Button
+              <Link
+                href="/templates"
                 variant={activePathVariant(pathname, '/templates')}
                 size="icon"
                 className="rounded-full"
-                onClick={() => router.push('/templates')}
               >
                 <Icon name="CodeXml" />
                 <span className="sr-only">Link templates page</span>
-              </Button>
+              </Link>
             </Tooltip>
           </li>
           <li>
             <Tooltip content="マイページ">
-              <Button
-                // todo
+              <Link
+                href="/users/test"
                 variant={activePathVariant(pathname, '/users/test')}
                 size="icon"
                 className="rounded-full"
-                onClick={() => router.push('/users/test')}
               >
                 <Icon name="User" />
                 <span className="sr-only">Link user page</span>
-              </Button>
+              </Link>
             </Tooltip>
           </li>
         </ul>
