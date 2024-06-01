@@ -2,27 +2,37 @@ import type { ReactNode } from 'react';
 
 import NextLink, { type LinkProps as NextLinkProps } from 'next/link';
 
+import { VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
+
+import { buttonVariants } from './button';
 
 type LinkProps = {
   children: ReactNode;
   className?: string;
-  noStyle?: boolean;
-} & NextLinkProps;
+  target?: '_self' | '_blank';
+} & NextLinkProps &
+  VariantProps<typeof buttonVariants>;
 
 const Link = ({
   className,
   children,
-  noStyle = false,
+  target = '_self',
+  variant = 'link',
+  size = 'default',
   ...props
 }: LinkProps) => {
   return (
     <NextLink
-      target="_self"
+      target={target}
       rel="noopener noreferrer"
       passHref
       className={cn(
-        !noStyle && 'text-foreground underline-offset-4 hover:underline',
+        buttonVariants({
+          variant,
+          size,
+        }),
         className,
       )}
       {...props}

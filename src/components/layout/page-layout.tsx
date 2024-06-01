@@ -8,7 +8,7 @@ const PageLayout = ({ children }: { children: ReactNode }) => {
 
 const PageTitle = ({ title }: { title: string }) => {
   return (
-    <div className="mb-8">
+    <div className="mb-1 sm:mb-8">
       <h1 className="text-xl">{title}</h1>
     </div>
   );
