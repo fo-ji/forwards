@@ -36,7 +36,7 @@ export const SkillsList = ({ skills }: SkillsListProps) => {
             </TableCell>
             <TableCell className="flex gap-3">
               <Link
-                href="#"
+                href={`/skills/${skill.id}/edit`}
                 variant="ghost"
                 size="icon"
                 className="rounded-full"

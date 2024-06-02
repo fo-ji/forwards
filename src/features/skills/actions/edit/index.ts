@@ -9,11 +9,11 @@ import { ERROR_MESSAGES } from '@/config/errors';
 import { auth } from '@/lib/next-auth/auth';
 import prisma from '@/lib/prisma';
 
-import { createSKillSchema } from '../../schemas/create';
+import { editSKillSchema } from '../../schemas/edit';
 
-export async function createSkill(_: unknown, formData: FormData) {
+export async function editSkill(_: unknown, formData: FormData) {
   const submission = parseWithZod(formData, {
-    schema: createSKillSchema,
+    schema: editSKillSchema,
   });
 
   if (submission.status !== 'success') {
@@ -27,10 +27,14 @@ export async function createSkill(_: unknown, formData: FormData) {
   }
 
   try {
-    await prisma.skill.create({
-      data: {
-        ...submission.value,
+    await prisma.skill.update({
+      where: {
+        id: submission.value.id,
         userId: session.user.id,
+      },
+      data: {
+        name: submission.value.name,
+        url: submission.value.url,
       },
     });
     revalidatePath('/api/skills'); // todo キャッシュがそもそも効いてないので、見直し
