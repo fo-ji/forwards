@@ -5,7 +5,7 @@ import {
 } from '@/components/layout/page-layout';
 import { CreateSkillForm } from '@/features/skills';
 
-export default async function SkillsCreatePage() {
+export default async function SkillCreatePage() {
   return (
     <PageLayout>
       <PageTitle title="気になる技術登録" />
