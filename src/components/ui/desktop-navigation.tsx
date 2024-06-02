@@ -15,7 +15,10 @@ const DesktopNavigation = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex h-full flex-col justify-between bg-background-inversion p-4">
+    <nav
+      role="navigation"
+      className="flex h-full flex-col justify-between bg-background-inversion p-4"
+    >
       <div>
         <div className="mb-12">
           <Logo alt="" width={40} height={40} priority />
@@ -28,9 +31,15 @@ const DesktopNavigation = () => {
                 variant={activePathVariant(pathname, '/')}
                 size="icon"
                 className="rounded-full"
+                aria-label="ダッシュボードページへ"
+                aria-current={
+                  activePathVariant(pathname, '/') === 'default'
+                    ? 'page'
+                    : undefined
+                }
               >
                 <Icon />
-                <span className="sr-only">Link dashboard page</span>
+                <span className="sr-only">ダッシュボードページへ</span>
               </Link>
             </Tooltip>
           </li>
@@ -41,9 +50,15 @@ const DesktopNavigation = () => {
                 variant={activePathVariant(pathname, '/projects')}
                 size="icon"
                 className="rounded-full"
+                aria-label="プロジェクト一覧ページへ"
+                aria-current={
+                  activePathVariant(pathname, '/projects') === 'default'
+                    ? 'page'
+                    : undefined
+                }
               >
                 <Icon name="FolderKanban" />
-                <span className="sr-only">Link projects page</span>
+                <span className="sr-only">プロジェクト一覧ページへ</span>
               </Link>
             </Tooltip>
           </li>
@@ -54,9 +69,15 @@ const DesktopNavigation = () => {
                 variant={activePathVariant(pathname, '/skills')}
                 size="icon"
                 className="rounded-full"
+                aria-label="スキル一覧ページへ"
+                aria-current={
+                  activePathVariant(pathname, '/skills') === 'default'
+                    ? 'page'
+                    : undefined
+                }
               >
                 <Icon name="BookMarked" />
-                <span className="sr-only">Link skills page</span>
+                <span className="sr-only">スキル一覧ページへ</span>
               </Link>
             </Tooltip>
           </li>
@@ -67,9 +88,15 @@ const DesktopNavigation = () => {
                 variant={activePathVariant(pathname, '/templates')}
                 size="icon"
                 className="rounded-full"
+                aria-label="テンプレート一覧ページへ"
+                aria-current={
+                  activePathVariant(pathname, '/templates') === 'default'
+                    ? 'page'
+                    : undefined
+                }
               >
                 <Icon name="CodeXml" />
-                <span className="sr-only">Link templates page</span>
+                <span className="sr-only">テンプレート一覧ページへ</span>
               </Link>
             </Tooltip>
           </li>
@@ -80,9 +107,15 @@ const DesktopNavigation = () => {
                 variant={activePathVariant(pathname, '/users/test')}
                 size="icon"
                 className="rounded-full"
+                aria-label="マイページへ"
+                aria-current={
+                  activePathVariant(pathname, '/users/test') === 'default'
+                    ? 'page'
+                    : undefined
+                }
               >
                 <Icon name="User" />
-                <span className="sr-only">Link user page</span>
+                <span className="sr-only">マイページへ</span>
               </Link>
             </Tooltip>
           </li>
