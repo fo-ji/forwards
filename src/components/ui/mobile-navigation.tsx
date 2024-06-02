@@ -13,7 +13,10 @@ const MobileNavigation = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="rounded-t-2xl bg-background-inversion p-4">
+    <nav
+      role="navigation"
+      className="rounded-t-2xl bg-background-inversion p-4"
+    >
       <ul className="flex items-center justify-evenly gap-2.5 text-foreground-inversion">
         <li>
           <Link
@@ -21,9 +24,15 @@ const MobileNavigation = () => {
             variant={activePathVariant(pathname, '/')}
             size="icon"
             className="rounded-full"
+            aria-label="ダッシュボードページへ"
+            aria-current={
+              activePathVariant(pathname, '/') === 'default'
+                ? 'page'
+                : undefined
+            }
           >
             <Icon />
-            <span className="sr-only">Link dashboard page</span>
+            <span className="sr-only">ダッシュボードページへ</span>
           </Link>
         </li>
         <li>
@@ -32,9 +41,15 @@ const MobileNavigation = () => {
             variant={activePathVariant(pathname, '/projects')}
             size="icon"
             className="rounded-full"
+            aria-label="プロジェクト一覧ページへ"
+            aria-current={
+              activePathVariant(pathname, '/projects') === 'default'
+                ? 'page'
+                : undefined
+            }
           >
             <Icon name="FolderKanban" />
-            <span className="sr-only">Link projects page</span>
+            <span className="sr-only">プロジェクト一覧ページへ</span>
           </Link>
         </li>
         <li>
@@ -43,9 +58,15 @@ const MobileNavigation = () => {
             variant={activePathVariant(pathname, '/skills')}
             size="icon"
             className="rounded-full"
+            aria-label="スキル一覧ページへ"
+            aria-current={
+              activePathVariant(pathname, '/skills') === 'default'
+                ? 'page'
+                : undefined
+            }
           >
             <Icon name="BookMarked" />
-            <span className="sr-only">Link skills page</span>
+            <span className="sr-only">スキル一覧ページへ</span>
           </Link>
         </li>
         <li>
@@ -54,9 +75,15 @@ const MobileNavigation = () => {
             variant={activePathVariant(pathname, '/templates')}
             size="icon"
             className="rounded-full"
+            aria-label="テンプレート一覧ページへ"
+            aria-current={
+              activePathVariant(pathname, '/templates') === 'default'
+                ? 'page'
+                : undefined
+            }
           >
             <Icon name="CodeXml" />
-            <span className="sr-only">Link templates page</span>
+            <span className="sr-only">テンプレート一覧ページへ</span>
           </Link>
         </li>
         <li>
@@ -65,9 +92,15 @@ const MobileNavigation = () => {
             variant={activePathVariant(pathname, '/users/test')}
             size="icon"
             className="rounded-full"
+            aria-label="マイページへ"
+            aria-current={
+              activePathVariant(pathname, '/users/test') === 'default'
+                ? 'page'
+                : undefined
+            }
           >
             <Icon name="User" />
-            <span className="sr-only">Link user page</span>
+            <span className="sr-only">マイページへ</span>
           </Link>
         </li>
         <li>
