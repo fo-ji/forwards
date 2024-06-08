@@ -28,4 +28,16 @@ const PageContent = ({
   return <div className={cn(maxWidthSizes[size], className)}>{children}</div>;
 };
 
-export { PageLayout, PageTitle, PageContent };
+const PageDescription = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <p className={cn('text-sm text-muted-foreground', className)}>{children}</p>
+  );
+};
+
+export { PageLayout, PageTitle, PageContent, PageDescription };

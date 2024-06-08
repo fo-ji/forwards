@@ -1,5 +1,7 @@
+import { notFound } from 'next/navigation';
+
 import { Modal, ModalTitle } from '@/components/ui/modal';
-import { EditSkillForm, getSkill } from '@/features/skills';
+import { EditSkillForm, getSkill, paramsSkillSchema } from '@/features/skills';
 
 type SkillEditModalPageProps = {
   params: { sid: string };
@@ -8,9 +10,12 @@ type SkillEditModalPageProps = {
 export default async function SkillEditModalPage({
   params,
 }: SkillEditModalPageProps) {
-  const skill = await getSkill({ id: params.sid });
+  const { data, success } = paramsSkillSchema.safeParse(params);
+  if (!data || !success) notFound();
 
-  if (!skill) return null;
+  const skill = await getSkill({ id: data.sid });
+  if (!skill) return notFound();
+
   return (
     <Modal>
       <ModalTitle title="気になる技術編集" />
