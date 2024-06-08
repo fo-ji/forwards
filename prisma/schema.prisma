@@ -43,7 +43,6 @@ model Skill {
   userId    String
   name      String   @db.VarChar(255)
   url       String   @db.VarChar(2000)
-  deleteFlg Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

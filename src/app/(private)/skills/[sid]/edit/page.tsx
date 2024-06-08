@@ -1,18 +1,23 @@
+import { notFound } from 'next/navigation';
+
 import {
   PageContent,
   PageLayout,
   PageTitle,
 } from '@/components/layout/page-layout';
-import { EditSkillForm, getSkill } from '@/features/skills';
+import { EditSkillForm, getSkill, paramsSkillSchema } from '@/features/skills';
 
 type SkillEditPageProps = {
   params: { sid: string };
 };
 
 export default async function SkillEditPage({ params }: SkillEditPageProps) {
-  const skill = await getSkill({ id: params.sid });
+  const { data, success } = paramsSkillSchema.safeParse(params);
+  if (!data || !success) notFound();
 
-  if (!skill) return null;
+  const skill = await getSkill({ id: data.sid });
+  if (!skill) return notFound();
+
   return (
     <PageLayout>
       <PageTitle title="気になる技術編集" />

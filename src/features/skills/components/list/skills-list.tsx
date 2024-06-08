@@ -42,14 +42,16 @@ export const SkillsList = ({ skills }: SkillsListProps) => {
                 className="rounded-full"
               >
                 <Icon name="Pencil" />
+                <span className="sr-only">気になる技術の編集ページへ</span>
               </Link>
               <Link
-                href="#"
+                href={`/skills/${skill.id}/delete`}
                 variant="ghost"
                 size="icon"
                 className="rounded-full"
               >
                 <Icon name="Trash2" />
+                <span className="sr-only">気になる技術の削除ページへ</span>
               </Link>
             </TableCell>
           </TableRow>

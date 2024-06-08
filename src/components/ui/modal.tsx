@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 
 import { createPortal } from 'react-dom';
 
+import { cn } from '@/lib/utils';
+
 import { Button } from './button';
 import { Icon } from './icon';
 
@@ -51,4 +53,16 @@ const ModalTitle = ({ title }: { title: string }) => {
   );
 };
 
-export { Modal, ModalTitle };
+const ModalDescription = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <p className={cn('text-sm text-muted-foreground', className)}>{children}</p>
+  );
+};
+
+export { Modal, ModalTitle, ModalDescription };

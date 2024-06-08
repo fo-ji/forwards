@@ -7,6 +7,7 @@ export * from './api/get-skills-count';
 export * from './components/list/skills-list-container';
 export * from './components/create/create-skill-form';
 export * from './components/edit/edit-skill-form';
+export * from './components/delete/delete-skill-form';
 
 // schemas
 export * from './schemas/get';
