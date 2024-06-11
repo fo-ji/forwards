@@ -73,7 +73,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
-    "prettier": "^3.3.1",
+    "prettier": "^3.3.2",
     "prisma": "^5.15.0",
     "storybook": "^8.1.6",
     "tailwindcss": "^3.4.4",
