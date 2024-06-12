@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import {
@@ -7,21 +9,38 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableSortHead,
 } from '@/components/ui/table';
 
+import type { SearchParamsSkillsListType } from '../../schemas/get';
 import type { Skill } from '@prisma/client';
 
 type SkillsListProps = {
   skills: Skill[];
-};
+} & SearchParamsSkillsListType;
 
-export const SkillsList = ({ skills }: SkillsListProps) => {
+export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="min-w-24">スキル名</TableHead>
+          <TableSortHead
+            className="min-w-24"
+            baseUrl="/skills"
+            sortKey="name"
+            {...searchParams}
+          >
+            スキル名
+          </TableSortHead>
           <TableHead>URL</TableHead>
+          <TableSortHead
+            className="w-24"
+            baseUrl="/skills"
+            sortKey="updatedAt"
+            {...searchParams}
+          >
+            最終更新日
+          </TableSortHead>
           <TableHead className="w-24 min-w-24 max-w-24" />
         </TableRow>
       </TableHeader>
@@ -34,7 +53,8 @@ export const SkillsList = ({ skills }: SkillsListProps) => {
                 <span className="max-w-96 truncate">{skill.url}</span>
               </Link>
             </TableCell>
-            <TableCell className="flex gap-3">
+            <TableCell>{format(skill.updatedAt, 'yyyy/MM/dd')}</TableCell>
+            <TableCell className="flex gap-0.5">
               <Link
                 href={`/skills/${skill.id}/edit`}
                 variant="ghost"

@@ -7,7 +7,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableSortHead,
 } from '@/components/ui/table';
+import { SortDirection } from '@/types';
 
 const invoices = [
   {
@@ -75,7 +77,17 @@ export const Default: Story = {
           <TableRow>
             <TableHead className="w-[100px]">Invoice</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead>Method</TableHead>
+            <TableSortHead
+              className="min-w-24"
+              baseUrl="/method"
+              sortKey="method"
+              page={1}
+              pageSize={10}
+              orderBy="method"
+              sortDirection={SortDirection.ASC}
+            >
+              Method
+            </TableSortHead>
             <TableHead className="text-right">Amount</TableHead>
           </TableRow>
         </TableHeader>
