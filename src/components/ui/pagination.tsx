@@ -4,7 +4,9 @@ import Link from 'next/link';
 
 import { ButtonProps, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import type { SortDirection } from '@/types';
 import { generatePageNumbers } from '@/utils/generate-page-numbers';
+import { generateQueryURL } from '@/utils/generate-query-url';
 
 import { Icon } from './icon';
 
@@ -119,6 +121,8 @@ PaginationEllipsis.displayName = 'PaginationEllipsis';
 type PaginationProps = {
   currentPage: number;
   pageSize: number;
+  orderBy: string;
+  sortDirection: SortDirection;
   totalCount: number;
   baseHref: string;
   maxPagesToShow?: 3 | 5 | 7 | 9;
@@ -127,6 +131,8 @@ type PaginationProps = {
 const Pagination = ({
   currentPage,
   pageSize,
+  orderBy,
+  sortDirection,
   totalCount,
   baseHref,
   maxPagesToShow = 3,
@@ -145,7 +151,12 @@ const Pagination = ({
         {currentPage > 1 && (
           <PaginationItem>
             <PaginationPrevious
-              href={`${baseHref}?page=${currentPage - 1}&pageSize=${pageSize}`}
+              href={generateQueryURL(baseHref, {
+                page: currentPage - 1,
+                pageSize,
+                orderBy,
+                sortDirection,
+              })}
             />
           </PaginationItem>
         )}
@@ -157,7 +168,12 @@ const Pagination = ({
         {pages.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
-              href={`${baseHref}?page=${page}&pageSize=${pageSize}`}
+              href={generateQueryURL(baseHref, {
+                page,
+                pageSize,
+                orderBy,
+                sortDirection,
+              })}
               isActive={currentPage === page}
             >
               {page}
@@ -172,7 +188,12 @@ const Pagination = ({
         {currentPage < totalPages && (
           <PaginationItem>
             <PaginationNext
-              href={`${baseHref}?page=${currentPage + 1}&pageSize=${pageSize}`}
+              href={generateQueryURL(baseHref, {
+                page: currentPage + 1,
+                pageSize,
+                orderBy,
+                sortDirection,
+              })}
             />
           </PaginationItem>
         )}

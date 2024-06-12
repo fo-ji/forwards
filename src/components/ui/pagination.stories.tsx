@@ -1,3 +1,5 @@
+import { SortDirection } from '@/types';
+
 import { Pagination } from './pagination';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -19,5 +21,7 @@ export const Default: Story = {
     totalCount: 100,
     baseHref: '/',
     maxPagesToShow: 3,
+    orderBy: 'updatedAt',
+    sortDirection: SortDirection.ASC,
   },
 };

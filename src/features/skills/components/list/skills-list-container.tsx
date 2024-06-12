@@ -5,17 +5,13 @@ import { getSkillsCount } from '../../api/get-skills-count';
 
 import { SkillsList } from './skills-list';
 
-type SkillsListContainerProps = {
-  page: number;
-  pageSize: number;
-};
+import type { SearchParamsSkillsListType } from '../../schemas/get';
 
 export const SkillsListContainer = async ({
-  page,
-  pageSize,
-}: SkillsListContainerProps) => {
+  ...searchParams
+}: SearchParamsSkillsListType) => {
   const [skills, totalCount] = await Promise.all([
-    getSkills({ page, pageSize }),
+    getSkills(searchParams),
     getSkillsCount(),
   ]);
 
@@ -26,14 +22,14 @@ export const SkillsListContainer = async ({
       {totalCount && (
         <div className="mb-2">
           <Pagination
-            currentPage={page}
-            pageSize={pageSize}
             totalCount={totalCount}
             baseHref="/skills"
+            currentPage={searchParams.page}
+            {...searchParams}
           />
         </div>
       )}
-      <SkillsList skills={skills} />
+      <SkillsList skills={skills} {...searchParams} />
     </>
   );
 };

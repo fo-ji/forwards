@@ -1,6 +1,11 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import { SortDirection } from '@/types';
+import { generateQueryURL } from '@/utils/generate-query-url';
+
+import { Icon } from './icon';
+import { Link } from './link';
 
 const Table = React.forwardRef<
   HTMLTableElement,
@@ -105,6 +110,71 @@ const TableCaption = React.forwardRef<
 ));
 TableCaption.displayName = 'TableCaption';
 
+type TableSortHeadProps = {
+  baseUrl: string;
+  sortKey: string;
+  page: number;
+  pageSize: number;
+  orderBy: string;
+  sortDirection: SortDirection;
+};
+
+const TableSortHead = React.forwardRef<
+  HTMLTableCellElement,
+  React.ThHTMLAttributes<HTMLTableCellElement> & TableSortHeadProps
+>(
+  (
+    {
+      className,
+      children,
+      baseUrl,
+      sortKey,
+      page,
+      pageSize,
+      orderBy,
+      sortDirection,
+      ...props
+    },
+    ref,
+  ) => {
+    const url = generateQueryURL(baseUrl, {
+      page,
+      pageSize,
+      orderBy: sortKey === orderBy ? orderBy : sortKey,
+      sortDirection:
+        sortKey === orderBy
+          ? sortDirection === SortDirection.ASC
+            ? SortDirection.DESC
+            : SortDirection.ASC
+          : SortDirection.DESC,
+    });
+
+    return (
+      <th
+        ref={ref}
+        className={cn(
+          'h-12 px-1 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+          className,
+        )}
+        {...props}
+      >
+        <Link href={url} className="flex justify-start gap-1 p-0">
+          {children}
+          {sortKey === orderBy && (
+            <Icon
+              name={
+                sortDirection === SortDirection.DESC ? 'ArrowDown' : 'ArrowUp'
+              }
+              className="size-4"
+            />
+          )}
+        </Link>
+      </th>
+    );
+  },
+);
+TableSortHead.displayName = 'TableSortHead';
+
 export {
   Table,
   TableHeader,
@@ -114,4 +184,5 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  TableSortHead,
 };

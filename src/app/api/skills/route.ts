@@ -9,10 +9,13 @@ export async function GET(request: Request) {
   }
 
   const { searchParams } = new URL(request.url);
-  const { page, pageSize } = searchParamsSkillsListSchema.parse({
-    page: searchParams.get('page'),
-    pageSize: searchParams.get('pageSize'),
-  });
+  const { page, pageSize, orderBy, sortDirection } =
+    searchParamsSkillsListSchema.parse({
+      page: searchParams.get('page'),
+      pageSize: searchParams.get('pageSize'),
+      orderBy: searchParams.get('orderBy'),
+      sortDirection: searchParams.get('sortDirection'),
+    });
 
   const data = await prisma.skill.findMany({
     skip: (page - 1) * pageSize,
@@ -21,7 +24,7 @@ export async function GET(request: Request) {
       userId: session.user.id,
     },
     orderBy: {
-      updatedAt: 'desc',
+      [orderBy]: sortDirection,
     },
   });
 

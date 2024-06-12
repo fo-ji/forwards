@@ -10,9 +10,10 @@ import {
   SkillsListContainer,
   searchParamsSkillsListSchema,
 } from '@/features/skills';
+import type { PageSearchParams } from '@/types';
 
 type SkillsListPageProps = {
-  searchParams: { page?: string; pageSize?: string };
+  searchParams: PageSearchParams;
 };
 
 export default async function SkillsListPage({
