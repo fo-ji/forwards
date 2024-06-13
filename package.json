@@ -54,7 +54,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^8.1.6",
     "@storybook/nextjs": "^8.1.6",
-    "@storybook/react": "^8.1.6",
+    "@storybook/react": "^8.1.8",
     "@storybook/test": "^8.1.6",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
