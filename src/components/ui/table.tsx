@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
-import { SortDirection } from '@/types';
+import { type ParsedPageSearchParams, SortDirection } from '@/types';
 import { generateQueryURL } from '@/utils/generate-query-url';
 
 import { Icon } from './icon';
@@ -113,67 +113,70 @@ TableCaption.displayName = 'TableCaption';
 type TableSortHeadProps = {
   baseUrl: string;
   sortKey: string;
-  page: number;
-  pageSize: number;
-  orderBy: string;
-  sortDirection: SortDirection;
+  searchParams: ParsedPageSearchParams;
 };
 
 const TableSortHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement> & TableSortHeadProps
->(
-  (
-    {
-      className,
-      children,
-      baseUrl,
-      sortKey,
-      page,
-      pageSize,
-      orderBy,
-      sortDirection,
-      ...props
-    },
-    ref,
-  ) => {
-    const url = generateQueryURL(baseUrl, {
-      page,
-      pageSize,
-      orderBy: sortKey === orderBy ? orderBy : sortKey,
-      sortDirection:
-        sortKey === orderBy
-          ? sortDirection === SortDirection.ASC
-            ? SortDirection.DESC
-            : SortDirection.ASC
-          : SortDirection.DESC,
-    });
+>(({ className, children, baseUrl, sortKey, searchParams, ...props }, ref) => {
+  const url = generateQueryURL(baseUrl, {
+    ...searchParams,
+    page: searchParams.page,
+    pageSize: searchParams.pageSize,
+    orderBy: sortKey === searchParams.orderBy ? searchParams.orderBy : sortKey,
+    sortDirection:
+      sortKey === searchParams.orderBy
+        ? searchParams.sortDirection === SortDirection.ASC
+          ? SortDirection.DESC
+          : SortDirection.ASC
+        : SortDirection.DESC,
+  });
 
-    return (
-      <th
-        ref={ref}
-        className={cn(
-          'h-12 px-1 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
-          className,
+  return (
+    <th
+      ref={ref}
+      className={cn(
+        'h-12 px-1 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+        className,
+      )}
+      {...props}
+    >
+      <Link href={url} className="flex justify-start gap-1 p-0">
+        {children}
+        {sortKey === searchParams.orderBy && (
+          <Icon
+            name={
+              searchParams.sortDirection === SortDirection.DESC
+                ? 'ArrowDown'
+                : 'ArrowUp'
+            }
+            className="size-4"
+          />
         )}
-        {...props}
-      >
-        <Link href={url} className="flex justify-start gap-1 p-0">
-          {children}
-          {sortKey === orderBy && (
-            <Icon
-              name={
-                sortDirection === SortDirection.DESC ? 'ArrowDown' : 'ArrowUp'
-              }
-              className="size-4"
-            />
-          )}
-        </Link>
-      </th>
-    );
-  },
-);
+      </Link>
+    </th>
+  );
+});
 TableSortHead.displayName = 'TableSortHead';
+
+const NoDataTable = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'w-full flex flex-col gap-2 items-center justify-center text-sm min-h-80',
+      className,
+    )}
+    {...props}
+  >
+    <Icon name="TriangleAlert" className="size-10" />
+    <p>該当するデータが見つかりませんでした</p>
+  </div>
+));
+NoDataTable.displayName = 'NoDataTable';
 
 export {
   Table,
@@ -185,4 +188,5 @@ export {
   TableCell,
   TableCaption,
   TableSortHead,
+  NoDataTable,
 };

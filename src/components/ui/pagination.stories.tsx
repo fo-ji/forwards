@@ -16,12 +16,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    currentPage: 2,
-    pageSize: 10,
+    searchParams: {
+      page: 2,
+      pageSize: 10,
+      orderBy: 'updatedAt',
+      sortDirection: SortDirection.ASC,
+    },
     totalCount: 100,
     baseHref: '/',
     maxPagesToShow: 3,
-    orderBy: 'updatedAt',
-    sortDirection: SortDirection.ASC,
   },
 };

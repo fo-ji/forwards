@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import {
+  NoDataTable,
   Table,
   TableBody,
   TableCell,
@@ -20,6 +21,7 @@ type SkillsListProps = {
 } & SearchParamsSkillsListType;
 
 export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
+  if (!skills.length) return <NoDataTable />;
   return (
     <Table>
       <TableHeader>
@@ -28,7 +30,7 @@ export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
             className="min-w-24"
             baseUrl="/skills"
             sortKey="name"
-            {...searchParams}
+            searchParams={searchParams}
           >
             スキル名
           </TableSortHead>
@@ -37,7 +39,7 @@ export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
             className="w-24"
             baseUrl="/skills"
             sortKey="updatedAt"
-            {...searchParams}
+            searchParams={searchParams}
           >
             最終更新日
           </TableSortHead>

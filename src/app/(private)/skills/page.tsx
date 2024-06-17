@@ -8,12 +8,12 @@ import { Link } from '@/components/ui/link';
 import { Loading } from '@/components/ui/loading';
 import {
   SkillsListContainer,
+  type SkillsListPageParams,
   searchParamsSkillsListSchema,
 } from '@/features/skills';
-import type { PageSearchParams } from '@/types';
 
 type SkillsListPageProps = {
-  searchParams: PageSearchParams;
+  searchParams: SkillsListPageParams;
 };
 
 export default async function SkillsListPage({
@@ -21,6 +21,7 @@ export default async function SkillsListPage({
 }: SkillsListPageProps) {
   const { data, success } =
     searchParamsSkillsListSchema.safeParse(searchParams);
+
   if (!success) notFound();
 
   return (

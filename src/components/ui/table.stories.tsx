@@ -1,4 +1,5 @@
 import {
+  NoDataTable,
   Table,
   TableBody,
   TableCaption,
@@ -81,10 +82,12 @@ export const Default: Story = {
               className="min-w-24"
               baseUrl="/method"
               sortKey="method"
-              page={1}
-              pageSize={10}
-              orderBy="method"
-              sortDirection={SortDirection.ASC}
+              searchParams={{
+                page: 1,
+                pageSize: 10,
+                orderBy: 'method',
+                sortDirection: SortDirection.ASC,
+              }}
             >
               Method
             </TableSortHead>
@@ -111,5 +114,11 @@ export const Default: Story = {
         </TableFooter>
       </Table>
     );
+  },
+};
+
+export const NoData: Story = {
+  render: () => {
+    return <NoDataTable />;
   },
 };

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { ButtonProps, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import type { SortDirection } from '@/types';
+import type { ParsedPageSearchParams } from '@/types';
 import { generatePageNumbers } from '@/utils/generate-page-numbers';
 import { generateQueryURL } from '@/utils/generate-query-url';
 
@@ -119,48 +119,40 @@ const PaginationEllipsis = ({
 PaginationEllipsis.displayName = 'PaginationEllipsis';
 
 type PaginationProps = {
-  currentPage: number;
-  pageSize: number;
-  orderBy: string;
-  sortDirection: SortDirection;
+  searchParams: ParsedPageSearchParams;
   totalCount: number;
   baseHref: string;
   maxPagesToShow?: 3 | 5 | 7 | 9;
 };
 
 const Pagination = ({
-  currentPage,
-  pageSize,
-  orderBy,
-  sortDirection,
+  searchParams,
   totalCount,
   baseHref,
   maxPagesToShow = 3,
 }: PaginationProps) => {
-  const totalPages = Math.ceil(totalCount / pageSize);
+  const totalPages = Math.ceil(totalCount / searchParams.pageSize);
 
   const pages = generatePageNumbers({
     totalPages,
-    currentPage,
+    currentPage: searchParams.page,
     maxPagesToShow,
   });
 
   return (
     <PaginationWrapper>
       <PaginationContent>
-        {currentPage > 1 && (
+        {searchParams.page > 1 && (
           <PaginationItem>
             <PaginationPrevious
               href={generateQueryURL(baseHref, {
-                page: currentPage - 1,
-                pageSize,
-                orderBy,
-                sortDirection,
+                ...searchParams,
+                page: searchParams.page - 1,
               })}
             />
           </PaginationItem>
         )}
-        {currentPage > 3 && totalPages > maxPagesToShow && (
+        {searchParams.page > 3 && totalPages > maxPagesToShow && (
           <PaginationItem>
             <PaginationEllipsis />
           </PaginationItem>
@@ -169,30 +161,26 @@ const Pagination = ({
           <PaginationItem key={page}>
             <PaginationLink
               href={generateQueryURL(baseHref, {
+                ...searchParams,
                 page,
-                pageSize,
-                orderBy,
-                sortDirection,
               })}
-              isActive={currentPage === page}
+              isActive={searchParams.page === page}
             >
               {page}
             </PaginationLink>
           </PaginationItem>
         ))}
-        {currentPage < totalPages - 2 && totalPages > maxPagesToShow && (
+        {searchParams.page < totalPages - 2 && totalPages > maxPagesToShow && (
           <PaginationItem>
             <PaginationEllipsis />
           </PaginationItem>
         )}
-        {currentPage < totalPages && (
+        {searchParams.page < totalPages && (
           <PaginationItem>
             <PaginationNext
               href={generateQueryURL(baseHref, {
-                page: currentPage + 1,
-                pageSize,
-                orderBy,
-                sortDirection,
+                ...searchParams,
+                page: searchParams.page + 1,
               })}
             />
           </PaginationItem>
