@@ -9,3 +9,11 @@ export type PageSearchParams = {
   orderBy?: string;
   sortDirection?: SortDirection;
 };
+
+export type ParsedPageSearchParams = {
+  page: number;
+  pageSize: number;
+  orderBy: string;
+  sortDirection: SortDirection;
+  [key: string]: string | number | undefined;
+};

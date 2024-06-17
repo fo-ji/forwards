@@ -2,6 +2,7 @@ import { Pagination } from '@/components/ui/pagination';
 
 import { getSkills } from '../../api/get-skills';
 import { getSkillsCount } from '../../api/get-skills-count';
+import { SearchSkillForm } from '../search/search-skill-form';
 
 import { SkillsList } from './skills-list';
 
@@ -12,24 +13,24 @@ export const SkillsListContainer = async ({
 }: SearchParamsSkillsListType) => {
   const [skills, totalCount] = await Promise.all([
     getSkills(searchParams),
-    getSkillsCount(),
+    getSkillsCount({ name: searchParams?.name }),
   ]);
 
-  if (!skills) return null;
+  if (!skills || totalCount === undefined) return null;
 
   return (
-    <>
-      {totalCount && (
-        <div className="mb-2">
+    <div className="flex flex-col gap-3">
+      <div className="flex min-h-10 justify-center">
+        {totalCount !== 0 && (
           <Pagination
             totalCount={totalCount}
             baseHref="/skills"
-            currentPage={searchParams.page}
-            {...searchParams}
+            searchParams={searchParams}
           />
-        </div>
-      )}
+        )}
+      </div>
+      <SearchSkillForm searchParams={searchParams} />
       <SkillsList skills={skills} {...searchParams} />
-    </>
+    </div>
   );
 };
