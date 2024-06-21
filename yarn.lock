@@ -33,12 +33,25 @@
     preact "10.11.3"
     preact-render-to-string "5.2.3"
 
-"@auth/prisma-adapter@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@auth/prisma-adapter/-/prisma-adapter-2.2.0.tgz#78552ddd06ee1b19b2fc9c6c01a3f91c0ebdf4d8"
-  integrity sha512-DiXgyJfqBb/6TPhNJ5IcRw3klxcFD+qaa7qvOYopV6rYinSUvsQkJ30m+so2SRlEsuDA6PqMu+Mf5Sd+zr3g+Q==
+"@auth/core@0.33.0":
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/@auth/core/-/core-0.33.0.tgz#e58dea1c3f23b8b49b2b7a8d40d2c6d1a3fe60fc"
+  integrity sha512-QPWvnoAbolCO7I8/h3xITwS59bjA2fZRG+p4Qf2ZSMuPE3AFO9xYI3xjwdXZ0jl772aL7Ya8ZUedxCatXgwMZg==
   dependencies:
-    "@auth/core" "0.32.0"
+    "@panva/hkdf" "^1.1.1"
+    "@types/cookie" "0.6.0"
+    cookie "0.6.0"
+    jose "^5.1.3"
+    oauth4webapi "^2.10.4"
+    preact "10.11.3"
+    preact-render-to-string "5.2.3"
+
+"@auth/prisma-adapter@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@auth/prisma-adapter/-/prisma-adapter-2.3.0.tgz#570a72148c29d8cf39b23bce70b1519a287cceef"
+  integrity sha512-SK8xMblsqeeBd/deY3jqzDrYTghEm29hOkTMDbelB+KyQ9AYOcsBfZ57LZ9i5rTCjctJnSccSJOxliMajhBJyg==
+  dependencies:
+    "@auth/core" "0.33.0"
 
 "@aw-web-design/x-default-browser@1.4.126":
   version "1.4.126"
@@ -8857,6 +8870,11 @@ nypm@^0.3.8:
     execa "^8.0.1"
     pathe "^1.1.2"
     ufo "^1.4.0"
+
+oauth4webapi@^2.10.4:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/oauth4webapi/-/oauth4webapi-2.11.1.tgz#8d79e6b0d54ead203094f185a11031f3f9978465"
+  integrity sha512-aNzOnL98bL6izG97zgnZs1PFEyO4WDVRhz2Pd066NPak44w5ESLRCYmJIyey8avSBPOMtBjhF3ZDDm7bIb7UOg==
 
 oauth4webapi@^2.9.0:
   version "2.10.4"
