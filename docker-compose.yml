@@ -1,5 +1,13 @@
+x-common: &common
+  env_file:
+    - .env
+    - .env.local
+  networks:
+    - dev-network
+
 services:
   app:
+    <<: *common
     container_name: app
     build:
       context: .
@@ -15,15 +23,16 @@ services:
       - db
 
   db:
+    <<: *common
     container_name: db
     image: postgres:latest
     restart: always
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - 5432:5432
     volumes:
-      - ./db/postgres/init.d:/docker-entrypoint-initdb.d
-      - ./db/postgres/pgdata:/var/lib/postgresql/data
+      - ./db/app/postgres/init.d:/docker-entrypoint-initdb.d
+      - ./db/app/postgres/pgdata:/var/lib/postgresql/data
+
+networks:
+  dev-network:
+    driver: bridge
