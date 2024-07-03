@@ -79,7 +79,7 @@ export const WithIcon: Story = {
   render: () => {
     return (
       <Link href="/">
-        <Icon name="Home" className="mr-2 size-4" /> Go Home
+        <Icon name="House" className="mr-2 size-4" /> Go Home
       </Link>
     );
   },
