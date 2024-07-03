@@ -13,6 +13,7 @@ const config: Config = {
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
   },
+  testMatch: ['**/*.test.ts'],
 };
 
 export default createJestConfig(config);
