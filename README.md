@@ -17,19 +17,19 @@ $ docker compose down
 ### 起動
 
 ```
-$ docker-compose -f docker-compose.e2e.yml up
+$ docker compose -f compose.e2e.yaml up
 ```
 
 ### 停止
 
 ```
-$ docker-compose -f docker-compose.e2e.yml down
+$ docker compose -f compose.e2e.yaml down
 ```
 
 ### E2Eテスト実行
 
 ```
-$ docker-compose -f docker-compose.e2e.yml up
+$ docker compose -f compose.e2e.yaml up
 $ docker exec -it e2e sh
 $ yarn clean-build
 $ yarn test:e2e
@@ -40,7 +40,7 @@ $ yarn test:e2e
 **※ dockerンテナ内での実行は不可**
 
 ```
-$ docker-compose -f docker-compose.e2e.yml up
+$ docker compose -f compose.e2e.yaml up
 $ yarn playwright install
 $ yarn e2e:codegen http://localhost:3300
 ```
