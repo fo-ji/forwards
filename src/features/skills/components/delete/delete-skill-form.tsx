@@ -62,12 +62,7 @@ export const DeleteSkillForm = ({ defaultValue }: DeleteSkillFormProps) => {
       action={action}
       noValidate
     >
-      <FormInput
-        aria-hidden="true"
-        className="hidden"
-        meta={fields.id}
-        type="text"
-      />
+      <FormInput meta={fields.id} type="hidden" />
       <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
         <Button type="button" variant="outline" onClick={() => router.back()}>
           いいえ

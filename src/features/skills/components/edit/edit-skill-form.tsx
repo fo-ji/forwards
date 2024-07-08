@@ -67,12 +67,7 @@ export const EditSkillForm = ({ defaultValue }: EditSkillFormProps) => {
       action={action}
       noValidate
     >
-      <FormInput
-        aria-hidden="true"
-        className="hidden"
-        meta={fields.id}
-        type="text"
-      />
+      <FormInput meta={fields.id} type="hidden" />
       <FieldErrors errors={fields.id.errors} />
       <Field>
         <Label htmlFor={fields.name.id}>名称</Label>
