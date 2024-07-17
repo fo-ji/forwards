@@ -42,9 +42,22 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Setup project
+    { name: 'setup', testMatch: /global\.setup\.ts/, teardown: 'cleanup' },
+    // Cleanup project
+    {
+      name: 'cleanup',
+      testMatch: /global\.teardown\.ts/,
+    },
+    // Test browsers
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
 
     // {
