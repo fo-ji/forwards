@@ -2407,14 +2407,14 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.2.2.tgz#e9edcc3cbbb84fbeab71fcbfe0107cc443e02379"
-  integrity sha512-zRRuUwm/l41JtTUgjIoQTUgLT99Hsdz9cqKca/8NYo1MGBdEcKE41DH4aBIzKaOKFu7p9q00/o/X1EqYX4LMUA==
+"@storybook/addon-interactions@^8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.2.4.tgz#b95f7e87b8654ad52c6769e3c4c56f8dad18c991"
+  integrity sha512-jGGTCKfqZzq3DSZF+cimD8FBcO8X9yu/cNTcxHtx6TN9McV69sTiSzOpGgbWkLjLjP0XU12NQGqFw38tIn7n9Q==
   dependencies:
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.2.2"
-    "@storybook/test" "8.2.2"
+    "@storybook/instrumenter" "8.2.4"
+    "@storybook/test" "8.2.4"
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
@@ -2739,15 +2739,6 @@
     "@vitest/utils" "^1.3.1"
     util "^0.12.4"
 
-"@storybook/instrumenter@8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.2.2.tgz#cde254538fad1678a433c18f7a4a9d18cf8a21a1"
-  integrity sha512-refwnHqKHhya45MgqakhMG0jKhTiEIAl0aOwAaQy9+zf9ncMIYQAXRQsSZ2Z188lFWE24wbeHKteb62a5ZfWwQ==
-  dependencies:
-    "@storybook/global" "^5.0.0"
-    "@vitest/utils" "^1.3.1"
-    util "^0.12.4"
-
 "@storybook/instrumenter@8.2.4":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.2.4.tgz#695edbb52af1b2884701eeafc507b6624029ce2c"
@@ -2979,21 +2970,7 @@
     "@vitest/spy" "1.6.0"
     util "^0.12.4"
 
-"@storybook/test@8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.2.2.tgz#d85725adc9b4bd998560911ef899911e91f56512"
-  integrity sha512-X2qAKErjTh1X7XLAZqCMtU0ZK8JuwdKmgiqU0oXWxIDmCX6/Dm9ZIcdMZHs/S+K/UnIByjNlQpTShLVfRUeN1w==
-  dependencies:
-    "@storybook/csf" "0.1.11"
-    "@storybook/instrumenter" "8.2.2"
-    "@testing-library/dom" "10.1.0"
-    "@testing-library/jest-dom" "6.4.5"
-    "@testing-library/user-event" "14.5.2"
-    "@vitest/expect" "1.6.0"
-    "@vitest/spy" "1.6.0"
-    util "^0.12.4"
-
-"@storybook/test@^8.2.4":
+"@storybook/test@8.2.4", "@storybook/test@^8.2.4":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.2.4.tgz#0618a2b7f9fc456c685de382fb25d52e0ab3979b"
   integrity sha512-boFjNFja4BNSbQhvmMlTVdQmZh36iM9+8w0sb7IK2e9Xnoi4+utupPNwBLvSsw4bRayK8+mP4Vk46O8h3TaiMw==
