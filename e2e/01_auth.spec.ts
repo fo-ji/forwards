@@ -1,10 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-import { resetDB } from './utils/reset-db';
-
-test.afterAll(async () => {
-  await resetDB(['User', 'Account']);
-});
+// Reset storage state for this file to avoid being authenticated
+test.use({ storageState: { cookies: [], origins: [] } });
 
 // ! テストシナリオ
 // 新規登録
