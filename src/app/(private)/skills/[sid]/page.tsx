@@ -1,9 +1,34 @@
-import { PageLayout } from '@/components/layout/page-layout';
+import { Suspense } from 'react';
 
-export default async function SkillPage() {
+import { notFound } from 'next/navigation';
+
+import {
+  PageContent,
+  PageLayout,
+  PageTitle,
+} from '@/components/layout/page-layout';
+import {
+  paramsSkillSchema,
+  SkillMetaContainer,
+  SkillMetaSkelton,
+} from '@/features/skills';
+
+type SkillPageProps = {
+  params: { sid: string };
+};
+
+export default async function SkillPage({ params }: SkillPageProps) {
+  const { data, success } = paramsSkillSchema.safeParse(params);
+  if (!data || !success) notFound();
+
   return (
     <PageLayout>
-      <h1 className="text-xl">Skill（気になる技術詳細）</h1>
+      <PageTitle title="気になる技術" className="mb-8" />
+      <PageContent size="full">
+        <Suspense fallback={<SkillMetaSkelton />}>
+          <SkillMetaContainer skillId={data.sid} />
+        </Suspense>
+      </PageContent>
     </PageLayout>
   );
 }

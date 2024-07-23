@@ -3,15 +3,17 @@ import type { ReactNode } from 'react';
 import { cn, maxWidthSizes } from '@/lib/utils';
 
 const PageLayout = ({ children }: { children: ReactNode }) => {
-  return <div className="size-full p-4 sm:p-8">{children}</div>;
+  return <div className="flex size-full flex-col p-4 sm:p-8">{children}</div>;
 };
 
-const PageTitle = ({ title }: { title: string }) => {
-  return (
-    <div className="mb-1 sm:mb-8">
-      <h1 className="text-xl">{title}</h1>
-    </div>
-  );
+const PageTitle = ({
+  title,
+  className,
+}: {
+  title: string;
+  className?: string;
+}) => {
+  return <h1 className={cn('text-xl mb-1 sm:mb-8', className)}>{title}</h1>;
 };
 
 type PageContentProps = {
@@ -25,7 +27,11 @@ const PageContent = ({
   size = 'lg',
   className,
 }: PageContentProps) => {
-  return <div className={cn(maxWidthSizes[size], className)}>{children}</div>;
+  return (
+    <div className={cn('grow overflow-auto', maxWidthSizes[size], className)}>
+      {children}
+    </div>
+  );
 };
 
 const PageDescription = ({
