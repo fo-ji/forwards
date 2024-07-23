@@ -49,7 +49,11 @@ export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
       <TableBody>
         {skills.map((skill) => (
           <TableRow key={skill.id}>
-            <TableCell className="max-w-72 truncate">{skill.name}</TableCell>
+            <TableCell>
+              <Link href={`/skills/${skill.id}`}>
+                <span className="max-w-72 truncate">{skill.name}</span>
+              </Link>
+            </TableCell>
             <TableCell>
               <Link target="_blank" href={skill.url} className="p-0">
                 <span className="max-w-96 truncate">{skill.url}</span>

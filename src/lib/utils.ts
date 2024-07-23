@@ -10,4 +10,5 @@ export const maxWidthSizes = {
   md: 'max-w-md',
   lg: 'max-w-lg',
   xl: 'max-w-xl',
+  full: 'max-w-full',
 } as const;
