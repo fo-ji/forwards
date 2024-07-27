@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json ./
 
 RUN apt-get update && \
-    apt-get -y install openssl
+    apt-get -y install openssl xdg-utils
 
 RUN yarn install --frozen-lockfile
 
