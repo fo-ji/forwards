@@ -23,7 +23,7 @@ export const Single: Story = {
   },
   render: () => {
     return (
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-96">
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
           <AccordionContent>
@@ -55,7 +55,7 @@ export const Multiple: Story = {
   },
   render: () => {
     return (
-      <Accordion type="multiple" defaultValue={['item-1']} className="w-full">
+      <Accordion type="multiple" defaultValue={['item-1']} className="w-96">
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
           <AccordionContent>
