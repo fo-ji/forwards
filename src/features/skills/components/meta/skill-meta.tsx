@@ -64,10 +64,13 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
             </AccordionTrigger>
             <AccordionContent>
               <div className="pb-4 text-right">
-                <Button variant="secondary">
+                <Link
+                  href={`/skills/${skill.id}/articles/create`}
+                  variant="secondary"
+                >
                   <Icon name="Plus" className="mr-2 size-4" />
                   記事を追加
-                </Button>
+                </Link>
               </div>
               <List />
             </AccordionContent>
