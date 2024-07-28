@@ -28,7 +28,6 @@ import { test, expect } from '@playwright/test';
 // 16. 削除ページで「いいえ」を押下すると削除は実行されずスキルページにリダイレクト
 // 17. 削除ページで「はい」を押下すると削除が実行されてスキルページにリダイレクト
 // 18. 一覧表示に削除したデータがないことを確認
-// 19. 「該当するデータが見つかりませんでした」のメッセージが表示されることを確認
 
 test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
   // ! 新規作成
@@ -85,7 +84,10 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
 
   // ! 編集
   // 10. 新しく作成したスキルの編集アイコンをクリックすると編集ページに遷移
-  await page.getByRole('link', { name: '気になる技術の編集ページへ' }).click();
+  await page
+    .getByRole('link', { name: '気になる技術の編集ページへ' })
+    .first()
+    .click();
   await expect
     .soft(page.getByRole('heading', { name: '気になる技術編集' }))
     .toBeVisible();
@@ -117,7 +119,10 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
 
   // ! 削除
   // 15. 編集したスキルの削除アイコンをクリックすると削除(モーダル)ページに遷移
-  await page.getByRole('link', { name: '気になる技術の削除ページへ' }).click();
+  await page
+    .getByRole('link', { name: '気になる技術の削除ページへ' })
+    .first()
+    .click();
   // 16. 削除ページで「いいえ」を押下すると削除は実行されずスキルページにリダイレクト
   await page.getByRole('button', { name: 'いいえ' }).click();
   await expect.soft(page).toHaveURL('/skills');
@@ -125,7 +130,10 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
     .soft(page.getByRole('cell', { name: 'Nextjs-update', exact: true }))
     .toBeVisible();
   // 17. 削除ページで「はい」を押下すると削除が実行されてスキルページにリダイレクト
-  await page.getByRole('link', { name: '気になる技術の削除ページへ' }).click();
+  await page
+    .getByRole('link', { name: '気になる技術の削除ページへ' })
+    .first()
+    .click();
   await page.getByRole('button', { name: 'はい' }).click();
   await expect.soft(page).toHaveURL('/skills');
   // 18. 一覧表示に削除したデータがないことを確認
@@ -135,9 +143,4 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
   await expect
     .soft(page.getByText('https://nextjs.org/update'))
     .not.toBeVisible();
-  // 19. 「該当するデータが見つかりませんでした」のメッセージが表示されることを確認
-  await page
-    .locator('div')
-    .filter({ hasText: /^該当するデータが見つかりませんでした$/ })
-    .click();
 });
