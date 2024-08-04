@@ -1,11 +1,11 @@
 import { http } from '@/lib/http';
 
-import type { Skill } from '@prisma/client';
+import type { SkillWithRelations } from '../types';
 
 type GetSkillParams = {
   id: string;
 };
 
 export const getSkill = ({ id }: GetSkillParams) => {
-  return http<Skill>(`/api/skills/${id}`);
+  return http<SkillWithRelations>(`/api/skills/${id}`);
 };

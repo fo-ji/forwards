@@ -12,6 +12,9 @@ export async function GET(_: Request, { params }: { params: { sid: string } }) {
       id: params.sid,
       userId: session.user.id,
     },
+    include: {
+      articles: true,
+    },
   });
 
   return Response.json({ data });
