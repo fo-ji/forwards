@@ -1,6 +1,6 @@
 'use server';
 
-// import { revalidatePath } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 import { parseWithZod } from '@conform-to/zod';
 
@@ -29,7 +29,7 @@ export async function createArticle(_: unknown, formData: FormData) {
     await prisma.article.create({
       data: submission.value,
     });
-    // revalidatePath('/api/skills'); // todo キャッシュがそもそも効いてないので、見直し
+    revalidatePath(`/api/skills/${submission.value.skillId}`);
     return submission.reply();
   } catch (error) {
     throw error;

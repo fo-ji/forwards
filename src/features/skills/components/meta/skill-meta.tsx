@@ -14,11 +14,12 @@ import {
 } from '@/components/ui/card';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
+import { ArticlesList } from '@/features/articles';
 
-import type { Skill } from '@prisma/client';
+import type { SkillWithRelations } from '../../types';
 
 type SkillMetaProps = {
-  skill: Skill;
+  skill: SkillWithRelations;
 };
 
 export const SkillMeta = ({ skill }: SkillMetaProps) => {
@@ -47,12 +48,12 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
             </AccordionTrigger>
             <AccordionContent>
               <div className="pb-4 text-right">
-                <Button variant="secondary">
+                <Button variant="outline">
                   <Icon name="Plus" className="mr-2 size-4" />
                   プロジェクトを追加
                 </Button>
               </div>
-              <List />
+              {/* // todo <List /> */}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="articles">
@@ -66,13 +67,13 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
               <div className="pb-4 text-right">
                 <Link
                   href={`/skills/${skill.id}/articles/create`}
-                  variant="secondary"
+                  variant="outline"
                 >
                   <Icon name="Plus" className="mr-2 size-4" />
                   記事を追加
                 </Link>
               </div>
-              <List />
+              <ArticlesList articles={skill.articles} />
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="commands">
@@ -84,53 +85,16 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
             </AccordionTrigger>
             <AccordionContent>
               <div className="pb-4 text-right">
-                <Button variant="secondary">
+                <Button variant="outline">
                   <Icon name="Plus" className="mr-2 size-4" />
                   コマンドを追加
                 </Button>
               </div>
-              <List />
+              {/* // todo <List /> */}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </CardContent>
     </Card>
-  );
-};
-
-// todo 仮置
-const List = () => {
-  return (
-    <div>
-      {[
-        {
-          title: 'Your call has been confirmed.',
-          description: '1 hour ago',
-        },
-        {
-          title: 'You have a new message!',
-          description: '1 hour ago',
-        },
-        {
-          title: 'Your subscription is expiring soon!',
-          description: '2 hours ago',
-        },
-      ].map((notification, index) => (
-        <div
-          key={index}
-          className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
-        >
-          <span className="flex size-2 translate-y-1 rounded-full bg-primary" />
-          <div className="space-y-1">
-            <p className="text-sm font-medium leading-none">
-              {notification.title}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {notification.description}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
   );
 };

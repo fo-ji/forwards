@@ -12,6 +12,7 @@ import { expect, test } from '@playwright/test';
 // 5. スキル詳細ページにリダイレクトされることを確認
 
 // 一覧表示
+// 6. 新しく作成した記事が表示されることを確認
 
 // 詳細表示
 
@@ -50,6 +51,16 @@ test('記事一覧/新規作成/編集/削除', async ({ page }) => {
     .toBeVisible();
 
   // ! 一覧表示
+  // 6. 新しく作成した記事が表示されることを確認
+  await expect
+    .soft(page.getByLabel('記事').getByText('React', { exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('link', { name: 'https://ja.react.dev/' }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: '記事のメニュー' }))
+    .toBeVisible();
 
   // ! 編集
 
