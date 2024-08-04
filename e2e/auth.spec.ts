@@ -85,7 +85,7 @@ test('ユーザーの新規登録/ログアウト/ログイン', async ({ page }
   await page.getByLabel('パスワード').fill('Test12345!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
   await expect
-    .soft(page.getByText('システムエラーが発生しました'))
+    .soft(page.getByText('メールアドレスかパスワードが間違っています'))
     .toBeVisible();
   await expect.soft(page).toHaveURL('/login');
   // 10. 認証前）新規登録で作成済みのユーザー情報を入力してログインする
