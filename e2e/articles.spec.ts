@@ -14,9 +14,11 @@ import { expect, test } from '@playwright/test';
 // 一覧表示
 // 6. 新しく作成した記事が表示されることを確認
 
-// 詳細表示
-
 // 編集
+// 7. 新しく作成した記事の メニュー > 編集 をクリックすると編集ページ(モーダル)に遷移
+// 8. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+// 9. 編集ページで正しい値を入力してサブミット
+// 10. 一覧表示で変更が反映されていることを確認
 
 // 削除
 
@@ -63,6 +65,35 @@ test('記事一覧/新規作成/編集/削除', async ({ page }) => {
     .toBeVisible();
 
   // ! 編集
+  // 7. 新しく作成した記事の メニュー > 編集 をクリックすると編集ページ(モーダル)に遷移
+  await page.getByRole('button', { name: '記事のメニュー' }).click();
+  await page.getByRole('link', { name: '編集' }).click();
+  await expect
+    .soft(page.getByRole('heading', { name: '記事編集' }))
+    .toBeVisible();
+  // 8. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+  await page.getByLabel('名称').fill('');
+  await page.getByLabel('URL').fill('12345');
+  await page.getByRole('button', { name: '更新' }).click();
+  await expect.soft(page.getByText('必須項目です')).toBeVisible();
+  await expect
+    .soft(page.getByText('URLの形式で入力してください'))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('heading', { name: '記事編集' }))
+    .toBeVisible();
+  // 9. 編集ページで正しい値を入力してサブミット
+  await page.getByLabel('名称').fill('Next.js');
+  await page.getByLabel('URL').fill('https://nextjs.org/');
+  await page.getByRole('button', { name: '更新' }).click();
+  // 10. 一覧表示で変更が反映されていることを確認
+  await expect
+    .soft(page.getByRole('heading', { name: '気になる技術' }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByLabel('記事').getByText('Next.js', { exact: true }))
+    .toBeVisible();
+  await expect.soft(page.getByText('https://nextjs.org/')).toBeVisible();
 
   // ! 削除
 });
