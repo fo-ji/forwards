@@ -13,7 +13,11 @@ export async function GET(_: Request, { params }: { params: { sid: string } }) {
       userId: session.user.id,
     },
     include: {
-      articles: true,
+      articles: {
+        orderBy: {
+          updatedAt: 'desc',
+        },
+      },
     },
   });
 
