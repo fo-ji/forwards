@@ -80,7 +80,7 @@
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prisma": "^5.18.0",
-    "storybook": "^8.2.7",
+    "storybook": "^8.2.8",
     "tailwindcss": "^3.4.9",
     "ts-node": "^10.9.2",
     "typescript": "^5"
