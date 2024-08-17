@@ -1,7 +1,15 @@
 import type { ReactNode } from 'react';
 
-const Field = ({ children }: { children: ReactNode }) => {
-  return <div className="grid gap-2">{children}</div>;
+import { cn } from '@/lib/utils';
+
+const Field = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return <div className={cn('grid gap-2', className)}>{children}</div>;
 };
 
 type FieldErrorsProps = {

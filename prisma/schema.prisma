@@ -48,6 +48,7 @@ model Skill {
 
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   articles Article[]
+  Code     Code[]
 
   @@unique([userId, name])
 }
@@ -57,6 +58,17 @@ model Article {
   skillId   String
   name      String   @db.VarChar(255)
   url       String   @db.VarChar(2000)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  skill Skill @relation(fields: [skillId], references: [id], onDelete: Cascade)
+}
+
+model Code {
+  id        String   @id @default(cuid())
+  skillId   String
+  name      String   @db.VarChar(255)
+  block     String   @db.VarChar(2000)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

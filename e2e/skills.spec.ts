@@ -13,7 +13,7 @@ import { test, expect } from '@playwright/test';
 
 // 詳細表示
 // 7. 作成したスキル名をクリックして詳細ページに遷移
-// 8. 正しくname, url, プロジェクト, コマンド, 記事が表示されていることを確認
+// 8. 正しくname, url, プロジェクト, コード, 記事が表示されていることを確認
 // 9. サイドバーの「スキルアイコン」をクリックしてスキル一覧ページに遷移
 
 // 編集
@@ -64,7 +64,7 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
   // ! 詳細表示
   // 7. 作成したスキル名をクリックして詳細ページに遷移
   await page.getByRole('link', { name: 'Nextjs', exact: true }).click();
-  // 8. 正しくname, url, プロジェクト, コマンド, 記事が表示されていることを確認
+  // 8. 正しくname, url, プロジェクト, コード, 記事が表示されていることを確認
   await expect.soft(page.getByText('Nextjs', { exact: true })).toBeVisible();
   await expect
     .soft(page.getByText('https://nextjs.org/', { exact: true }))
@@ -76,9 +76,7 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
     .soft(page.getByRole('button', { name: 'プロジェクトを追加', exact: true }))
     .toBeVisible();
   await expect.soft(page.getByRole('button', { name: '記事' })).toBeVisible();
-  await expect
-    .soft(page.getByRole('button', { name: 'コマンド' }))
-    .toBeVisible();
+  await expect.soft(page.getByRole('button', { name: 'コード' })).toBeVisible();
   // 9. サイドバーの「スキルアイコン」をクリックしてスキル一覧ページに遷移
   await page.getByRole('link', { name: 'スキル一覧ページへ' }).click();
 

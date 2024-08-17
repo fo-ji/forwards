@@ -76,19 +76,22 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
               <ArticlesList articles={skill.articles} />
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="commands">
+          <AccordionItem value="codes">
             <AccordionTrigger>
               <div className="flex gap-2">
                 <Icon name="CodeXml" />
-                <span>コマンド</span>
+                <span>コード</span>
               </div>
             </AccordionTrigger>
             <AccordionContent>
               <div className="pb-4 text-right">
-                <Button variant="outline">
+                <Link
+                  href={`/skills/${skill.id}/codes/create`}
+                  variant="outline"
+                >
                   <Icon name="Plus" className="mr-2 size-4" />
-                  コマンドを追加
-                </Button>
+                  コードを追加
+                </Link>
               </div>
               {/* // todo <List /> */}
             </AccordionContent>
