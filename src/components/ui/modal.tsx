@@ -28,7 +28,7 @@ const Modal = ({ children }: { children: ReactNode }) => {
   return createPortal(
     <dialog
       ref={dialogRef}
-      className="relative flex max-h-[500px] w-4/5 max-w-lg flex-col items-center gap-2 rounded-lg border border-border bg-background p-5 backdrop:bg-black/60"
+      className="relative flex max-h-[640px] w-4/5 max-w-xl flex-col items-center gap-2 rounded-lg border border-border bg-background p-5 backdrop:bg-black/60"
       onClose={onDismiss}
     >
       <div className="w-full">{children}</div>
