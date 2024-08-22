@@ -11,6 +11,7 @@ import { ThemeProvider } from './theme-provider';
 import { Toaster } from './toaster';
 
 if (IS_BROWSER && !IS_PRODUCTION) {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const axe = require('@axe-core/react');
   axe(React, ReactDOM, 1000);
 }
