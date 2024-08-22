@@ -15,6 +15,7 @@ import {
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { ArticlesList } from '@/features/articles';
+import { CodesList } from '@/features/codes';
 
 import type { SkillWithRelations } from '../../types';
 
@@ -93,7 +94,7 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
                   コードを追加
                 </Link>
               </div>
-              {/* // todo <List /> */}
+              <CodesList codes={skill.codes} />
             </AccordionContent>
           </AccordionItem>
         </Accordion>
