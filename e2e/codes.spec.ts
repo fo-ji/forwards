@@ -53,16 +53,18 @@ test('コード一覧/新規作成/編集/削除', async ({ page }) => {
     .toBeVisible();
 
   // ! 一覧表示
-  // // 6. 新しく作成したコードが表示されることを確認
-  // await expect
-  //   .soft(page.getByLabel('記事').getByText('React', { exact: true }))
-  //   .toBeVisible();
-  // await expect
-  //   .soft(page.getByRole('link', { name: 'https://ja.react.dev/' }))
-  //   .toBeVisible();
-  // await expect
-  //   .soft(page.getByRole('button', { name: '記事のメニュー' }))
-  //   .toBeVisible();
+  // 6. 新しく作成したコードが表示されることを確認
+  await expect
+    .soft(page.getByLabel('コード').getByText('開発環境起動', { exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(
+      page.getByLabel('コード').getByText('$ yarn install', { exact: true }),
+    )
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: 'コードのメニュー' }))
+    .toBeVisible();
 
   // ! 編集
   // // 7. 新しく作成したコードの メニュー > 編集 をクリックすると編集ページ(モーダル)に遷移
