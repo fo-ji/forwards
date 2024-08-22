@@ -48,7 +48,7 @@ model Skill {
 
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   articles Article[]
-  Code     Code[]
+  codes    Code[]
 
   @@unique([userId, name])
 }

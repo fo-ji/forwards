@@ -18,6 +18,11 @@ export async function GET(_: Request, { params }: { params: { sid: string } }) {
           updatedAt: 'desc',
         },
       },
+      codes: {
+        orderBy: {
+          updatedAt: 'desc',
+        },
+      },
     },
   });
 
