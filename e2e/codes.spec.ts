@@ -102,25 +102,31 @@ test('コード一覧/新規作成/編集/削除', async ({ page }) => {
     .toBeVisible();
 
   // ! 削除
-  // // 11. 編集したコードの削除アイコンをクリックすると削除(モーダル)ページに遷移
-  // await page.getByRole('button', { name: '記事のメニュー' }).click();
-  // await page.getByRole('link', { name: '削除' }).click();
-  // await expect.soft(page.getByText('本当に削除しますか？')).toBeVisible();
-  // // 12. 削除ページで「いいえ」を押下すると削除は実行されずスキル詳細ページにリダイレクト
-  // await page.getByRole('button', { name: 'いいえ' }).click();
-  // await expect
-  //   .soft(page.getByRole('heading', { name: '気になる技術' }))
-  //   .toBeVisible();
-  // // 13. 削除ページで「はい」を押下すると削除が実行されてスキル詳細ページにリダイレクト
-  // await page.getByRole('button', { name: '記事のメニュー' }).click();
-  // await page.getByRole('link', { name: '削除' }).click();
-  // await page.getByRole('button', { name: 'はい' }).click();
-  // await expect
-  //   .soft(page.getByRole('heading', { name: '気になる技術' }))
-  //   .toBeVisible();
-  // // 14. 一覧表示に削除したデータがないことを確認
-  // await expect
-  //   .soft(page.getByLabel('記事').getByText('Next.js', { exact: true }))
-  //   .not.toBeVisible();
-  // await expect.soft(page.getByText('https://nextjs.org/')).not.toBeVisible();
+  // 11. 編集したコードの削除アイコンをクリックすると削除(モーダル)ページに遷移
+  await page.getByRole('button', { name: 'コードのメニュー' }).click();
+  await page.getByRole('link', { name: '削除' }).click();
+  await expect.soft(page.getByText('本当に削除しますか？')).toBeVisible();
+  // 12. 削除ページで「いいえ」を押下すると削除は実行されずスキル詳細ページにリダイレクト
+  await page.getByRole('button', { name: 'いいえ' }).click();
+  await expect
+    .soft(page.getByRole('heading', { name: '気になる技術' }))
+    .toBeVisible();
+  // 13. 削除ページで「はい」を押下すると削除が実行されてスキル詳細ページにリダイレクト
+  await page.getByRole('button', { name: 'コードのメニュー' }).click();
+  await page.getByRole('link', { name: '削除' }).click();
+  await page.getByRole('button', { name: 'はい' }).click();
+  await expect
+    .soft(page.getByRole('heading', { name: '気になる技術' }))
+    .toBeVisible();
+  // 14. 一覧表示に削除したデータがないことを確認
+  await expect
+    .soft(page.getByLabel('コード').getByText('検証環境起動', { exact: true }))
+    .not.toBeVisible();
+  await expect
+    .soft(
+      page
+        .getByLabel('コード')
+        .getByText('$ yarn add -D prettier', { exact: true }),
+    )
+    .not.toBeVisible();
 });
