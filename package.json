@@ -84,7 +84,7 @@
     "prettier": "^3.3.3",
     "prisma": "^5.19.1",
     "storybook": "^8.2.9",
-    "tailwindcss": "^3.4.10",
+    "tailwindcss": "^3.4.11",
     "ts-node": "^10.9.2",
     "typescript": "^5"
   }
