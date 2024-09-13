@@ -17,3 +17,8 @@ export type ParsedPageSearchParams = {
   sortDirection: SortDirection;
   [key: string]: string | number | undefined;
 };
+
+export type SelectOptions = {
+  label: string;
+  value: string;
+}[];

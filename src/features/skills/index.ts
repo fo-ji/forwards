@@ -2,6 +2,7 @@
 export * from './api/get-skill';
 export * from './api/get-skills';
 export * from './api/get-skills-count';
+export * from './api/get-skill-options';
 
 // components
 export * from './components/list/skills-list-container';
