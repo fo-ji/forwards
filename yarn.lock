@@ -20,19 +20,6 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@auth/core@0.34.2":
-  version "0.34.2"
-  resolved "https://registry.yarnpkg.com/@auth/core/-/core-0.34.2.tgz#645fd1f972842ca473d110a34a5a36838209bf10"
-  integrity sha512-KywHKRgLiF3l7PLyL73fjLSIBe1YNcA6sMeew4yMP6cfCWGXZrkkXd32AjRi1hlJ9nvovUBGZHvbn+LijO6ZeQ==
-  dependencies:
-    "@panva/hkdf" "^1.1.1"
-    "@types/cookie" "0.6.0"
-    cookie "0.6.0"
-    jose "^5.1.3"
-    oauth4webapi "^2.10.4"
-    preact "10.11.3"
-    preact-render-to-string "5.2.3"
-
 "@auth/core@0.35.0":
   version "0.35.0"
   resolved "https://registry.yarnpkg.com/@auth/core/-/core-0.35.0.tgz#2d2c20896c13ee40aa0fffe0bff613b180d1d16f"
@@ -46,12 +33,12 @@
     preact "10.11.3"
     preact-render-to-string "5.2.3"
 
-"@auth/prisma-adapter@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@auth/prisma-adapter/-/prisma-adapter-2.4.2.tgz#e1a30de0a3df2fbc6eda348b83b9338672a33b08"
-  integrity sha512-QQwnGYfDiyTcAxMVhTrim+lLFFA3TKq3nIrbPtGZXlkiuNQ5t0rUg//Km7Wv21pD5bxhy4aRPlfq7TdFKk3XIw==
+"@auth/prisma-adapter@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@auth/prisma-adapter/-/prisma-adapter-2.5.0.tgz#cccea5b69f8b843625794d7ae7a8f71b591e3e70"
+  integrity sha512-A+sd+mqV+7i9a5FcP9oZSIJTBHsidd5xA0abGSaAeek8OaA1LebbX20kjggFRIeP/UlKiQERXar/e1Q4mJjp/w==
   dependencies:
-    "@auth/core" "0.34.2"
+    "@auth/core" "0.35.0"
 
 "@axe-core/react@^4.10.0":
   version "4.10.0"
