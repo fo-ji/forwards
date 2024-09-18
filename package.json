@@ -61,7 +61,7 @@
     "@storybook/addon-essentials": "^8.3.0",
     "@storybook/addon-interactions": "^8.3.0",
     "@storybook/addon-links": "^8.3.1",
-    "@storybook/addon-onboarding": "^8.3.0",
+    "@storybook/addon-onboarding": "^8.3.1",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^8.3.1",
     "@storybook/nextjs": "^8.3.0",
