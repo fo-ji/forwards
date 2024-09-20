@@ -1103,12 +1103,17 @@
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.2.1.tgz#b64f9bb4259f05eec779152b7328cee1c51a9d8d"
   integrity sha512-/G9LDwxqSV23a3y8hdXNhZ9ilQZAKyYgtNozGWzTNu+Y/r7P3y3qQcF3lET6qwNJAVyzt32SCoiwfriv05gXtA==
 
-"@conform-to/react@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.2.1.tgz#938d655a2c1b0073660ae38cc339d4a5913e162f"
-  integrity sha512-eoqnfdo31n+Rmzb7R6dzPWtV62GcQOM2PnPIwTacqSRWmL3x8WPOWoQAHaWHLk6DvcGxpaD16hHA8+itrraxCw==
+"@conform-to/dom@1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.2.2.tgz#2c5d5b24d0275ef220075c6ec479f65d1a00ffbe"
+  integrity sha512-f05EClpNP31o6lX4LYmmLqgsiTOHdGfY7z2XXK6U6rRp+EtxrkUBdrFlIGsfkf7e9AFO19h3/Cb/cXHVd1k1FA==
+
+"@conform-to/react@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.2.2.tgz#f7db3a73670fdefac1ff20203c63272377e33cf6"
+  integrity sha512-1JBECb3NKi5/IlexaYLgnAxGJ55MRuO2sEQ10cJfUK2bfltNbTIQnYUDG6pU886A4lda/q6UH/adPsjiB/4Gkg==
   dependencies:
-    "@conform-to/dom" "1.2.1"
+    "@conform-to/dom" "1.2.2"
 
 "@conform-to/zod@^1.2.1":
   version "1.2.1"
@@ -2683,15 +2688,6 @@
   resolved "https://registry.yarnpkg.com/@storybook/icons/-/icons-1.2.10.tgz#d3d44912a3a88f3f04f77ce2c23a7e47e796f766"
   integrity sha512-310apKdDcjbbX2VSLWPwhEwAgjxTzVagrwucVZIdGPErwiAppX8KvBuWZgPo+rQLVrtH8S+pw1dbUwjcE6d7og==
 
-"@storybook/instrumenter@8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.3.0.tgz#2530af2956aa71b81ce4d7682d69a43793f70ff0"
-  integrity sha512-oJmX8jbNKbPBlNMItRvEoaVAJWX1u6jsqXdIcNRCXo3PDdVnunVYz8vVkG8mbL8Cp/cKlsuQk7YBZA4IM5mRgg==
-  dependencies:
-    "@storybook/global" "^5.0.0"
-    "@vitest/utils" "^2.0.5"
-    util "^0.12.4"
-
 "@storybook/instrumenter@8.3.1":
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.3.1.tgz#47f6539a443467489f56f4feacf32b52f37e61ef"
@@ -2831,21 +2827,6 @@
     ts-dedent "^2.0.0"
     type-fest "~2.19"
     util-deprecate "^1.0.2"
-
-"@storybook/test@8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.0.tgz#52ac7f779ee92e9fc318af95cb0dc17fb4d204b6"
-  integrity sha512-d8y8ST8YY/pSjTxBcWitKM7YbbupN8D0obVlciZRt6WW3o8WUz6iwMuzuJuiUVwtxiRtdKL9jygC5M+aaCpFYQ==
-  dependencies:
-    "@storybook/csf" "^0.1.11"
-    "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.3.0"
-    "@testing-library/dom" "10.4.0"
-    "@testing-library/jest-dom" "6.5.0"
-    "@testing-library/user-event" "14.5.2"
-    "@vitest/expect" "2.0.5"
-    "@vitest/spy" "2.0.5"
-    util "^0.12.4"
 
 "@storybook/test@8.3.1", "@storybook/test@^8.3.1":
   version "8.3.1"
