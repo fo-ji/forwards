@@ -2638,10 +2638,10 @@
     "@types/node" "^22.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/core@8.3.1":
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-8.3.1.tgz#8e991bdff670709de7b164c67cd9adcebe8b8d70"
-  integrity sha512-L8YTtUipcBvl4F8jFNnXU3NM1hnLwZ3Ge2l+SRVKUGoAZzdf/I8O/0eOeZ+3LM3PvDn8bC9x+qjhNyDgtT+ieQ==
+"@storybook/core@8.3.2":
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-8.3.2.tgz#b550730994168f7757fc71813b5bd15fd347b75f"
+  integrity sha512-DVXs9AZzXHUKEhi5hKQ4gmH2ODFFM9hmd3odnlqenIINxGynbRtAGzU8pMhjrTRSrnlLr1liGew1IcY+hwkFjQ==
   dependencies:
     "@storybook/csf" "^0.1.11"
     "@types/express" "^4.17.21"
@@ -10026,12 +10026,12 @@ stop-iteration-iterator@^1.0.0:
   dependencies:
     internal-slot "^1.0.4"
 
-storybook@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.3.1.tgz#4f52975bb0b7895eb4ad8125b37c0b3bba33b555"
-  integrity sha512-CYqt5KOpaTgb8OczNo2+EtMi8YNDPi4vNVebVlLDOroWxyulb8I7MIOH9gALczcIOb+TZUArPztjoa8rkXTaDQ==
+storybook@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.3.2.tgz#264315dd2c1df1136a3f55a8a8ad2be6988248c0"
+  integrity sha512-jfDPtoPTtXcQ4O82u6+VE0V8q05hnj9NdmTVJvUxab796FoEbhk07xFLynOopfd9h9i0D/jc5Sf4C+iMe1bhmA==
   dependencies:
-    "@storybook/core" "8.3.1"
+    "@storybook/core" "8.3.2"
 
 stream-browserify@^3.0.0:
   version "3.0.0"
