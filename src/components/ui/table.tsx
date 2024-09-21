@@ -142,7 +142,7 @@ const TableSortHead = React.forwardRef<
       )}
       {...props}
     >
-      <Link href={url} className="flex justify-start gap-1 p-0">
+      <Link href={url} className="flex justify-start gap-1 p-0 text-current">
         {children}
         {sortKey === searchParams.orderBy && (
           <Icon
