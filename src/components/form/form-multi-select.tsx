@@ -26,7 +26,7 @@ const FormMultiSelect = ({
         <input
           key={v}
           className="sr-only"
-          aria-hidden
+          // aria-hidden
           tabIndex={-1}
           value={v}
           name={`${meta.name}[${idx}]`}
