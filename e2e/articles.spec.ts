@@ -1,7 +1,6 @@
 import { expect, test } from '@playwright/test';
 
 // ! テストシナリオ
-
 // 事前準備
 // 1. スキルを新規で作成 & 詳細ページに遷移する
 
