@@ -1,11 +1,29 @@
 import { Suspense } from 'react';
 
+import { notFound } from 'next/navigation';
+
 import { PageLayout, PageTitle } from '@/components/layout/page-layout';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/components/ui/link';
 import { Loading } from '@/components/ui/loading';
+import {
+  ProjectsListContainer,
+  ProjectsListPageParams,
+  searchParamsProjectsListSchema,
+} from '@/features/projects';
 
-export default async function ProjectsListPage() {
+type ProjectsListPageProps = {
+  searchParams: ProjectsListPageParams;
+};
+
+export default async function ProjectsListPage({
+  searchParams,
+}: ProjectsListPageProps) {
+  const { data, success } =
+    searchParamsProjectsListSchema.safeParse(searchParams);
+
+  if (!success) notFound();
+
   return (
     <PageLayout>
       <PageTitle title="プロジェクト" />
@@ -23,7 +41,7 @@ export default async function ProjectsListPage() {
           </div>
         }
       >
-        {/* <SkillsListContainer {...data} /> */}
+        <ProjectsListContainer {...data} />
       </Suspense>
     </PageLayout>
   );

@@ -34,7 +34,7 @@ const FormSelect = ({
         defaultValue={meta.initialValue ?? ''}
         className="sr-only"
         ref={control.register}
-        aria-hidden
+        // aria-hidden
         tabIndex={-1}
         onFocus={() => {
           selectRef.current?.focus();
@@ -56,7 +56,7 @@ const FormSelect = ({
           }
         }}
       >
-        <SelectTrigger>
+        <SelectTrigger name={meta.name}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>
