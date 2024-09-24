@@ -10,7 +10,7 @@ const FormMarkdown = ({
   meta,
   ...props
 }: {
-  meta: FieldMetadata<string>;
+  meta: FieldMetadata<string | null>;
 } & ComponentProps<typeof Textarea>) => {
   return (
     <Tabs defaultValue="write">

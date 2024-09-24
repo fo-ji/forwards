@@ -30,7 +30,6 @@ const FormMultiSelect = ({
           tabIndex={-1}
           value={v}
           name={`${meta.name}[${idx}]`}
-          defaultValue={meta.initialValue as string[]}
           onChange={() => null}
           onFocus={() => {
             triggerRef.current?.focus();
@@ -43,6 +42,7 @@ const FormMultiSelect = ({
         defaultValue={meta.initialValue as string[]}
         options={options}
         key={meta.key}
+        name={meta.name}
       />
     </>
   );
