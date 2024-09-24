@@ -31,6 +31,7 @@ const FormSelect = ({
     <>
       <select
         name={meta.name}
+        aria-label={meta.name}
         defaultValue={meta.initialValue ?? ''}
         className="sr-only"
         ref={control.register}

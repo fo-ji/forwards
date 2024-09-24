@@ -9,7 +9,7 @@ const FormInput = ({
   type,
   ...props
 }: {
-  meta: FieldMetadata<string>;
+  meta: FieldMetadata<string | null>;
   type: Parameters<typeof getInputProps>[1]['type'];
 } & ComponentProps<typeof Input>) => {
   return (
