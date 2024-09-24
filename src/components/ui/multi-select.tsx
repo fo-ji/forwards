@@ -109,6 +109,7 @@ interface MultiSelectProps
    * Optional, can be used to add custom styles.
    */
   className?: string;
+  name?: string;
 }
 
 const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>(
@@ -124,6 +125,7 @@ const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>(
       modalPopover = false,
       // asChild = false,
       className,
+      name,
       ...props
     },
     ref,
@@ -194,6 +196,7 @@ const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>(
             ref={ref}
             {...props}
             onClick={handleTogglePopover}
+            aria-label={name}
             className={cn(
               'flex text-foreground w-full p-1 rounded-md border border-input min-h-10 h-auto items-center justify-between bg-inherit hover:bg-inherit focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
               className,
