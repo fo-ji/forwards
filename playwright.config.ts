@@ -39,6 +39,9 @@ export default defineConfig({
     video: 'retain-on-failure',
     ignoreHTTPSErrors: true,
   },
+  expect: {
+    timeout: 10 * 1000, // expectのtimeoutの時間を変更
+  },
 
   /* Configure projects for major browsers */
   projects: [

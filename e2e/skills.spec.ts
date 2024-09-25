@@ -69,6 +69,12 @@ test('スキル一覧/新規作成/詳細/編集/削除', async ({ page }) => {
   await expect
     .soft(page.getByText('https://nextjs.org/', { exact: true }))
     .toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: 'プロジェクトを追加', exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: 'プロジェクト', exact: true }))
+    .toBeVisible();
   await expect.soft(page.getByRole('button', { name: '記事' })).toBeVisible();
   await expect.soft(page.getByRole('button', { name: 'コード' })).toBeVisible();
   // 9. サイドバーの「スキルアイコン」をクリックしてスキル一覧ページに遷移
