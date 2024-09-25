@@ -20,6 +20,10 @@ import { expect, test } from '@playwright/test';
 // 10. 一覧表示で変更が反映されていることを確認
 
 // 削除
+// 15. 編集したプロジェクトの削除アイコンをクリックすると削除(モーダル)ページに遷移
+// 16. 削除ページで「いいえ」を押下すると削除は実行されずプロジェクトページにリダイレクト
+// 17. 削除ページで「はい」を押下すると削除が実行されてプロジェクトページにリダイレクト
+// 18. 一覧表示に削除したデータがないことを確認
 
 test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => {
   // ! 事前準備
@@ -132,4 +136,27 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     .toBeVisible();
 
   // ! 削除
+  // 15. 編集したプロジェクトの削除アイコンをクリックすると削除(モーダル)ページに遷移
+  await page
+    .getByRole('link', { name: 'プロジェクトの削除ページへ' })
+    .first()
+    .click();
+  // 16. 削除ページで「いいえ」を押下すると削除は実行されずプロジェクトページにリダイレクト
+  await page.getByRole('button', { name: 'いいえ' }).click();
+  await expect.soft(page).toHaveURL('/projects');
+  await expect
+    .soft(page.getByRole('cell', { name: 'プロジェクトB', exact: true }))
+    .toBeVisible();
+  // 17. 削除ページで「はい」を押下すると削除が実行されてプロジェクトページにリダイレクト
+  await page
+    .getByRole('link', { name: 'プロジェクトの削除ページへ' })
+    .first()
+    .click();
+  await page.getByRole('button', { name: 'はい' }).click();
+  await expect.soft(page).toHaveURL('/projects');
+  // 18. 一覧表示に削除したデータがないことを確認
+  await expect
+    .soft(page.getByRole('cell', { name: 'プロジェクトB', exact: true }))
+    .not.toBeVisible();
+  await expect.soft(page.getByText('https://nextjs.org/')).not.toBeVisible();
 });
