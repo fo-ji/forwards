@@ -13,11 +13,17 @@ import { expect, test } from '@playwright/test';
 // 一覧表示
 // 6. 新しく作成したプロジェクトが表示されることを確認
 
+// 詳細表示
+// 7. 作成したプロジェクト名をクリックして詳細ページに遷移
+// 8. 正しくname, status, url, skillsが表示されていることを確認
+// 9. 編集、削除ボタンがページ内に存在することを確認
+// 10. サイドバーの「プロジェクトアイコン」をクリックしてプロジェクト一覧ページに遷移
+
 // 編集
-// 7. 新しく作成したプロジェクトの メニュー > 編集 をクリックすると編集ページに遷移
-// 8. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
-// 9. 編集ページで正しい値を入力してサブミット
-// 10. 一覧表示で変更が反映されていることを確認
+// 11. 新しく作成したプロジェクトの メニュー > 編集 をクリックすると編集ページに遷移
+// 12. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+// 13. 編集ページで正しい値を入力してサブミット
+// 14. 一覧表示で変更が反映されていることを確認
 
 // 削除
 // 15. 編集したプロジェクトの削除アイコンをクリックすると削除(モーダル)ページに遷移
@@ -85,8 +91,37 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     )
     .toBeVisible();
 
+  // ! 詳細表示
+  // 7. 作成したプロジェクト名をクリックして詳細ページに遷移
+  await page.getByRole('link', { name: 'プロジェクトA', exact: true }).click();
+  // 8. 正しくname, status, url, skillsが表示されていることを確認
+  await expect
+    .soft(page.getByText('プロジェクトA', { exact: true }))
+    .toBeVisible();
+  await expect.soft(page.getByText('準備中', { exact: true })).toBeVisible();
+  await expect
+    .soft(page.getByText('http://localhost:3000', { exact: true }))
+    .toBeVisible();
+  await expect.soft(page.getByText('React.js', { exact: true })).toBeVisible();
+  await expect.soft(page.getByText('Nest.js', { exact: true })).toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: '気になるスキル', exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('button', { name: 'インストール手順' }))
+    .toBeVisible();
+  // 9. 編集、削除ボタンがページ内に存在することを確認
+  await expect
+    .soft(page.getByRole('link', { name: 'プロジェクトの編集ページへ' }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('link', { name: 'プロジェクトの削除ページへ' }))
+    .toBeVisible();
+  // 10. サイドバーの「プロジェクトアイコン」をクリックしてプロジェクト一覧ページに遷移
+  await page.getByRole('link', { name: 'プロジェクト一覧ページへ' }).click();
+
   // ! 編集
-  // 7. 新しく作成したプロジェクトの メニュー > 編集 をクリックすると編集ページに遷移
+  // 11. 新しく作成したプロジェクトの メニュー > 編集 をクリックすると編集ページに遷移
   await page
     .getByRole('link', { name: 'プロジェクトの編集ページへ' })
     .first()
@@ -94,7 +129,7 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
   await expect
     .soft(page.getByRole('heading', { name: 'プロジェクト編集' }))
     .toBeVisible();
-  // 8. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+  // 12. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
   await page.getByLabel('名称').fill('');
   await page.getByLabel('URL').fill('12345');
   await page.getByRole('button', { name: '更新' }).click();
@@ -105,7 +140,7 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
   await expect
     .soft(page.getByRole('heading', { name: 'プロジェクト編集' }))
     .toBeVisible();
-  // 9. 編集ページで正しい値を入力してサブミット
+  // 13. 編集ページで正しい値を入力してサブミット
   await page.getByLabel('名称').fill('プロジェクトB');
   await page.getByTestId('status').click();
   await page.getByLabel('進行中').click();
@@ -117,8 +152,7 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     .getByLabel('インストール手順')
     .fill('## setup\n- hoge\n- foo\nupdate');
   await page.getByRole('button', { name: '更新' }).click();
-  // 10. 一覧表示で変更が反映されていることを確認
-  await expect;
+  // 14. 一覧表示で変更が反映されていることを確認
   await expect
     .soft(page.getByRole('heading', { name: 'プロジェクト' }))
     .toBeVisible();
