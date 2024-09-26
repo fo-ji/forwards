@@ -1,6 +1,7 @@
 import { Status } from '@prisma/client';
 
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 import {
   PROJECT_STATUS_LABEL,
@@ -9,11 +10,18 @@ import {
 
 type ProjectStatusBadgeProps = {
   status: Status;
+  className?: string;
 };
 
-export const ProjectStatusBadge = ({ status }: ProjectStatusBadgeProps) => {
+export const ProjectStatusBadge = ({
+  status,
+  className,
+}: ProjectStatusBadgeProps) => {
   return (
-    <Badge variant={PROJECT_STATUS_BADGE_VARIANT[status]}>
+    <Badge
+      className={cn('w-fit', className)}
+      variant={PROJECT_STATUS_BADGE_VARIANT[status]}
+    >
       {PROJECT_STATUS_LABEL[status]}
     </Badge>
   );
