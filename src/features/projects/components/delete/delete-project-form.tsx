@@ -51,7 +51,7 @@ export const DeleteProjectForm = ({ defaultValue }: DeleteProjectFormProps) => {
 
   const onSuccess = useCallback(() => {
     toast({ description: 'プロジェクトを削除しました' });
-    router.back();
+    router.push('/projects');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
