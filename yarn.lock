@@ -20,19 +20,6 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@auth/core@0.35.2":
-  version "0.35.2"
-  resolved "https://registry.yarnpkg.com/@auth/core/-/core-0.35.2.tgz#a6362f7fed722122cb239054aaad426476b03227"
-  integrity sha512-4PSrmSkZNMNQEHq86jARBYqls/9G2ECGMJmlazXxkRpZWgtKMUBXF1HUPz82cxy3qFXZ9/HPEiGIEGtIvu4YGQ==
-  dependencies:
-    "@panva/hkdf" "^1.1.1"
-    "@types/cookie" "0.6.0"
-    cookie "0.6.0"
-    jose "^5.1.3"
-    oauth4webapi "^2.10.4"
-    preact "10.11.3"
-    preact-render-to-string "5.2.3"
-
 "@auth/core@0.35.3":
   version "0.35.3"
   resolved "https://registry.yarnpkg.com/@auth/core/-/core-0.35.3.tgz#d34a0f58dca1ec084d213900e87333fcb90b501b"
@@ -2514,14 +2501,14 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^8.3.3":
-  version "8.3.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.3.3.tgz#2ba7e3f2bd1e945c4e0c1e785fdaba7a3c2043ba"
-  integrity sha512-3w5tpCGYdF33wF44xEhTS3Zmcwd6nITtwy5q+PJvHCJAm3fpjzL3xrjtlHKDvXNwYacJPRCbWKn2QwtxZIdN0g==
+"@storybook/addon-interactions@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.3.4.tgz#81305449cd05d3827189eb79011a30a7a6be849c"
+  integrity sha512-ORxqe35wUmF7EDHo45mdDHiju3Ryk2pZ1vO9PyvW6ZItNlHt/IxAr7T/TysGejZ/eTBg6tMZR3ExGky3lTg/CQ==
   dependencies:
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.3.3"
-    "@storybook/test" "8.3.3"
+    "@storybook/instrumenter" "8.3.4"
+    "@storybook/test" "8.3.4"
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
@@ -2705,6 +2692,15 @@
     "@vitest/utils" "^2.0.5"
     util "^0.12.4"
 
+"@storybook/instrumenter@8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.3.4.tgz#fa1e513af5e243d8757bb6a77c33e317d90935c7"
+  integrity sha512-jVhfNOPekOyJmta0BTkQl9Z6rgRbFHlc0eV4z1oSrzaawSlc9TFzAeDCtCP57vg3FuBX8ydDYAvyZ7s4xPpLyg==
+  dependencies:
+    "@storybook/global" "^5.0.0"
+    "@vitest/utils" "^2.0.5"
+    util "^0.12.4"
+
 "@storybook/manager-api@^8.3.3":
   version "8.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/manager-api/-/manager-api-8.3.3.tgz#5518cc761264c9972732fcd9e025a7bc2fee7297"
@@ -2836,7 +2832,7 @@
     type-fest "~2.19"
     util-deprecate "^1.0.2"
 
-"@storybook/test@8.3.3", "@storybook/test@^8.3.1":
+"@storybook/test@8.3.3":
   version "8.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.3.tgz#2bf83f3ffc736b851c034e26d215dbb6da0e2a0d"
   integrity sha512-uZ8nMIovfI2ry989K2+cYAeEVD/3dpjj2+Rbmy7DiZWWVhFALfmqaTRkzZfShLmlH0TFv+rfcBPihGccBtw0FQ==
@@ -2844,6 +2840,21 @@
     "@storybook/csf" "^0.1.11"
     "@storybook/global" "^5.0.0"
     "@storybook/instrumenter" "8.3.3"
+    "@testing-library/dom" "10.4.0"
+    "@testing-library/jest-dom" "6.5.0"
+    "@testing-library/user-event" "14.5.2"
+    "@vitest/expect" "2.0.5"
+    "@vitest/spy" "2.0.5"
+    util "^0.12.4"
+
+"@storybook/test@8.3.4", "@storybook/test@^8.3.1":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.4.tgz#74306ba2f15607a74092e1d591d63afa222569b8"
+  integrity sha512-HRiUenitln8QPHu6DEWUg9s9cEoiGN79lMykzXzw9shaUvdEIhWCsh82YKtmB3GJPj6qcc6dZL/Aio8srxyGAg==
+  dependencies:
+    "@storybook/csf" "^0.1.11"
+    "@storybook/global" "^5.0.0"
+    "@storybook/instrumenter" "8.3.4"
     "@testing-library/dom" "10.4.0"
     "@testing-library/jest-dom" "6.5.0"
     "@testing-library/user-event" "14.5.2"
