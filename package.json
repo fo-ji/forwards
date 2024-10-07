@@ -59,7 +59,7 @@
     "@chromatic-com/storybook": "^2.0.2",
     "@playwright/test": "^1.47.2",
     "@storybook/addon-essentials": "^8.3.4",
-    "@storybook/addon-interactions": "^8.3.4",
+    "@storybook/addon-interactions": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
     "@storybook/addon-onboarding": "^8.3.5",
     "@storybook/addon-postcss": "^2.0.0",
