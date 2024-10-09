@@ -30,6 +30,13 @@ export async function GET(request: Request) {
     orderBy: {
       [orderBy]: sortDirection,
     },
+    include: {
+      projects: {
+        orderBy: {
+          updatedAt: 'desc',
+        },
+      },
+    },
   });
 
   return Response.json({ data });

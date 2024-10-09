@@ -26,14 +26,19 @@ export async function createSkill(_: unknown, formData: FormData) {
     });
   }
 
+  const { projectIds, ...values } = submission.value;
+
   try {
     await prisma.skill.create({
       data: {
-        ...submission.value,
+        ...values,
         userId: session.user.id,
+        projects: {
+          connect: projectIds?.map((id) => ({ id })),
+        },
       },
     });
-    revalidatePath('/api/skills'); // todo キャッシュがそもそも効いてないので、見直し
+    revalidatePath('/api/skills');
     return submission.reply();
   } catch (error) {
     if (

@@ -29,7 +29,8 @@ export async function editProject(_: unknown, formData: FormData) {
   try {
     await prisma.project.update({
       where: {
-        id: submission.value.id,
+        id,
+        userId: session.user.id,
       },
       data: {
         ...values,

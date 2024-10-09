@@ -26,18 +26,23 @@ export async function editSkill(_: unknown, formData: FormData) {
     });
   }
 
+  const { id, projectIds, ...values } = submission.value;
+
   try {
     await prisma.skill.update({
       where: {
-        id: submission.value.id,
+        id,
         userId: session.user.id,
       },
       data: {
-        name: submission.value.name,
-        url: submission.value.url,
+        ...values,
+        userId: session.user.id,
+        projects: {
+          set: projectIds?.map((id) => ({ id })),
+        },
       },
     });
-    revalidatePath('/api/skills'); // todo キャッシュがそもそも効いてないので、見直し
+    revalidatePath('/api/skills');
     return submission.reply();
   } catch (error) {
     if (
