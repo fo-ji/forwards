@@ -1,5 +1,6 @@
 // api
 export * from './api/get-project';
+export * from './api/get-project-options';
 
 // components
 export * from './components/create/create-project-form';

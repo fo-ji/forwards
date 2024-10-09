@@ -13,11 +13,13 @@ import {
   TableSortHead,
 } from '@/components/ui/table';
 
+import { SkillProjectsLinkGroup } from '../badge/skill-projects-link-group';
+
 import type { SearchParamsSkillsListType } from '../../schemas/get';
-import type { Skill } from '@prisma/client';
+import type { SkillWithProjects } from '../../types';
 
 type SkillsListProps = {
-  skills: Skill[];
+  skills: SkillWithProjects[];
 } & SearchParamsSkillsListType;
 
 export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
@@ -34,6 +36,7 @@ export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
           >
             スキル名
           </TableSortHead>
+          <TableHead>プロジェクト</TableHead>
           <TableHead>URL</TableHead>
           <TableSortHead
             className="w-24"
@@ -53,6 +56,9 @@ export const SkillsList = ({ skills, ...searchParams }: SkillsListProps) => {
               <Link href={`/skills/${skill.id}`}>
                 <span className="max-w-72 truncate">{skill.name}</span>
               </Link>
+            </TableCell>
+            <TableCell className="min-w-28 max-w-56">
+              <SkillProjectsLinkGroup projects={skill.projects} />
             </TableCell>
             <TableCell>
               <Link target="_blank" href={skill.url} className="p-0">

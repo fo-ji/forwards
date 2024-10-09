@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -16,6 +15,8 @@ import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { ArticlesList } from '@/features/articles';
 import { CodesList } from '@/features/codes';
+
+import { SkillProjectsLinkGroup } from '../badge/skill-projects-link-group';
 
 import type { SkillWithRelations } from '../../types';
 
@@ -48,13 +49,7 @@ export const SkillMeta = ({ skill }: SkillMetaProps) => {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              <div className="pb-4 text-right">
-                <Button variant="outline">
-                  <Icon name="Plus" className="mr-2 size-4" />
-                  プロジェクトを追加
-                </Button>
-              </div>
-              {/* // todo <List /> */}
+              <SkillProjectsLinkGroup projects={skill.projects} />
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="articles">

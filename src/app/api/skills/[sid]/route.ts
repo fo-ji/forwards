@@ -23,6 +23,11 @@ export async function GET(_: Request, { params }: { params: { sid: string } }) {
           updatedAt: 'desc',
         },
       },
+      projects: {
+        orderBy: {
+          updatedAt: 'desc',
+        },
+      },
     },
   });
 

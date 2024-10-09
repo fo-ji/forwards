@@ -51,7 +51,7 @@ export const DeleteSkillForm = ({ defaultValue }: DeleteSkillFormProps) => {
 
   const onSuccess = useCallback(() => {
     toast({ description: '気になるスキルを削除しました' });
-    router.back();
+    router.push('/skills');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

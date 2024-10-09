@@ -10,10 +10,12 @@ import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
+import { FormMultiSelect } from '@/components/form/form-multi-select';
 import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
+import type { SelectOptions } from '@/types';
 
 import { editSkill } from '../../actions/edit';
 import { editSKillSchema } from '../../schemas/edit';
@@ -38,10 +40,15 @@ type EditSkillFormProps = {
     id: string;
     name: string;
     url: string;
+    projectIds: string[];
   };
+  projectOptions?: SelectOptions;
 };
 
-export const EditSkillForm = ({ defaultValue }: EditSkillFormProps) => {
+export const EditSkillForm = ({
+  defaultValue,
+  projectOptions = [],
+}: EditSkillFormProps) => {
   const [lastResult, action] = useFormState(editSkill, undefined);
   const [form, fields] = useForm({
     id: 'edit-skill',
@@ -62,7 +69,7 @@ export const EditSkillForm = ({ defaultValue }: EditSkillFormProps) => {
 
   return (
     <form
-      className="grid gap-4"
+      className="grid gap-4 px-1"
       {...getFormProps(form)}
       action={action}
       noValidate
@@ -78,6 +85,11 @@ export const EditSkillForm = ({ defaultValue }: EditSkillFormProps) => {
         <Label htmlFor={fields.url.id}>URL</Label>
         <FormInput meta={fields.url} type="text" />
         <FieldErrors errors={fields.url.errors} />
+      </Field>
+      <Field>
+        <Label htmlFor={fields.projectIds.id}>プロジェクト</Label>
+        <FormMultiSelect meta={fields.projectIds} options={projectOptions} />
+        <FieldErrors errors={fields.projectIds.errors} />
       </Field>
       <SubmitButton />
       <FieldErrors errors={form.errors} />

@@ -10,10 +10,12 @@ import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
+import { FormMultiSelect } from '@/components/form/form-multi-select';
 import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
+import { SelectOptions } from '@/types';
 
 import { createSkill } from '../../actions/create';
 import { createSKillSchema } from '../../schemas/create';
@@ -33,7 +35,13 @@ const SubmitButton = () => {
   );
 };
 
-export const CreateSkillForm = () => {
+type CreateSkillFormProps = {
+  projectOptions?: SelectOptions;
+};
+
+export const CreateSkillForm = ({
+  projectOptions = [],
+}: CreateSkillFormProps) => {
   const [lastResult, action] = useFormState(createSkill, undefined);
   const [form, fields] = useForm({
     id: 'create-skill',
@@ -74,6 +82,11 @@ export const CreateSkillForm = () => {
         <Label htmlFor={fields.url.id}>URL</Label>
         <FormInput meta={fields.url} type="text" />
         <FieldErrors errors={fields.url.errors} />
+      </Field>
+      <Field>
+        <Label htmlFor={fields.projectIds.id}>プロジェクト</Label>
+        <FormMultiSelect meta={fields.projectIds} options={projectOptions} />
+        <FieldErrors errors={fields.projectIds.errors} />
       </Field>
       <SubmitButton />
       <FormSubmittedToast
