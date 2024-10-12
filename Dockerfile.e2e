@@ -6,8 +6,8 @@ COPY package.json ./
 
 ENV NODE_ENV=test
 
-RUN yarn install --frozen-lockfile
-
-RUN yarn playwright install
+RUN yarn install --frozen-lockfile && \
+    yarn playwright install && \
+    yarn cache clean
 
 COPY . .
