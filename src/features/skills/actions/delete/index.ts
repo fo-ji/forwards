@@ -32,7 +32,7 @@ export async function deleteSkill(_: unknown, formData: FormData) {
         userId: session.user.id,
       },
     });
-    revalidatePath('/api/skills'); // todo キャッシュがそもそも効いてないので、見直し
+    revalidatePath('/api/skills');
     return submission.reply();
   } catch (error) {
     throw error;
