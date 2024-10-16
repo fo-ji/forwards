@@ -68,7 +68,7 @@ export const CreateSkillForm = ({
 
   return (
     <form
-      className="grid gap-4"
+      className="grid gap-4 px-1"
       {...getFormProps(form)}
       action={action}
       noValidate
