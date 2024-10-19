@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export const SkillMetaSkelton = () => {
   return (
-    <Card className="mt-12">
+    <Card>
       <CardHeader>
         <Skeleton className="h-7 w-[120px]" />
         <Skeleton className="h-4 w-[240px]" />

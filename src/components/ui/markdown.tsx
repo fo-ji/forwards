@@ -13,7 +13,7 @@ const Markdown = ({ value, className }: MarkdownProps) => {
   return (
     <ReactMarkdown
       className={cn(
-        'h-[158px] max-h-[158px] sm:min-h-[258px] whitespace-pre-wrap text-sm [overflow-wrap:anywhere]',
+        'min-h-[158px] whitespace-pre-wrap text-sm [overflow-wrap:anywhere]',
         'prose prose-sm dark:prose-invert',
         'prose-headings:m-0 prose-headings:border-l-4 prose-headings:pl-2',
         'prose-p:m-0',
