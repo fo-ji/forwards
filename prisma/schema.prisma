@@ -34,9 +34,10 @@ model User {
   password      String?
   image         String?
 
-  accounts Account[]
-  skills   Skill[]
-  projects Project[]
+  accounts  Account[]
+  skills    Skill[]
+  projects  Project[]
+  templates Template[]
 }
 
 model Skill {
@@ -47,10 +48,11 @@ model Skill {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  articles Article[]
-  codes    Code[]
-  projects Project[]
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  articles  Article[]
+  codes     Code[]
+  projects  Project[]
+  templates Template[]
 
   @@unique([userId, name])
 }
@@ -89,6 +91,18 @@ model Project {
   name         String   @db.VarChar(255)
   status       Status   @default(READY)
   url          String?  @db.VarChar(2000)
+  installation String?  @db.VarChar(3000)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skills Skill[]
+}
+
+model Template {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String   @db.VarChar(255)
   installation String?  @db.VarChar(3000)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

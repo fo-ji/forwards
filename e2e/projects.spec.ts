@@ -2,13 +2,13 @@ import { expect, test } from '@playwright/test';
 
 // ! テストシナリオ
 // 事前準備
-// 1. スキル(React.js, Nest.js)を2件新規で作成する
+// 1. スキル(Ruby, PHP)を2件新規で作成する
 
 // 新規作成
 // 2. 新規作成ページに遷移
 // 3. 新規作成ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
 // 4. 新規作成ページで正しい値を入力してサブミット
-// 5. 記事の作成が成功したことをトーストで表示
+// 5. プロジェクトの作成が成功したことをトーストで表示
 
 // 一覧表示
 // 6. 新しく作成したプロジェクトが表示されることを確認
@@ -33,15 +33,15 @@ import { expect, test } from '@playwright/test';
 
 test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => {
   // ! 事前準備
-  // 1. スキル(React.js, Nest.js)を2件新規で作成する
+  // 1. スキル(Ruby, PHP)を2件新規で作成する
   await page.goto('/skills');
   await page.getByRole('link', { name: '新規作成' }).click();
-  await page.getByLabel('名称').fill('React.js');
-  await page.getByLabel('URL').fill('https://ja.react.dev/');
+  await page.getByLabel('名称').fill('Ruby');
+  await page.getByLabel('URL').fill('https://www.ruby-lang.org/ja/');
   await page.getByRole('button', { name: '新規登録' }).click();
   await page.getByRole('link', { name: '新規作成' }).click();
-  await page.getByLabel('名称').fill('Nest.js');
-  await page.getByLabel('URL').fill('https://nestjs.com/');
+  await page.getByLabel('名称').fill('PHP');
+  await page.getByLabel('URL').fill('https://www.php.net/manual/ja/index.php');
   await page.getByRole('button', { name: '新規登録' }).click();
 
   // ! 新規作成
@@ -60,13 +60,13 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     .filter({ hasText: /^スキル$/ })
     .getByRole('button')
     .click();
-  await page.getByRole('option', { name: 'React.js' }).click();
-  await page.getByRole('option', { name: 'Nest.js' }).click();
+  await page.getByRole('option', { name: 'Ruby' }).click();
+  await page.getByRole('option', { name: 'PHP' }).click();
   await page.getByRole('option', { name: '閉じる' }).click();
   await page.getByLabel('URL').fill('http://localhost:3000');
   await page.getByLabel('インストール手順').fill('## setup\n- hoge\n- foo');
   await page.getByRole('button', { name: '新規登録' }).click();
-  // 5. 記事の作成が成功したことをトーストで表示
+  // 5. プロジェクトの作成が成功したことをトーストで表示
   await expect
     .soft(page.getByText('プロジェクトを登録しました', { exact: true }))
     .toBeVisible();
@@ -83,7 +83,7 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     .soft(page.getByRole('cell', { name: 'プロジェクトA', exact: true }))
     .toBeVisible();
   await expect
-    .soft(page.getByRole('cell', { name: 'React.js Nest.js', exact: true }))
+    .soft(page.getByRole('cell', { name: 'Ruby PHP', exact: true }))
     .toBeVisible();
   await expect
     .soft(
@@ -102,8 +102,8 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
   await expect
     .soft(page.getByText('http://localhost:3000', { exact: true }))
     .toBeVisible();
-  await expect.soft(page.getByText('React.js', { exact: true })).toBeVisible();
-  await expect.soft(page.getByText('Nest.js', { exact: true })).toBeVisible();
+  await expect.soft(page.getByText('Ruby', { exact: true })).toBeVisible();
+  await expect.soft(page.getByText('PHP', { exact: true })).toBeVisible();
   await expect
     .soft(page.getByRole('button', { name: '気になるスキル', exact: true }))
     .toBeVisible();
@@ -163,7 +163,7 @@ test('プロジェクト一覧/新規作成/編集/削除', async ({ page }) => 
     .soft(page.getByRole('cell', { name: 'プロジェクトB', exact: true }))
     .toBeVisible();
   await expect
-    .soft(page.getByRole('cell', { name: 'React.js Nest.js', exact: true }))
+    .soft(page.getByRole('cell', { name: 'Ruby PHP', exact: true }))
     .not.toBeVisible();
   await expect
     .soft(page.getByRole('cell', { name: 'https://nextjs.org/', exact: true }))

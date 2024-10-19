@@ -37,7 +37,7 @@ $ yarn test:e2e
 
 ### PlaywrightCodeGen は Mac で実行する
 
-**※ dockerンテナ内での実行は不可**
+**※ dockerコンテナー内での実行は不可**
 
 ```
 $ docker compose -f compose.e2e.yaml up
