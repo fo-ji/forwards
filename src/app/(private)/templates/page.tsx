@@ -1,9 +1,18 @@
-import { PageLayout } from '@/components/layout/page-layout';
+import { PageLayout, PageTitle } from '@/components/layout/page-layout';
+import { Button } from '@/components/ui/button';
+import { Link } from '@/components/ui/link';
 
 export default async function TemplatesListPage() {
   return (
     <PageLayout>
-      <h1 className="text-xl">Templates（テンプレート一覧）</h1>
+      <PageTitle title="テンプレート" />
+      <div className="text-right">
+        <Button asChild>
+          <Link href="/templates/create" variant="default" scroll={false}>
+            新規作成
+          </Link>
+        </Button>
+      </div>
     </PageLayout>
   );
 }
