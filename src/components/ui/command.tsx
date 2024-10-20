@@ -2,7 +2,9 @@
 
 import * as React from 'react';
 
+// eslint-disable-next-line no-restricted-imports
 import { type DialogProps } from '@radix-ui/react-dialog';
+// eslint-disable-next-line no-restricted-imports
 import { Command as CommandPrimitive } from 'cmdk';
 
 import { Dialog, DialogContent } from '@/components/ui/dialog';

@@ -23,7 +23,25 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
-        patterns: ['@/features/*/*'],
+        paths: [
+          {
+            name: 'cmdk',
+            importNames: ['Command'],
+            message:
+              "共通コンポーネントの '@/components/command' を使ってください。",
+          },
+        ],
+        patterns: [
+          {
+            group: ['@/features/*/*'],
+            message: 'index.ts から明示的にエクスポートしてください。',
+          },
+          {
+            group: ['@radix-ui/*'],
+            message:
+              "共通コンポーネントの '@/components/ui/*' を使ってください。",
+          },
+        ],
       },
     ],
     'import/no-cycle': 'error',

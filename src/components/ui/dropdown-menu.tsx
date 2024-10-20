@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+// eslint-disable-next-line no-restricted-imports
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '@/lib/utils';

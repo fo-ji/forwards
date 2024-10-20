@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+// eslint-disable-next-line no-restricted-imports
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 import { cn } from '@/lib/utils';
