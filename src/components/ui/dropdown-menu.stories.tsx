@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
-
 import { Button } from './button';
 import {
   DropdownMenu,
@@ -22,6 +20,8 @@ import {
 } from './dropdown-menu';
 import { Icon } from './icon';
 
+// eslint-disable-next-line no-restricted-imports
+import type { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

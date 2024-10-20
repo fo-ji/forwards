@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+// eslint-disable-next-line no-restricted-imports
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 
 import { cn } from '@/lib/utils';
