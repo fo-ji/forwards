@@ -61,7 +61,7 @@
     "@playwright/test": "^1.48.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.6",
-    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-links": "^8.3.6",
     "@storybook/addon-onboarding": "^8.3.5",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^8.3.5",
