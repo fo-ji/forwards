@@ -10,6 +10,9 @@ import { expect, test } from '@playwright/test';
 // 4. 新規作成ページで正しい値を入力してサブミット
 // 5. テンプレートの作成が成功したことをトーストで表示
 
+// 一覧表示
+// 6. 新しく作成したテンプレートが表示されることを確認
+
 test('テンプレート一覧/新規作成/編集/削除', async ({ page }) => {
   // ! 事前準備
   // 1. スキル(Prisma, SWR)を2件新規で作成する
@@ -45,5 +48,17 @@ test('テンプレート一覧/新規作成/編集/削除', async ({ page }) => 
   // 5. テンプレートの作成が成功したことをトーストで表示
   await expect
     .soft(page.getByText('テンプレートを登録しました', { exact: true }))
+    .toBeVisible();
+
+  // ! 一覧表示
+  // 6. 新しく作成したテンプレートが表示されることを確認
+  await expect
+    .soft(page.getByRole('heading', { name: 'テンプレート' }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('cell', { name: 'テンプレートA', exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('cell', { name: 'Prisma SWR', exact: true }))
     .toBeVisible();
 });

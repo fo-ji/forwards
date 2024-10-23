@@ -109,3 +109,19 @@ test('アクセシビリティテスト - テンプレート一覧ページ', as
 
   expect(results.violations.length).toBe(0);
 });
+
+test('アクセシビリティテスト - テンプレート新規作成ページ', async ({
+  page,
+}) => {
+  await page.goto('/templates/create');
+
+  const results = await new AxeBuilder({ page })
+    .disableRules(['color-contrast'])
+    .analyze();
+
+  results.violations.forEach((violation) => {
+    console.log(violation);
+  });
+
+  expect(results.violations.length).toBe(0);
+});
