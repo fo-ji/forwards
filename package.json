@@ -58,7 +58,7 @@
     "@axe-core/playwright": "^4.10.0",
     "@axe-core/react": "^4.10.0",
     "@chromatic-com/storybook": "^3.1.0",
-    "@playwright/test": "^1.48.1",
+    "@playwright/test": "^1.48.2",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
