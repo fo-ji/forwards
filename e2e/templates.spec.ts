@@ -13,6 +13,15 @@ import { expect, test } from '@playwright/test';
 // 一覧表示
 // 6. 新しく作成したテンプレートが表示されることを確認
 
+// 詳細表示
+// todo 7 ~ 10
+
+// 編集
+// 11. 新しく作成したテンプレートの メニュー > 編集 をクリックすると編集ページに遷移
+// 12. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+// 13. 編集ページで正しい値を入力してサブミット
+// 14. 一覧表示で変更が反映されていることを確認
+
 test('テンプレート一覧/新規作成/編集/削除', async ({ page }) => {
   // ! 事前準備
   // 1. スキル(Prisma, SWR)を2件新規で作成する
@@ -61,4 +70,43 @@ test('テンプレート一覧/新規作成/編集/削除', async ({ page }) => 
   await expect
     .soft(page.getByRole('cell', { name: 'Prisma SWR', exact: true }))
     .toBeVisible();
+
+  // ! 詳細表示
+  // todo 7 ~ 10
+
+  // ! 編集
+  // 11. 新しく作成したテンプレートの メニュー > 編集 をクリックすると編集ページに遷移
+  await page
+    .getByRole('link', { name: 'テンプレートの編集ページへ' })
+    .first()
+    .click();
+  await expect
+    .soft(page.getByRole('heading', { name: 'テンプレート編集' }))
+    .toBeVisible();
+  // 12. 編集ページで不正な値を入力してエラーメッセージ確認とサブミットできないことを確認
+  await page.getByLabel('名称').fill('');
+  await page.getByRole('button', { name: '更新' }).click();
+  await expect.soft(page.getByText('必須項目です')).toBeVisible();
+  await expect
+    .soft(page.getByRole('heading', { name: 'テンプレート編集' }))
+    .toBeVisible();
+  // 13. 編集ページで正しい値を入力してサブミット
+  await page.getByLabel('名称').fill('テンプレートB');
+  await page.getByLabel('skillIds').click();
+  await page.getByRole('option', { name: '解除' }).click();
+  await page.getByRole('option', { name: '閉じる' }).click();
+  await page
+    .getByLabel('インストール手順')
+    .fill('## setup\n- hoge\n- foo\nupdate');
+  await page.getByRole('button', { name: '更新' }).click();
+  // 14. 一覧表示で変更が反映されていることを確認
+  await expect
+    .soft(page.getByRole('heading', { name: 'テンプレート' }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('cell', { name: 'テンプレートB', exact: true }))
+    .toBeVisible();
+  await expect
+    .soft(page.getByRole('cell', { name: 'Prisma SWR', exact: true }))
+    .not.toBeVisible();
 });
