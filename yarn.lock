@@ -1094,10 +1094,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chromatic-com/storybook@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-3.2.0.tgz#74fa930911e2ceda9619fc0a717c907859d56711"
-  integrity sha512-gnD29KvZ1yeAYNeo8PdpZLE94W6YynyIuqZ1+mFIhDKcSGf84jllqt2sXtwzXodrT38NWlM5kijTS9Hpo0Pf9w==
+"@chromatic-com/storybook@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-3.2.1.tgz#c567d4348d1f58268007cd2f9e4fce84f597c3f6"
+  integrity sha512-ldFF/JIpmgI911AhWJeLlSSwOgn51MaUFyRA8kLPzkS7lxaMQ5mt33t778llotHg+icWE1AG0ANvI4ZC1PRWzw==
   dependencies:
     "@storybook/channels" "^8.3.0"
     "@storybook/telemetry" "^8.3.0"
