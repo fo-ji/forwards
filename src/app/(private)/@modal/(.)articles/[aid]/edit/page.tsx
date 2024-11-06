@@ -8,13 +8,14 @@ import {
 } from '@/features/articles';
 
 type ArticleEditModalPageProps = {
-  params: { aid: string };
+  params: Promise<{ aid: string }>;
 };
 
 export default async function ArticleEditModalPage({
   params,
 }: ArticleEditModalPageProps) {
-  const { data, success } = paramsArticleSchema.safeParse(params);
+  const { aid } = await params;
+  const { data, success } = paramsArticleSchema.safeParse({ aid });
   if (!data || !success) notFound();
 
   const article = await getArticle({ id: data.aid });

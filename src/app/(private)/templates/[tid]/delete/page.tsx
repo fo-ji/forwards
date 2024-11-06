@@ -9,13 +9,14 @@ import {
 import { DeleteTemplateForm, paramsTemplateSchema } from '@/features/templates';
 
 type TemplateDeletePageProps = {
-  params: { tid: string };
+  params: Promise<{ tid: string }>;
 };
 
 export default async function TemplateDeletePage({
   params,
 }: TemplateDeletePageProps) {
-  const { data, success } = paramsTemplateSchema.safeParse(params);
+  const { tid } = await params;
+  const { data, success } = paramsTemplateSchema.safeParse({ tid });
   if (!data || !success) notFound();
 
   return (

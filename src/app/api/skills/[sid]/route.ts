@@ -1,7 +1,11 @@
 import { auth } from '@/lib/next-auth/auth';
 import prisma from '@/lib/prisma';
 
-export async function GET(_: Request, { params }: { params: { sid: string } }) {
+export async function GET(
+  _: Request,
+  { params }: { params: Promise<{ sid: string }> },
+) {
+  const { sid } = await params;
   const session = await auth();
   if (!session || !session.user) {
     return new Response(null, { status: 401 });
@@ -9,7 +13,7 @@ export async function GET(_: Request, { params }: { params: { sid: string } }) {
 
   const data = await prisma.skill.findUnique({
     where: {
-      id: params.sid,
+      id: sid,
       userId: session.user.id,
     },
     include: {

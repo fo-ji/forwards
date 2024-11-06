@@ -8,11 +8,12 @@ import {
 import { EditCodeForm, getCode, paramsCodeSchema } from '@/features/codes';
 
 type CodeEditPageProps = {
-  params: { aid: string };
+  params: Promise<{ aid: string }>;
 };
 
 export default async function CodeEditPage({ params }: CodeEditPageProps) {
-  const { data, success } = paramsCodeSchema.safeParse(params);
+  const { aid } = await params;
+  const { data, success } = paramsCodeSchema.safeParse({ aid });
   if (!data || !success) notFound();
 
   const code = await getCode({ id: data.cid });

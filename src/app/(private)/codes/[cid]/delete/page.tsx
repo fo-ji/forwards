@@ -9,11 +9,12 @@ import {
 import { DeleteCodeForm, paramsCodeSchema } from '@/features/codes';
 
 type CodeDeletePageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function CodeDeletePage({ params }: CodeDeletePageProps) {
-  const { data, success } = paramsCodeSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsCodeSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

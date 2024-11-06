@@ -9,11 +9,12 @@ import { getProjectOptions } from '@/features/projects';
 import { EditSkillForm, getSkill, paramsSkillSchema } from '@/features/skills';
 
 type SkillEditPageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function SkillEditPage({ params }: SkillEditPageProps) {
-  const { data, success } = paramsSkillSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsSkillSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   const [skill, projectOptions] = await Promise.all([

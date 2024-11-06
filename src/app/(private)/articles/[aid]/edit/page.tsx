@@ -12,13 +12,14 @@ import {
 } from '@/features/articles';
 
 type ArticleEditPageProps = {
-  params: { aid: string };
+  params: Promise<{ aid: string }>;
 };
 
 export default async function ArticleEditPage({
   params,
 }: ArticleEditPageProps) {
-  const { data, success } = paramsArticleSchema.safeParse(params);
+  const { aid } = await params;
+  const { data, success } = paramsArticleSchema.safeParse({ aid });
   if (!data || !success) notFound();
 
   const article = await getArticle({ id: data.aid });

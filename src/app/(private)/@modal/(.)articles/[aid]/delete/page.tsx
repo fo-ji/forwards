@@ -4,13 +4,14 @@ import { Modal, ModalDescription, ModalTitle } from '@/components/ui/modal';
 import { DeleteArticleForm, paramsArticleSchema } from '@/features/articles';
 
 type ArticleDeleteModalPageProps = {
-  params: { aid: string };
+  params: Promise<{ aid: string }>;
 };
 
 export default async function ArticleDeleteModalPage({
   params,
 }: ArticleDeleteModalPageProps) {
-  const { data, success } = paramsArticleSchema.safeParse(params);
+  const { aid } = await params;
+  const { data, success } = paramsArticleSchema.safeParse({ aid });
   if (!data || !success) notFound();
 
   return (

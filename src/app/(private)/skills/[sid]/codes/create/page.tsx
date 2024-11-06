@@ -9,11 +9,12 @@ import { CreateCodeForm } from '@/features/codes';
 import { paramsSkillSchema } from '@/features/skills';
 
 type CodeCreatePageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function CodeCreatePage({ params }: CodeCreatePageProps) {
-  const { data, success } = paramsSkillSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsSkillSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

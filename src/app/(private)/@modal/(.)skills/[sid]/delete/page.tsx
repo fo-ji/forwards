@@ -4,13 +4,14 @@ import { Modal, ModalDescription, ModalTitle } from '@/components/ui/modal';
 import { DeleteSkillForm, paramsSkillSchema } from '@/features/skills';
 
 type SkillDeleteModalPageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function SkillDeleteModalPage({
   params,
 }: SkillDeleteModalPageProps) {
-  const { data, success } = paramsSkillSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsSkillSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

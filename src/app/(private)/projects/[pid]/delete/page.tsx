@@ -9,13 +9,14 @@ import {
 import { DeleteProjectForm, paramsProjectSchema } from '@/features/projects';
 
 type ProjectDeletePageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function ProjectDeletePage({
   params,
 }: ProjectDeletePageProps) {
-  const { data, success } = paramsProjectSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsProjectSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

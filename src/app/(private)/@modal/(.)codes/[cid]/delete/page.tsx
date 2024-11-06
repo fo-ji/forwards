@@ -4,13 +4,14 @@ import { Modal, ModalDescription, ModalTitle } from '@/components/ui/modal';
 import { DeleteCodeForm, paramsCodeSchema } from '@/features/codes';
 
 type CodeDeleteModalPageProps = {
-  params: { cid: string };
+  params: Promise<{ cid: string }>;
 };
 
 export default async function CodeDeleteModalPage({
   params,
 }: CodeDeleteModalPageProps) {
-  const { data, success } = paramsCodeSchema.safeParse(params);
+  const { cid } = await params;
+  const { data, success } = paramsCodeSchema.safeParse({ cid });
   if (!data || !success) notFound();
 
   return (

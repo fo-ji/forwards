@@ -13,13 +13,14 @@ import {
 import { getSkillOptions } from '@/features/skills';
 
 type ProjectEditPageProps = {
-  params: { pid: string };
+  params: Promise<{ pid: string }>;
 };
 
 export default async function ProjectEditPage({
   params,
 }: ProjectEditPageProps) {
-  const { data, success } = paramsProjectSchema.safeParse(params);
+  const { pid } = await params;
+  const { data, success } = paramsProjectSchema.safeParse({ pid });
   if (!data || !success) notFound();
 
   const [project, skillOptions] = await Promise.all([

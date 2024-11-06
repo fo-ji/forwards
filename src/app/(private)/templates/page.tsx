@@ -13,14 +13,20 @@ import {
 } from '@/features/templates';
 
 type TemplatesListPageProps = {
-  searchParams: TemplatesListPageParams;
+  searchParams: Promise<TemplatesListPageParams>;
 };
 
 export default async function TemplatesListPage({
   searchParams,
 }: TemplatesListPageProps) {
-  const { data, success } =
-    searchParamsTemplatesListSchema.safeParse(searchParams);
+  const { name, page, pageSize, orderBy, sortDirection } = await searchParams;
+  const { data, success } = searchParamsTemplatesListSchema.safeParse({
+    name,
+    page,
+    pageSize,
+    orderBy,
+    sortDirection,
+  });
 
   if (!success) notFound();
 
