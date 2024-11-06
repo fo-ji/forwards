@@ -5,13 +5,14 @@ import { CreateCodeForm } from '@/features/codes';
 import { paramsSkillSchema } from '@/features/skills';
 
 type CodeCreateModalPageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function CodeCreateModalPage({
   params,
 }: CodeCreateModalPageProps) {
-  const { data, success } = paramsSkillSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsSkillSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

@@ -9,13 +9,14 @@ import {
 import { DeleteSkillForm, paramsSkillSchema } from '@/features/skills';
 
 type SkillDeletePageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function SkillDeletePage({
   params,
 }: SkillDeletePageProps) {
-  const { data, success } = paramsSkillSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsSkillSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

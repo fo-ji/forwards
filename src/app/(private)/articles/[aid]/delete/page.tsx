@@ -9,13 +9,14 @@ import {
 import { DeleteArticleForm, paramsArticleSchema } from '@/features/articles';
 
 type ArticleDeletePageProps = {
-  params: { sid: string };
+  params: Promise<{ sid: string }>;
 };
 
 export default async function ArticleDeletePage({
   params,
 }: ArticleDeletePageProps) {
-  const { data, success } = paramsArticleSchema.safeParse(params);
+  const { sid } = await params;
+  const { data, success } = paramsArticleSchema.safeParse({ sid });
   if (!data || !success) notFound();
 
   return (

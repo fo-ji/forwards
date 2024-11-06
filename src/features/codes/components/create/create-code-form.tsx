@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -19,27 +18,12 @@ import { toast } from '@/hooks/use-toast';
 import { createCode } from '../../actions/create';
 import { createCodeSchema } from '../../schemas/create';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="create-code"
-      disabled={pending}
-      className="w-full"
-    >
-      新規登録
-    </Button>
-  );
-};
-
 type CreateCodeFormProps = {
   skillId: string;
 };
 
 export const CreateCodeForm = ({ skillId }: CreateCodeFormProps) => {
-  const [lastResult, action] = useFormState(createCode, undefined);
+  const [lastResult, action, isPending] = useActionState(createCode, undefined);
   const [form, fields] = useForm({
     id: 'create-code',
     lastResult,
@@ -86,7 +70,14 @@ export const CreateCodeForm = ({ skillId }: CreateCodeFormProps) => {
         <FormMarkdown meta={fields.block} />
         <FieldErrors errors={fields.block.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="create-code"
+        disabled={isPending}
+        className="w-full"
+      >
+        新規登録
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

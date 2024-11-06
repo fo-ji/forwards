@@ -16,11 +16,12 @@ import {
 } from '@/features/projects';
 
 type ProjectPageProps = {
-  params: { pid: string };
+  params: Promise<{ pid: string }>;
 };
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { data, success } = paramsProjectSchema.safeParse(params);
+  const { pid } = await params;
+  const { data, success } = paramsProjectSchema.safeParse({ pid });
   if (!data || !success) notFound();
 
   return (

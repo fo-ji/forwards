@@ -1,13 +1,12 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 import { Status } from '@prisma/client';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -23,21 +22,6 @@ import type { SelectOptions } from '@/types';
 import { editProject } from '../../actions/edit';
 import { PROJECT_STATUS_OPTIONS } from '../../consts';
 import { editProjectSchema } from '../../schemas/edit';
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="edit-project"
-      disabled={pending}
-      className="w-full"
-    >
-      更新
-    </Button>
-  );
-};
 
 type EditProjectFormProps = {
   defaultValue: {
@@ -55,7 +39,10 @@ export const EditProjectForm = ({
   defaultValue,
   skillOptions = [],
 }: EditProjectFormProps) => {
-  const [lastResult, action] = useFormState(editProject, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    editProject,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'edit-project',
     lastResult,
@@ -114,7 +101,14 @@ export const EditProjectForm = ({
         <FormMarkdown meta={fields.installation} />
         <FieldErrors errors={fields.installation.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="edit-project"
+        disabled={isPending}
+        className="w-full"
+      >
+        更新
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -20,21 +19,6 @@ import type { SelectOptions } from '@/types';
 
 import { editTemplate } from '../../actions/edit';
 import { editTemplateSchema } from '../../schemas/edit';
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="edit-template"
-      disabled={pending}
-      className="w-full"
-    >
-      更新
-    </Button>
-  );
-};
 
 type EditTemplateFormProps = {
   defaultValue: {
@@ -50,7 +34,10 @@ export const EditTemplateForm = ({
   defaultValue,
   skillOptions = [],
 }: EditTemplateFormProps) => {
-  const [lastResult, action] = useFormState(editTemplate, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    editTemplate,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'edit-template',
     lastResult,
@@ -99,7 +86,14 @@ export const EditTemplateForm = ({
         <FormMarkdown meta={fields.installation} />
         <FieldErrors errors={fields.installation.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="edit-template"
+        disabled={isPending}
+        className="w-full"
+      >
+        更新
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

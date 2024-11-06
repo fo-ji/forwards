@@ -4,13 +4,14 @@ import { Modal, ModalDescription, ModalTitle } from '@/components/ui/modal';
 import { DeleteProjectForm, paramsProjectSchema } from '@/features/projects';
 
 type ProjectDeleteModalPageProps = {
-  params: { pid: string };
+  params: Promise<{ pid: string }>;
 };
 
 export default async function ProjectDeleteModalPage({
   params,
 }: ProjectDeleteModalPageProps) {
-  const { data, success } = paramsProjectSchema.safeParse(params);
+  const { pid } = await params;
+  const { data, success } = paramsProjectSchema.safeParse({ pid });
   if (!data || !success) notFound();
 
   return (

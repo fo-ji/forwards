@@ -13,14 +13,20 @@ import {
 } from '@/features/skills';
 
 type SkillsListPageProps = {
-  searchParams: SkillsListPageParams;
+  searchParams: Promise<SkillsListPageParams>;
 };
 
 export default async function SkillsListPage({
   searchParams,
 }: SkillsListPageProps) {
-  const { data, success } =
-    searchParamsSkillsListSchema.safeParse(searchParams);
+  const { name, page, pageSize, orderBy, sortDirection } = await searchParams;
+  const { data, success } = searchParamsSkillsListSchema.safeParse({
+    name,
+    page,
+    pageSize,
+    orderBy,
+    sortDirection,
+  });
 
   if (!success) notFound();
 

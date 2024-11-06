@@ -13,14 +13,20 @@ import {
 } from '@/features/projects';
 
 type ProjectsListPageProps = {
-  searchParams: ProjectsListPageParams;
+  searchParams: Promise<ProjectsListPageParams>;
 };
 
 export default async function ProjectsListPage({
   searchParams,
 }: ProjectsListPageProps) {
-  const { data, success } =
-    searchParamsProjectsListSchema.safeParse(searchParams);
+  const { name, page, pageSize, orderBy, sortDirection } = await searchParams;
+  const { data, success } = searchParamsProjectsListSchema.safeParse({
+    name,
+    page,
+    pageSize,
+    orderBy,
+    sortDirection,
+  });
 
   if (!success) notFound();
 

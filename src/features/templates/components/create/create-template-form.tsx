@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -21,21 +20,6 @@ import { SelectOptions } from '@/types';
 import { createTemplate } from '../../actions/create';
 import { createTemplateSchema } from '../../schemas/create';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="create-template"
-      disabled={pending}
-      className="w-full"
-    >
-      新規登録
-    </Button>
-  );
-};
-
 type CreateTemplateFormProps = {
   skillOptions?: SelectOptions;
 };
@@ -43,7 +27,10 @@ type CreateTemplateFormProps = {
 export const CreateTemplateForm = ({
   skillOptions = [],
 }: CreateTemplateFormProps) => {
-  const [lastResult, action] = useFormState(createTemplate, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    createTemplate,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'create-template',
     lastResult,
@@ -89,7 +76,14 @@ export const CreateTemplateForm = ({
         <FormMarkdown meta={fields.installation} />
         <FieldErrors errors={fields.installation.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="create-template"
+        disabled={isPending}
+        className="w-full"
+      >
+        新規登録
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

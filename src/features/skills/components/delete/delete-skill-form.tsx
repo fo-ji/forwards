@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { getFormProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { FormInput } from '@/components/form/form-input';
 import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
@@ -16,21 +15,6 @@ import { toast } from '@/hooks/use-toast';
 import { deleteSkill } from '../../actions/delete';
 import { deleteSKillSchema } from '../../schemas/delete';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="delete-skill"
-      disabled={pending}
-      className="w-full sm:w-[76px]"
-    >
-      はい
-    </Button>
-  );
-};
-
 type DeleteSkillFormProps = {
   defaultValue: {
     id: string;
@@ -38,7 +22,10 @@ type DeleteSkillFormProps = {
 };
 
 export const DeleteSkillForm = ({ defaultValue }: DeleteSkillFormProps) => {
-  const [lastResult, action] = useFormState(deleteSkill, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    deleteSkill,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'delete-skill',
     lastResult,
@@ -67,7 +54,14 @@ export const DeleteSkillForm = ({ defaultValue }: DeleteSkillFormProps) => {
         <Button type="button" variant="outline" onClick={() => router.back()}>
           いいえ
         </Button>
-        <SubmitButton />
+        <Button
+          type="submit"
+          form="delete-skill"
+          disabled={isPending}
+          className="w-full sm:w-[76px]"
+        >
+          はい
+        </Button>
       </div>
       <FormSubmittedToast lastResult={lastResult} onSuccess={onSuccess} />
     </form>

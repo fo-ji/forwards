@@ -13,7 +13,7 @@ export const http = async <T>(
     ...options,
     headers: {
       ...options?.headers,
-      Cookie: cookies()
+      Cookie: (await cookies())
         .getAll()
         .map(({ name, value }) => `${name}=${value}`)
         .join(';'),

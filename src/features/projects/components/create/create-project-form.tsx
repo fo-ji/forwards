@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -23,21 +22,6 @@ import { createProject } from '../../actions/create';
 import { PROJECT_STATUS_OPTIONS } from '../../consts';
 import { createProjectSchema } from '../../schemas/create';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="create-project"
-      disabled={pending}
-      className="w-full"
-    >
-      新規登録
-    </Button>
-  );
-};
-
 type CreateProjectFormProps = {
   skillOptions?: SelectOptions;
 };
@@ -45,7 +29,10 @@ type CreateProjectFormProps = {
 export const CreateProjectForm = ({
   skillOptions = [],
 }: CreateProjectFormProps) => {
-  const [lastResult, action] = useFormState(createProject, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    createProject,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'create-project',
     lastResult,
@@ -101,7 +88,14 @@ export const CreateProjectForm = ({
         <FormMarkdown meta={fields.installation} />
         <FieldErrors errors={fields.installation.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="create-project"
+        disabled={isPending}
+        className="w-full"
+      >
+        新規登録
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

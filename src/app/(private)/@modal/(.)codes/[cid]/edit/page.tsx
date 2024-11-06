@@ -4,13 +4,14 @@ import { Modal, ModalTitle } from '@/components/ui/modal';
 import { EditCodeForm, getCode, paramsCodeSchema } from '@/features/codes';
 
 type CodeEditModalPageProps = {
-  params: { cid: string };
+  params: Promise<{ cid: string }>;
 };
 
 export default async function CodeEditModalPage({
   params,
 }: CodeEditModalPageProps) {
-  const { data, success } = paramsCodeSchema.safeParse(params);
+  const { cid } = await params;
+  const { data, success } = paramsCodeSchema.safeParse({ cid });
   if (!data || !success) notFound();
 
   const code = await getCode({ id: data.cid });

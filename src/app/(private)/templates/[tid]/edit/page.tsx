@@ -10,13 +10,14 @@ import { getTemplate, paramsTemplateSchema } from '@/features/templates';
 import { EditTemplateForm } from '@/features/templates';
 
 type TemplateEditPageProps = {
-  params: { tid: string };
+  params: Promise<{ tid: string }>;
 };
 
 export default async function TemplateEditPage({
   params,
 }: TemplateEditPageProps) {
-  const { data, success } = paramsTemplateSchema.safeParse(params);
+  const { tid } = await params;
+  const { data, success } = paramsTemplateSchema.safeParse({ tid });
   if (!data || !success) notFound();
 
   const [template, skillOptions] = await Promise.all([

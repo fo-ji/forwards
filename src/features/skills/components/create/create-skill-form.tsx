@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -20,21 +19,6 @@ import { SelectOptions } from '@/types';
 import { createSkill } from '../../actions/create';
 import { createSKillSchema } from '../../schemas/create';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="create-skill"
-      disabled={pending}
-      className="w-full"
-    >
-      新規登録
-    </Button>
-  );
-};
-
 type CreateSkillFormProps = {
   projectOptions?: SelectOptions;
 };
@@ -42,7 +26,10 @@ type CreateSkillFormProps = {
 export const CreateSkillForm = ({
   projectOptions = [],
 }: CreateSkillFormProps) => {
-  const [lastResult, action] = useFormState(createSkill, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    createSkill,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'create-skill',
     lastResult,
@@ -88,7 +75,14 @@ export const CreateSkillForm = ({
         <FormMultiSelect meta={fields.projectIds} options={projectOptions} />
         <FieldErrors errors={fields.projectIds.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="create-skill"
+        disabled={isPending}
+        className="w-full"
+      >
+        新規登録
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

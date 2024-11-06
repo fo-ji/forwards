@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -19,21 +18,6 @@ import type { SelectOptions } from '@/types';
 
 import { editSkill } from '../../actions/edit';
 import { editSKillSchema } from '../../schemas/edit';
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="edit-skill"
-      disabled={pending}
-      className="w-full"
-    >
-      更新
-    </Button>
-  );
-};
 
 type EditSkillFormProps = {
   defaultValue: {
@@ -49,7 +33,7 @@ export const EditSkillForm = ({
   defaultValue,
   projectOptions = [],
 }: EditSkillFormProps) => {
-  const [lastResult, action] = useFormState(editSkill, undefined);
+  const [lastResult, action, isPending] = useActionState(editSkill, undefined);
   const [form, fields] = useForm({
     id: 'edit-skill',
     lastResult,
@@ -91,7 +75,14 @@ export const EditSkillForm = ({
         <FormMultiSelect meta={fields.projectIds} options={projectOptions} />
         <FieldErrors errors={fields.projectIds.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="edit-skill"
+        disabled={isPending}
+        className="w-full"
+      >
+        更新
+      </Button>
       <FieldErrors errors={form.errors} />
       <FormSubmittedToast lastResult={lastResult} onSuccess={onSuccess} />
     </form>
