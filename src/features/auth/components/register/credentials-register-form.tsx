@@ -1,8 +1,9 @@
 'use client';
 
+import { useActionState } from 'react';
+
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -13,24 +14,11 @@ import { Label } from '@/components/ui/label';
 import { credentialsRegister } from '../../actions/register';
 import { registerSchema } from '../../schemas/register';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="credentials-register"
-      disabled={pending}
-      className="w-full"
-    >
-      <Icon name="Mail" className="mr-2 size-4" />
-      メールアドレスで新規登録
-    </Button>
-  );
-};
-
 export const CredentialsRegisterForm = () => {
-  const [lastResult, action] = useFormState(credentialsRegister, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    credentialsRegister,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'credentials-register',
     lastResult,
@@ -57,7 +45,15 @@ export const CredentialsRegisterForm = () => {
         <FormInput meta={fields.passwordConfirm} type="password" />
         <FieldErrors errors={fields.passwordConfirm.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="credentials-register"
+        disabled={isPending}
+        className="w-full"
+      >
+        <Icon name="Mail" className="mr-2 size-4" />
+        メールアドレスで新規登録
+      </Button>
       <FieldErrors errors={form.errors} />
     </form>
   );

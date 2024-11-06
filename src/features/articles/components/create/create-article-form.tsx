@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
@@ -18,27 +17,15 @@ import { toast } from '@/hooks/use-toast';
 import { createArticle } from '../../actions/create';
 import { createArticleSchema } from '../../schemas/create';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="create-article"
-      disabled={pending}
-      className="w-full"
-    >
-      新規登録
-    </Button>
-  );
-};
-
 type CreateArticleFormProps = {
   skillId: string;
 };
 
 export const CreateArticleForm = ({ skillId }: CreateArticleFormProps) => {
-  const [lastResult, action] = useFormState(createArticle, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    createArticle,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'create-article',
     lastResult,
@@ -84,7 +71,14 @@ export const CreateArticleForm = ({ skillId }: CreateArticleFormProps) => {
         <FormInput meta={fields.url} type="text" />
         <FieldErrors errors={fields.url.errors} />
       </Field>
-      <SubmitButton />
+      <Button
+        type="submit"
+        form="create-article"
+        disabled={isPending}
+        className="w-full"
+      >
+        新規登録
+      </Button>
       <FormSubmittedToast
         lastResult={lastResult}
         onSuccess={onSuccess}

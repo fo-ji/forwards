@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { getFormProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { FormInput } from '@/components/form/form-input';
 import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
@@ -15,21 +14,6 @@ import { toast } from '@/hooks/use-toast';
 
 import { deleteTemplate } from '../../actions/delete';
 import { deleteTemplateSchema } from '../../schemas/delete';
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="delete-template"
-      disabled={pending}
-      className="w-full sm:w-[76px]"
-    >
-      はい
-    </Button>
-  );
-};
 
 type DeleteTemplateFormProps = {
   defaultValue: {
@@ -40,7 +24,10 @@ type DeleteTemplateFormProps = {
 export const DeleteTemplateForm = ({
   defaultValue,
 }: DeleteTemplateFormProps) => {
-  const [lastResult, action] = useFormState(deleteTemplate, undefined);
+  const [lastResult, action, isPending] = useActionState(
+    deleteTemplate,
+    undefined,
+  );
   const [form, fields] = useForm({
     id: 'delete-template',
     lastResult,
@@ -69,7 +56,14 @@ export const DeleteTemplateForm = ({
         <Button type="button" variant="outline" onClick={() => router.back()}>
           いいえ
         </Button>
-        <SubmitButton />
+        <Button
+          type="submit"
+          form="delete-template"
+          disabled={isPending}
+          className="w-full sm:w-[76px]"
+        >
+          はい
+        </Button>
       </div>
       <FormSubmittedToast lastResult={lastResult} onSuccess={onSuccess} />
     </form>

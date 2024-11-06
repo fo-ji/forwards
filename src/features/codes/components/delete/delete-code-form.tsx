@@ -1,12 +1,11 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useActionState, useCallback } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { getFormProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { useFormState, useFormStatus } from 'react-dom';
 
 import { FormInput } from '@/components/form/form-input';
 import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
@@ -16,21 +15,6 @@ import { toast } from '@/hooks/use-toast';
 import { deleteCode } from '../../actions/delete';
 import { deleteCodeSchema } from '../../schemas/delete';
 
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      form="delete-code"
-      disabled={pending}
-      className="w-full sm:w-[76px]"
-    >
-      はい
-    </Button>
-  );
-};
-
 type DeleteCodeFormProps = {
   defaultValue: {
     id: string;
@@ -38,7 +22,7 @@ type DeleteCodeFormProps = {
 };
 
 export const DeleteCodeForm = ({ defaultValue }: DeleteCodeFormProps) => {
-  const [lastResult, action] = useFormState(deleteCode, undefined);
+  const [lastResult, action, isPending] = useActionState(deleteCode, undefined);
   const [form, fields] = useForm({
     id: 'delete-code',
     lastResult,
@@ -67,7 +51,14 @@ export const DeleteCodeForm = ({ defaultValue }: DeleteCodeFormProps) => {
         <Button type="button" variant="outline" onClick={() => router.back()}>
           いいえ
         </Button>
-        <SubmitButton />
+        <Button
+          type="submit"
+          form="delete-code"
+          disabled={isPending}
+          className="w-full sm:w-[76px]"
+        >
+          はい
+        </Button>
       </div>
       <FormSubmittedToast lastResult={lastResult} onSuccess={onSuccess} />
     </form>
