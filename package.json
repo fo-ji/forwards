@@ -55,7 +55,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.10.0",
+    "@axe-core/playwright": "^4.10.1",
     "@axe-core/react": "^4.10.0",
     "@chromatic-com/storybook": "^3.2.2",
     "@playwright/test": "^1.48.2",
