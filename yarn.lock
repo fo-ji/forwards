@@ -2432,19 +2432,10 @@
   dependencies:
     memoizerific "^1.11.3"
 
-"@storybook/blocks@8.4.4":
+"@storybook/blocks@8.4.4", "@storybook/blocks@^8.4.4":
   version "8.4.4"
   resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.4.4.tgz#5cfffd04bf4e417e19e2948a94133e36bf5e4d0e"
   integrity sha512-LwM3guL7uWpYR1a/SY0KZjCUskTKEaS22eF7GK8iXAV5BY4KpKr6ArW4O9orK29KtFwKhDZQLcMcECsOJBVk/A==
-  dependencies:
-    "@storybook/csf" "^0.1.11"
-    "@storybook/icons" "^1.2.12"
-    ts-dedent "^2.0.0"
-
-"@storybook/blocks@^8.4.3":
-  version "8.4.3"
-  resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.4.3.tgz#03017dd47349b7014f5bc15d3451a95c4b4ddcc8"
-  integrity sha512-PPC+RXievuHKYlL+oO4ygllT59YzpESklNfeHUkeyuSo0nr04UwSrbfdsQlYJo3nRP0wNKyj/NkYDvzMJ5RlTg==
   dependencies:
     "@storybook/csf" "^0.1.11"
     "@storybook/icons" "^1.2.12"
@@ -2668,11 +2659,6 @@
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.4.2.tgz#cefc4b2cb7d3f632492867a3d5edbf568418c66a"
   integrity sha512-FZVTM1f34FpGnf6e3MDIKkz05gmn8H9wEccvQAgr8pEFe8VWfrpVWeUrmatSAfgrCMNXYC1avDend8UX6IM8Fg==
-
-"@storybook/react-dom-shim@8.4.4":
-  version "8.4.4"
-  resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.4.4.tgz#7ea45d7760a49648829e3be70866c7a52bf6ab16"
-  integrity sha512-kufv2FDK3kjADBo+/aKHsUn9T5E4p9IBAmCoIvXBGRDumPRds7Pt3MB4ODKlg+IumR7LMEq0jTJkn27ZRTuUmw==
 
 "@storybook/react-dom-shim@8.4.4":
   version "8.4.4"
