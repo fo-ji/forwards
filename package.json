@@ -91,7 +91,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "prettier": "^3.4.2",
-    "prisma": "^6.2.0",
+    "prisma": "^6.2.1",
     "storybook": "^8.4.7",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
