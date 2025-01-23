@@ -2479,10 +2479,10 @@
   dependencies:
     ts-dedent "^2.0.0"
 
-"@storybook/core@8.5.0":
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-8.5.0.tgz#16125d1cb3f4a26c0af4f0b8e56d7eaffed2e951"
-  integrity sha512-apborO6ynns7SeydBSqE9o0zT6JSU+VY4gLFPJROGcconvSW4bS5xtJCsgjlulceyWVxepFHGXl4jEZw+SktXA==
+"@storybook/core@8.5.1":
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-8.5.1.tgz#cc2bfcf03b9b9ac2dd5c44ac4853ac94c86c23ac"
+  integrity sha512-4zxjclENpZYuNY1fZJE4a7hd8Ho/SiOSN2B57fsIi1qCpKax3JU3J59ZcAWT0iidy5qgM2qMcWbrl0Bl/tWamA==
   dependencies:
     "@storybook/csf" "0.1.12"
     better-opn "^3.0.2"
@@ -9208,12 +9208,12 @@ stackframe@^1.3.4:
   resolved "https://registry.yarnpkg.com/stackframe/-/stackframe-1.3.4.tgz#b881a004c8c149a5e8efef37d51b16e412943310"
   integrity sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==
 
-storybook@^8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.5.0.tgz#cb48ff743a98229f6d18e8b7017913ecb0d703fa"
-  integrity sha512-cEx42OlCetManF+cONVJVYP7SYsnI2K922DfWKmZhebP0it0n6TUof4y5/XzJ8YUruwPgyclGLdX8TvdRuNSfw==
+storybook@^8.5.1:
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.5.1.tgz#672513ccbf92776acb8ee42263cf08da7752bfe2"
+  integrity sha512-HuaAFA97j2w4i/1EHKj6X4iDiVzPrXzQpmTEE1tLD1QXzqrQKKHse+Ggc8AGMuLTAzxA6xmrX9xibgMNWCgvRA==
   dependencies:
-    "@storybook/core" "8.5.0"
+    "@storybook/core" "8.5.1"
 
 stream-browserify@^3.0.0:
   version "3.0.0"
