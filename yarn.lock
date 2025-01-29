@@ -2537,6 +2537,14 @@
     "@storybook/global" "^5.0.0"
     "@vitest/utils" "^2.1.1"
 
+"@storybook/instrumenter@8.5.2":
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.5.2.tgz#40ce218565d5143ce84cbb2debd038d05ee7aff7"
+  integrity sha512-BbaUw9GXVzRg3Km95t2mRu4W6C1n1erjzll5maBaVe2+lV9MbCvBcdYwGUgjFNlQ/ETgq6vLfLOEtziycq/B6g==
+  dependencies:
+    "@storybook/global" "^5.0.0"
+    "@vitest/utils" "^2.1.1"
+
 "@storybook/manager-api@8.5.1":
   version "8.5.1"
   resolved "https://registry.yarnpkg.com/@storybook/manager-api/-/manager-api-8.5.1.tgz#5e574ec19e6fcb8709337716628b44057557e923"
@@ -2650,7 +2658,7 @@
     "@storybook/react-dom-shim" "8.5.1"
     "@storybook/theming" "8.5.1"
 
-"@storybook/test@8.5.1", "@storybook/test@^8.4.5":
+"@storybook/test@8.5.1":
   version "8.5.1"
   resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.5.1.tgz#f795df493345347e2d7ad46aa28effedc7f1da8e"
   integrity sha512-V0sEXqL5kS0YKugCqWgmCpNODdlCCiVlPqm3i+E2+G97DR980BwXf8J6VPscQDRS9ZG39BrM83Aau6Anxrt1Tg==
@@ -2658,6 +2666,20 @@
     "@storybook/csf" "0.1.12"
     "@storybook/global" "^5.0.0"
     "@storybook/instrumenter" "8.5.1"
+    "@testing-library/dom" "10.4.0"
+    "@testing-library/jest-dom" "6.5.0"
+    "@testing-library/user-event" "14.5.2"
+    "@vitest/expect" "2.0.5"
+    "@vitest/spy" "2.0.5"
+
+"@storybook/test@^8.5.2":
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.5.2.tgz#0bf5e6cdab94986e2fc0eeb8ba4c689f67b6ca32"
+  integrity sha512-F5WfD75m25ZRS19cSxCzHWJ/rH8jWwIjhBlhU+UW+5xjnTS1cJuC1yPT/5Jw0/0Aj9zG1atyfBUYnNHYtsBDYQ==
+  dependencies:
+    "@storybook/csf" "0.1.12"
+    "@storybook/global" "^5.0.0"
+    "@storybook/instrumenter" "8.5.2"
     "@testing-library/dom" "10.4.0"
     "@testing-library/jest-dom" "6.5.0"
     "@testing-library/user-event" "14.5.2"
