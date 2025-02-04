@@ -4744,10 +4744,10 @@ dot-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
 
-driver.js@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/driver.js/-/driver.js-1.3.4.tgz#5795cd55478511f285987db86a028ea60577576d"
-  integrity sha512-VF69FaXB6WlDwGnnFQYHhFPt706bW88EdznpKWuMxagV6IJaqzTNHAaoVqgIvxfxxu3HcKuDvSbMpSHl8Hy02Q==
+driver.js@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/driver.js/-/driver.js-1.3.5.tgz#70695fd2b3b15a3db409c8a37d9b3a563a7c176a"
+  integrity sha512-exkp49hXuujvTOZ3zYgySWRlEAa8/3nA8glYjtuZjmkTdsQITXivBsW1ytyhKQx3WkeYaovlnvVcLbtTaN86kA==
 
 eastasianwidth@^0.2.0:
   version "0.2.0"
