@@ -2375,10 +2375,10 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^8.5.2":
-  version "8.5.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.5.2.tgz#a983ee209a34c1f40cde859c44e765dc0cec3475"
-  integrity sha512-eDKOQoAKKUQo0JqeLNzMLu6fm1s3oxwZ6O+rAWS6n5bsrjZS2Ul8esKkRriFVwHtDtqx99wneqOscS8IzE/ENw==
+"@storybook/addon-links@^8.5.3":
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.5.3.tgz#15389b8643ebf487e35f70050e6d34072c9d626c"
+  integrity sha512-MRhIif4tCoIucLgGX14dI7yptF9bYH2UaJasyywshzQZKAEjOfX19Aw5fwp2zJt6kukAF6mUxMtWKcQMH2XOmw==
   dependencies:
     "@storybook/csf" "0.1.12"
     "@storybook/global" "^5.0.0"
