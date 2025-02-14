@@ -2444,10 +2444,10 @@
     "@storybook/icons" "^1.2.12"
     ts-dedent "^2.0.0"
 
-"@storybook/blocks@^8.5.3":
-  version "8.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.5.3.tgz#05e4f3ac453f48e55320965057a9d9fcc60225dc"
-  integrity sha512-a/PpHFmeBtVB9Q/6cNAnqfeCqMowsrI8nGka0Nl7BB3x1eJnS3I1Qo3Skht0LBEsmXOgXk4dwWxpeQL3qHMRkw==
+"@storybook/blocks@^8.5.5":
+  version "8.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.5.5.tgz#72e5dcd4c1359bc91ad48c3f5f4c55b66b630943"
+  integrity sha512-O/59Dj2E4t3QtJkUyRgO0X4anAC5dx0M0gfsYACEUWFubhog9x5gw3xgPhFtc1UhezKBedM1nguqdPXHus1mTg==
   dependencies:
     "@storybook/csf" "0.1.12"
     "@storybook/icons" "^1.2.12"
