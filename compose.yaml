@@ -25,7 +25,7 @@ services:
   db:
     <<: *common
     container_name: db
-    image: postgres:latest
+    image: postgres:16
     restart: always
     ports:
       - 5432:5432
