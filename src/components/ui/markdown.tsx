@@ -4,14 +4,11 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { cn } from '@/lib/utils';
 
-type MarkdownProps = {
-  value?: string;
-  className?: string;
-};
+type MarkdownProps = { value?: string; className?: string };
 
 const Markdown = ({ value, className }: MarkdownProps) => {
   return (
-    <ReactMarkdown
+    <div
       className={cn(
         'min-h-[158px] whitespace-pre-wrap text-sm [overflow-wrap:anywhere]',
         'prose prose-sm dark:prose-invert',
@@ -24,29 +21,28 @@ const Markdown = ({ value, className }: MarkdownProps) => {
         'prose-li:m-0',
         className,
       )}
-      components={{
-        code({ node, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || '');
-          return match ? (
-            <SyntaxHighlighter
-              style={vscDarkPlus}
-              language={match[1]}
-              customStyle={{
-                margin: 0,
-                padding: 0,
-                background: 'none',
-              }}
-            >
-              {children ? String(children).replace(/\n$/, '') : ''}
-            </SyntaxHighlighter>
-          ) : (
-            <code {...props}>{children}</code>
-          );
-        },
-      }}
     >
-      {value}
-    </ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          code({ node, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '');
+            return match ? (
+              <SyntaxHighlighter
+                style={vscDarkPlus}
+                language={match[1]}
+                customStyle={{ margin: 0, padding: 0, background: 'none' }}
+              >
+                {children ? String(children).replace(/\n$/, '') : ''}
+              </SyntaxHighlighter>
+            ) : (
+              <code {...props}>{children}</code>
+            );
+          },
+        }}
+      >
+        {value}
+      </ReactMarkdown>
+    </div>
   );
 };
 
