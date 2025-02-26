@@ -1,8 +1,6 @@
 'use client';
 
-import { useActionState, useCallback } from 'react';
-
-import { useRouter } from 'next/navigation';
+import { useActionState } from 'react';
 
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
@@ -10,13 +8,11 @@ import { parseWithZod } from '@conform-to/zod';
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
 import { FormMultiSelect } from '@/components/form/form-multi-select';
-import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { toast } from '@/hooks/use-toast';
 import { SelectOptions } from '@/types';
 
-import { createSkill } from '../../actions/create';
+import { useCreateSkill } from '../../api/use-create-skill';
 import { createSKillSchema } from '../../schemas/create';
 
 type CreateSkillFormProps = {
@@ -26,10 +22,8 @@ type CreateSkillFormProps = {
 export const CreateSkillForm = ({
   projectOptions = [],
 }: CreateSkillFormProps) => {
-  const [lastResult, action, isPending] = useActionState(
-    createSkill,
-    undefined,
-  );
+  const { trigger } = useCreateSkill();
+  const [lastResult, action, isPending] = useActionState(trigger, {});
   const [form, fields] = useForm({
     id: 'create-skill',
     lastResult,
@@ -38,20 +32,6 @@ export const CreateSkillForm = ({
     },
     shouldValidate: 'onInput',
   });
-  const router = useRouter();
-
-  const onSuccess = useCallback(() => {
-    toast({ description: '気になるスキルを登録しました' });
-    router.back();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const onError = useCallback((errorMessage?: string) => {
-    toast({
-      variant: 'destructive',
-      description: errorMessage || '気になるスキルを登録できませんでした',
-    });
-  }, []);
 
   return (
     <form
@@ -83,11 +63,6 @@ export const CreateSkillForm = ({
       >
         新規登録
       </Button>
-      <FormSubmittedToast
-        lastResult={lastResult}
-        onSuccess={onSuccess}
-        onError={onError}
-      />
     </form>
   );
 };

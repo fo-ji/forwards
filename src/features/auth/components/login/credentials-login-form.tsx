@@ -1,9 +1,5 @@
 'use client';
 
-// import { useCallback } from 'react';
-
-// import { redirect } from 'next/navigation';
-
 import { useActionState } from 'react';
 
 import { useForm, getFormProps } from '@conform-to/react';
@@ -11,20 +7,16 @@ import { parseWithZod } from '@conform-to/zod';
 
 import { Field, FieldErrors } from '@/components/form/field';
 import { FormInput } from '@/components/form/form-input';
-// import { FormSubmittedToast } from '@/components/form/form-submitted-toast';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Label } from '@/components/ui/label';
-// import { toast } from '@/hooks/use-toast';
 
-import { credentialsLogin } from '../../actions/login';
+import { useCredentialLogin } from '../../api/login/use-credential-login';
 import { loginSchema } from '../../schemas/login';
 
 export const CredentialsLoginForm = () => {
-  const [lastResult, action, isPending] = useActionState(
-    credentialsLogin,
-    undefined,
-  );
+  const { trigger } = useCredentialLogin();
+  const [lastResult, action, isPending] = useActionState(trigger, {});
   const [form, fields] = useForm({
     id: 'credentials-login',
     lastResult,
@@ -32,18 +24,6 @@ export const CredentialsLoginForm = () => {
       return parseWithZod(formData, { schema: loginSchema });
     },
   });
-
-  // const onSuccess = useCallback(() => {
-  //   // toast({ description: 'ログインしました' });
-  //   redirect('/');
-  // }, []);
-
-  // const onError = useCallback((errorMessage?: string) => {
-  //   toast({
-  //     variant: 'destructive',
-  //     description: errorMessage || 'ログインできませんでした',
-  //   });
-  // }, []);
 
   return (
     <form
@@ -72,11 +52,6 @@ export const CredentialsLoginForm = () => {
         メールアドレスでログイン
       </Button>
       <FieldErrors errors={form.errors} />
-      {/* <FormSubmittedToast
-        lastResult={lastResult}
-        onSuccess={onSuccess}
-        onError={onError}
-      /> */}
     </form>
   );
 };
