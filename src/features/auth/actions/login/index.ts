@@ -9,19 +9,15 @@ import { signIn } from '@/lib/next-auth/auth';
 import { loginSchema } from '../../schemas/login';
 
 export async function credentialsLogin(_: unknown, formData: FormData) {
-  const submission = parseWithZod(formData, {
-    schema: loginSchema,
-  });
+  const submission = parseWithZod(formData, { schema: loginSchema });
 
   if (submission.status !== 'success') {
     return submission.reply();
   }
 
   try {
-    await signIn('credentials', {
-      ...submission.value,
-      redirectTo: '/',
-    });
+    await signIn('credentials', { ...submission.value, redirect: false });
+    return submission.reply();
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
