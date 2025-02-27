@@ -2351,14 +2351,14 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^8.5.6":
-  version "8.5.8"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.5.8.tgz#478c0e149c26d628d1e35419ce8b89b13d33eb51"
-  integrity sha512-SDyIV3M+c41QemXgg1OchsFBO6YGZkZcmVeUF8C7aWm5SnzLh6B2OiggiKvRk0v3Eh3rDLXdkx3XdR2F/rG+0Q==
+"@storybook/addon-interactions@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.6.0.tgz#a260e0c10ad4d634c52be9f033ca7da7cb4307c6"
+  integrity sha512-AgobFrUxmKgGHKeOismuLZdXlndP3ZDquHztiomfMiu01xOqNPxG0+xoCcegvftU7hKE+TlBRzhjCWg/bFz4LQ==
   dependencies:
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.5.8"
-    "@storybook/test" "8.5.8"
+    "@storybook/instrumenter" "8.6.0"
+    "@storybook/test" "8.6.0"
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
@@ -2670,7 +2670,7 @@
     "@vitest/expect" "2.0.5"
     "@vitest/spy" "2.0.5"
 
-"@storybook/test@^8.6.0":
+"@storybook/test@8.6.0", "@storybook/test@^8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.6.0.tgz#f3987c428dbfbf707399727115791fbc4c602009"
   integrity sha512-qiiv4wh4FoxTb1PoiA/noo9HcLDqfTwL0svMoNpTy2Bxm6xajgg5zYmmIT4pKyQkMd9pfKKQKILok31VxAj8vw==
