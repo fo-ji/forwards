@@ -2,6 +2,8 @@
 
 import { useActionState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import { useForm, getFormProps } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 
@@ -10,9 +12,11 @@ import { FormInput } from '@/components/form/form-input';
 import { FormMultiSelect } from '@/components/form/form-multi-select';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { toast } from '@/hooks/use-toast';
+import { withCallbacks } from '@/lib/conform/with-callback';
 import { SelectOptions } from '@/types';
 
-import { useCreateSkill } from '../../api/use-create-skill';
+import { createSkill } from '../../actions/create';
 import { createSKillSchema } from '../../schemas/create';
 
 type CreateSkillFormProps = {
@@ -22,8 +26,22 @@ type CreateSkillFormProps = {
 export const CreateSkillForm = ({
   projectOptions = [],
 }: CreateSkillFormProps) => {
-  const { trigger } = useCreateSkill();
-  const [lastResult, action, isPending] = useActionState(trigger, {});
+  const router = useRouter();
+  const [lastResult, action, isPending] = useActionState(
+    withCallbacks(createSkill, {
+      onError() {
+        toast({
+          variant: 'destructive',
+          description: '気になるスキルを作成できませんでした',
+        });
+      },
+      onSuccess() {
+        toast({ description: '気になるスキルを作成しました' });
+        router.back();
+      },
+    }),
+    null,
+  );
   const [form, fields] = useForm({
     id: 'create-skill',
     lastResult,
