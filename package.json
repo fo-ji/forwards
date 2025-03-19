@@ -60,7 +60,7 @@
     "@axe-core/react": "^4.10.1",
     "@chromatic-com/storybook": "^3.2.6",
     "@playwright/test": "^1.51.1",
-    "@storybook/addon-essentials": "^8.6.6",
+    "@storybook/addon-essentials": "^8.6.7",
     "@storybook/addon-interactions": "^8.6.7",
     "@storybook/addon-links": "^8.6.6",
     "@storybook/addon-onboarding": "^8.6.7",
