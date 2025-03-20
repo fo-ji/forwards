@@ -2427,18 +2427,10 @@
   dependencies:
     memoizerific "^1.11.3"
 
-"@storybook/blocks@8.6.7":
+"@storybook/blocks@8.6.7", "@storybook/blocks@^8.6.7":
   version "8.6.7"
   resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.6.7.tgz#a84c771650cf76e36645c18d283177cd99b86c30"
   integrity sha512-IFhIKO7R1UPpnoG/5tZH0FgC79oYgXNf+7aGUwq29M/CQWy6p/Pvp0y4P962btY1UZRol+SsU//33nH8o6yNRw==
-  dependencies:
-    "@storybook/icons" "^1.2.12"
-    ts-dedent "^2.0.0"
-
-"@storybook/blocks@^8.6.4":
-  version "8.6.4"
-  resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.6.4.tgz#01fe3656756869230b5c612a2a25bdef921853be"
-  integrity sha512-+oPXwT3KzJzsdkQuGEzBqOKTIFlb6qmlCWWbDwAnP0SEqYHoTVRTAIa44icFP0EZeIe+ypFVAm1E7kWTLmw1hQ==
   dependencies:
     "@storybook/icons" "^1.2.12"
     ts-dedent "^2.0.0"
