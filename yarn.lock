@@ -2364,14 +2364,14 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^8.6.11":
-  version "8.6.11"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.6.11.tgz#2e76c1c32266492e6e2d80fa95f786b28c34738c"
-  integrity sha512-j9wUf8lQF922eC2HbWG4LdeflOu/togry80QB+Sqxs4+dg4iWhjxmN8gWav14/oa0vJBLN7Z2Tr4ifsJUEwRkg==
+"@storybook/addon-interactions@^8.6.12":
+  version "8.6.12"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-8.6.12.tgz#04fadf3809a6afdfa0ab38c52ca0584253f107dd"
+  integrity sha512-cTAJlTq6uVZBEbtwdXkXoPQ4jHOAGKQnYSezBT4pfNkdjn/FnEeaQhMBDzf14h2wr5OgBnJa6Lmd8LD9ficz4A==
   dependencies:
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.6.11"
-    "@storybook/test" "8.6.11"
+    "@storybook/instrumenter" "8.6.12"
+    "@storybook/test" "8.6.12"
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
@@ -2518,14 +2518,6 @@
   resolved "https://registry.yarnpkg.com/@storybook/icons/-/icons-1.3.2.tgz#e9b92c35ca789ff79f9d0b3848829dd6490ca628"
   integrity sha512-t3xcbCKkPvqyef8urBM0j/nP6sKtnlRkVgC+8JTbTAZQjaTmOjes3byEgzs89p4B/K6cJsg9wLW2k3SknLtYJw==
 
-"@storybook/instrumenter@8.6.11":
-  version "8.6.11"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.6.11.tgz#3e56e7145dd356bb331b5ccb9fc93e74f60c0272"
-  integrity sha512-IOLvc4BOVKofWhyRScA2h/R36cACBK3DUCrZkQTLU+FUIXWg7Yjyco7lDEk/0W9mlH0Fe/eWEhluI2WTowkesQ==
-  dependencies:
-    "@storybook/global" "^5.0.0"
-    "@vitest/utils" "^2.1.1"
-
 "@storybook/instrumenter@8.6.12":
   version "8.6.12"
   resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.6.12.tgz#7a99e061c3b9574b38d5677540852ba2b330e6a5"
@@ -2651,19 +2643,6 @@
     "@storybook/preview-api" "8.6.12"
     "@storybook/react-dom-shim" "8.6.12"
     "@storybook/theming" "8.6.12"
-
-"@storybook/test@8.6.11":
-  version "8.6.11"
-  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.6.11.tgz#e3cc7c83d46e6fe56292becee1160cd203eb66ba"
-  integrity sha512-bk8JCRmVRHjnyt+/YnzCMEd4Y/K2L3uM+sCNuH4pYw6XT2UkR3Dj5mScGnfMvm98lHfpZDcD/AbY2vorOQsq+g==
-  dependencies:
-    "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.6.11"
-    "@testing-library/dom" "10.4.0"
-    "@testing-library/jest-dom" "6.5.0"
-    "@testing-library/user-event" "14.5.2"
-    "@vitest/expect" "2.0.5"
-    "@vitest/spy" "2.0.5"
 
 "@storybook/test@8.6.12", "@storybook/test@^8.6.11":
   version "8.6.12"
