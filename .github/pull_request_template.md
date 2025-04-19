@@ -1,3 +1,5 @@
+<!-- I want to review in Japanese. -->
+
 # 概要
 
 <!-- このPRで解決する内容を簡潔に記載します -->
@@ -26,3 +28,5 @@
 
 <!-- 特筆すべき内容があれば追加で記載します -->
 <!-- 例: 「現時点ではiPhoneのみ対応。Androidは未対応」 -->
+
+<!-- I want to review in Japanese. -->
