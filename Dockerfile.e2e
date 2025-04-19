@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/playwright:v1.47.1-focal
+
+WORKDIR /app
+
+COPY package.json ./
+
+ENV NODE_ENV=test
+
+RUN yarn install --frozen-lockfile && \
+    yarn playwright install && \
+    yarn cache clean
+
+COPY . .

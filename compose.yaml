@@ -1,0 +1,38 @@
+x-common: &common
+  env_file:
+    - .env
+    - .env.local
+  networks:
+    - dev-network
+
+services:
+  app:
+    <<: *common
+    container_name: app
+    build:
+      context: .
+    command: yarn clean-dev
+    ports:
+      - 3000:3000
+      - 3005:3005
+      - 5555:5555
+      - 6006:6006
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    <<: *common
+    container_name: db
+    image: postgres:16
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/app/postgres/init.d:/docker-entrypoint-initdb.d
+      - ./db/app/postgres/pgdata:/var/lib/postgresql/data
+
+networks:
+  dev-network:
+    driver: bridge

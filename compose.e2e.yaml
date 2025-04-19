@@ -1,0 +1,39 @@
+x-common: &common
+  env_file:
+    - .env
+    - .env.test.local
+  networks:
+    - e2e-network
+
+services:
+  e2e:
+    <<: *common
+    container_name: e2e
+    build:
+      context: .
+      dockerfile: Dockerfile.e2e
+    command: yarn dev
+    ports:
+      - 3300:3000
+      - 3305:3005
+      - 5556:5555
+      - 9323:9323
+    depends_on:
+      - e2e_db
+    volumes:
+      - .:/app
+
+  e2e_db:
+    <<: *common
+    container_name: e2e_db
+    image: postgres:16
+    restart: always
+    ports:
+      - 5433:5432
+    volumes:
+      - ./db/e2e/postgres/init.d:/docker-entrypoint-initdb.d
+      - ./db/e2e/postgres/pgdata:/var/lib/postgresql/data
+
+networks:
+  e2e-network:
+    driver: bridge
