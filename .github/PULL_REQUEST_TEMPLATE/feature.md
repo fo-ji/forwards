@@ -1,3 +1,8 @@
+---
+name: 機能追加
+about: 新機能の実装用テンプレート
+---
+
 <!-- I want to review in Japanese. -->
 
 # 概要
