@@ -1056,12 +1056,17 @@
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.5.0.tgz#9b3329477e9800fed8a45c6a7e95b95d60e234d6"
   integrity sha512-7cbIjD3SZzidTzQTLqDhcu2FtkB1l/ZwPlv/mlZgBiezyHd//gBoauGygemcOToEqHahRYFLYwovmKqdjTMARA==
 
-"@conform-to/react@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.5.0.tgz#0decd8e466645362398a0e576812e3a9df1f95c6"
-  integrity sha512-j6fq1UTJ8rLxT4hMZRj9Qyi1lYrALsuno3024/nORYjmqThm2K7wsB1Aaox67SxcR5p4fpva4d8pOkzOSBYN2g==
+"@conform-to/dom@1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.5.1.tgz#d197947b7c2acc33621265554533f5a682bdbb19"
+  integrity sha512-QZeNJ+TC6NjBb8zHYHcXVxuFHxWLo8zYhJyHvKymkIqKwoDCnu6X8EheAbnKHh79PpgBttIu6gdjibEwUsBGuw==
+
+"@conform-to/react@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.5.1.tgz#24525cead7c5a7906649f00bf46312c6564577e5"
+  integrity sha512-dEKH81vm1+BphgFP9v7OkHxu4CDVq70yk4tApIFV2gqQAA0P7ZMrD4cu2e2o2TAYDiThPEuKxkcCmuAwbZTZbw==
   dependencies:
-    "@conform-to/dom" "1.5.0"
+    "@conform-to/dom" "1.5.1"
 
 "@conform-to/zod@^1.5.0":
   version "1.5.0"
