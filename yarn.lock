@@ -1040,11 +1040,6 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@conform-to/dom@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.5.0.tgz#9b3329477e9800fed8a45c6a7e95b95d60e234d6"
-  integrity sha512-7cbIjD3SZzidTzQTLqDhcu2FtkB1l/ZwPlv/mlZgBiezyHd//gBoauGygemcOToEqHahRYFLYwovmKqdjTMARA==
-
 "@conform-to/dom@1.6.1":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.6.1.tgz#dbba1d28d3796bee5208324c7ebb079f8dad6737"
@@ -1057,12 +1052,12 @@
   dependencies:
     "@conform-to/dom" "1.6.1"
 
-"@conform-to/zod@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.5.0.tgz#5af78e646d189376a4131efed50c82bf224dab13"
-  integrity sha512-bk+S0sFSfyVL7UVbHAjComnGq4p4vGMtfyyxFB8116XTnxQVyk88dXhj/ApxPQTktWn+OukDWyz5TQ92t/qo+A==
+"@conform-to/zod@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.6.1.tgz#68f1a6209b6d119ad0681f06f6ac5e2506469643"
+  integrity sha512-uhViaaxJ4IJsCwBxHRNQKU1kT2t7W0/a4/YHv3Qy0J0CQu/HB+UHORlhTjoHpH4XlRS+N6vdO+5qZOC1Oi1QPg==
   dependencies:
-    "@conform-to/dom" "1.5.0"
+    "@conform-to/dom" "1.6.1"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
