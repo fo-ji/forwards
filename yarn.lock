@@ -1204,11 +1204,6 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@conform-to/dom@1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.7.2.tgz#6ea20913bf5dcca601603a951ef09a8f7cf78960"
-  integrity sha512-+zhsqywrug6HoP3DXxpybjPYm3kMJ29tk1DuLD/n3JRk8uzM9UpCeSb0DuQqmhRQ5yQRsBtN5yUMzkjCB7ypmA==
-
 "@conform-to/dom@1.8.1":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.8.1.tgz#eb98875ed62464213880066cdc57992bf2ef4009"
@@ -1221,12 +1216,12 @@
   dependencies:
     "@conform-to/dom" "1.8.1"
 
-"@conform-to/zod@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.7.2.tgz#9138336460bd7637fa891a637ae3cafcdc1ec5b3"
-  integrity sha512-8DSMIjKwjJGdWHWRb3IHBib01Qb2Pn0C3i9May9cZlMLjxWehi1Aug+jBbTDOmmtmEpDDYnbWMjyRdBUJKQx3Q==
+"@conform-to/zod@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.8.1.tgz#01a70eec81e263c6f5502699e72b5fd63a8bf875"
+  integrity sha512-OO3CvfA1STL68oTKTMEcXWR/pBwWfJDSRVvBiR34gLlkZBV01Kfvmea2kQarFXLCJSANvjUyG52OZe9GxvPUGw==
   dependencies:
-    "@conform-to/dom" "1.7.2"
+    "@conform-to/dom" "1.8.1"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
