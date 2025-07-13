@@ -1204,22 +1204,22 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@conform-to/dom@1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.6.1.tgz#dbba1d28d3796bee5208324c7ebb079f8dad6737"
-  integrity sha512-9JaMBM6hD8uBu6VIggXScQAxpKUFGNFydiZHUKbW5nXIvqptLjiPPf1DXHrO0tQpl9EH+BWQ8rXFuVX8L3cYcw==
-
 "@conform-to/dom@1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.7.2.tgz#6ea20913bf5dcca601603a951ef09a8f7cf78960"
   integrity sha512-+zhsqywrug6HoP3DXxpybjPYm3kMJ29tk1DuLD/n3JRk8uzM9UpCeSb0DuQqmhRQ5yQRsBtN5yUMzkjCB7ypmA==
 
-"@conform-to/react@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.6.1.tgz#5700ed11d933b0e361de14102d46b3e8d560c6c2"
-  integrity sha512-wjvHlA1ZnMzcqBHeMczwCcS0LM3dFvH9275k3vogRhV6Haaur59eNL4XOB4LSVKMFMtZRCBB3Vxaisug4Uq2Qg==
+"@conform-to/dom@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.8.1.tgz#eb98875ed62464213880066cdc57992bf2ef4009"
+  integrity sha512-Sg4Jz31ZyiqbFHAKOmG+sVHtukku2Xmxv9ObYzj/TrKMXF1R9qN3ShucAIZWtRaw9l9vZGiqpDnSyfevmiBxuQ==
+
+"@conform-to/react@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.8.1.tgz#52c595e6f5e207ca6d2f2438bc5ae628cd0b0382"
+  integrity sha512-+bm+j0MOeOxrhrjWeoLmpmt+m1djZmPM/qE+AH5+8RewuC6GyXEXPyWAyES9bw9mZJ/WqInVS6Ljrf4gQ0I0zA==
   dependencies:
-    "@conform-to/dom" "1.6.1"
+    "@conform-to/dom" "1.8.1"
 
 "@conform-to/zod@^1.7.2":
   version "1.7.2"
