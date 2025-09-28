@@ -1204,22 +1204,22 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@conform-to/dom@1.10.1":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.10.1.tgz#380629ba94bdb8fd8686ae7766ccaac72fff6c14"
-  integrity sha512-5qYBz2H8mTnEBsMo6juOOuPSytjWy3MsuCPP13MWqVS9GTfSI91FLrSpNnhFquQfhtNESrsMRZK9s2Zg8v1QqA==
+"@conform-to/dom@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.11.0.tgz#eff8729ffc91d42f37a656a2b935e1c2dc3e0e44"
+  integrity sha512-qneM158mqhPqGlMyvTiC7T2YpuDHxtaYUl8B8kSyj75YLETaQieR5jhXPt1SfYHqyDw0mdsUc2zR6yXzt94Hgw==
 
 "@conform-to/dom@1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.9.1.tgz#231e8f1a05d737c27ee3bf8349d163a7e1b61890"
   integrity sha512-TSvGakMrNZ9pp9Lzt2MGsPtiU1oeGZG0rRW65Rej43w2zqeP2pNibXvLdTCd1BHUweTlPLDHSPP79KT02pFtUA==
 
-"@conform-to/react@^1.10.1":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.10.1.tgz#21c70e934891626d45ffdc99319e6d5a8ffa9860"
-  integrity sha512-vfspLc/9o9q0mvM3WmcU/0ZdGx33SiH4jKEqOfSYitJ4E64FP1uCDsZJ/4O5pd7dzpe/mLyiI+ATbGkFicvAFQ==
+"@conform-to/react@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.11.0.tgz#e02f33325cacd537c57f66e84574de612ab1a06a"
+  integrity sha512-HIrYTTprPIScEmf5aI+DKnq+SGcx3SNEuxz4Wia8cDQbBGxtFMcCbRvMlN5dVGys5q4vf03Hy8wWJOsIeZoiEQ==
   dependencies:
-    "@conform-to/dom" "1.10.1"
+    "@conform-to/dom" "1.11.0"
 
 "@conform-to/zod@^1.9.1":
   version "1.9.1"
