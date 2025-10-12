@@ -1209,12 +1209,17 @@
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.11.0.tgz#eff8729ffc91d42f37a656a2b935e1c2dc3e0e44"
   integrity sha512-qneM158mqhPqGlMyvTiC7T2YpuDHxtaYUl8B8kSyj75YLETaQieR5jhXPt1SfYHqyDw0mdsUc2zR6yXzt94Hgw==
 
-"@conform-to/react@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.11.0.tgz#e02f33325cacd537c57f66e84574de612ab1a06a"
-  integrity sha512-HIrYTTprPIScEmf5aI+DKnq+SGcx3SNEuxz4Wia8cDQbBGxtFMcCbRvMlN5dVGys5q4vf03Hy8wWJOsIeZoiEQ==
+"@conform-to/dom@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.12.0.tgz#c20bf4632bf6e876c435fb3519c829f8f4452506"
+  integrity sha512-TKTic9bKm7uEuf3ntrs5VeD3iDeEpSnA5H2qnAfI9dbostEr2hNlXCjOEGKFBiBtx+aPjpHtt/e0rs0+t+vWxg==
+
+"@conform-to/react@^1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.12.0.tgz#113f74c9dbc12859790f34f1755820bb4e925e9d"
+  integrity sha512-V4JkXTzRBEE8RbwKf4MzVykJI/kv9wu70qbiWnFgdlYbC0oA27iIN/7aAYKbTRXvzkWtoe6fpi5vjV0I9ikb5g==
   dependencies:
-    "@conform-to/dom" "1.11.0"
+    "@conform-to/dom" "1.12.0"
 
 "@conform-to/zod@^1.11.0":
   version "1.11.0"
