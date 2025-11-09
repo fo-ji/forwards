@@ -1233,15 +1233,15 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@conform-to/dom@1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.12.0.tgz#c20bf4632bf6e876c435fb3519c829f8f4452506"
-  integrity sha512-TKTic9bKm7uEuf3ntrs5VeD3iDeEpSnA5H2qnAfI9dbostEr2hNlXCjOEGKFBiBtx+aPjpHtt/e0rs0+t+vWxg==
-
 "@conform-to/dom@1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.13.1.tgz#6c99d95ca39fed887424f03cd0e3baf885ec24cc"
   integrity sha512-Y/OTCMfRmed+MVxT85tk106xrSckltiXDlB+ofZv8pRYZhxqynsNz2sM/UheI66yMfcNx8kulurNcZ0hmPe6DQ==
+
+"@conform-to/dom@1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.13.3.tgz#ed83c53e558ba3124f860201663b9ffd44a6c201"
+  integrity sha512-V4uNfUcx0cfuwnL/yNtjRvWxzwyNWhayBJXhRDBxEtiqBJiSEge6qeMN0xSUDbZezj5uAl13rzVQyf6FZXoOZQ==
 
 "@conform-to/react@^1.13.1":
   version "1.13.1"
@@ -1250,12 +1250,12 @@
   dependencies:
     "@conform-to/dom" "1.13.1"
 
-"@conform-to/zod@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.12.0.tgz#9d67aa0226e52f8c8438ef63b3f535e18c819bba"
-  integrity sha512-+teD2CFI0a3qvyi0SlL5l7YKkau2cb5PzBV2W/bh9xZqlM8jnaMIc03bWJegvbvL4yzkeUvNZwncw9hYcm6a6w==
+"@conform-to/zod@^1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.13.3.tgz#dc713d8ff29ce375c71487a0266423d05f24cd10"
+  integrity sha512-HimtfcJPgjlhmMRWUvvyFvgdPgAmG/54qY/Bp1Wtoi+mRQ4ffBuBy+0L8mlc1USeI1X2YEZDfMurOlTf92xQwA==
   dependencies:
-    "@conform-to/dom" "1.12.0"
+    "@conform-to/dom" "1.13.3"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
