@@ -1265,6 +1265,11 @@
   resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.13.3.tgz#ed83c53e558ba3124f860201663b9ffd44a6c201"
   integrity sha512-V4uNfUcx0cfuwnL/yNtjRvWxzwyNWhayBJXhRDBxEtiqBJiSEge6qeMN0xSUDbZezj5uAl13rzVQyf6FZXoOZQ==
 
+"@conform-to/dom@1.14.1":
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/dom/-/dom-1.14.1.tgz#21627bf3581222f8f475177a38a32e3bfb47d624"
+  integrity sha512-5ztGcVOo7KbgLBps/OCaxeXPgWxBQzPhBZ3WV3hKC2EkXGv5uP1mqVQKc6rB3QBDCJFyjWugc7OvwZ1nAks9rA==
+
 "@conform-to/react@^1.13.3":
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/@conform-to/react/-/react-1.13.3.tgz#d1b5a4d3c4d9352d328050206d30ec1cf3c5448f"
@@ -1272,12 +1277,12 @@
   dependencies:
     "@conform-to/dom" "1.13.3"
 
-"@conform-to/zod@^1.13.3":
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.13.3.tgz#dc713d8ff29ce375c71487a0266423d05f24cd10"
-  integrity sha512-HimtfcJPgjlhmMRWUvvyFvgdPgAmG/54qY/Bp1Wtoi+mRQ4ffBuBy+0L8mlc1USeI1X2YEZDfMurOlTf92xQwA==
+"@conform-to/zod@^1.14.1":
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@conform-to/zod/-/zod-1.14.1.tgz#9e666309b350a162e3827c712b2c9895c6eadc67"
+  integrity sha512-eGg5Hq97X1iq1SaJL48mIn7bJGfJNf6bHt6TLhCAqVGCYaeSuq+592YMe4hps3aii1dJ3qRDGs75kj3/nsBUgA==
   dependencies:
-    "@conform-to/dom" "1.13.3"
+    "@conform-to/dom" "1.14.1"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
